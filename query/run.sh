@@ -11,5 +11,5 @@ java -jar /Users/ducvu/Documents/YesWorkflow/yesworkflow-0.2.0-jar-with-dependen
 
 bash materialize_yw_views.sh > yw_views.P
 
-bash query.sh >query_output.txt
+bash query.sh >query_output.txt 
 

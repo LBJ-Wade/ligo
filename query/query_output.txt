@@ -1,0 +1,33 @@
+
+
+---------------------------------------------------------------------------------------------------
+YW_Q1 : What is the name and description of the workflow implemented by the script?
+
+yw_q1(WorkflowName, Description)
+...................................................................................................
+yw_q1('GRAVITATIONAL_WAVE_DETECTION','Signal processing in gravitational wave detection.').
+
+
+---------------------------------------------------------------------------------------------------
+YW_Q2 : What workflow steps comprise the top-level workflow?
+
+yw_q2(StepName, Description)
+...................................................................................................
+yw_q2('WAVE_FILE_GENERATOR','Make sound files.').
+yw_q2('SHIFT_FREQUENCY_BANDPASSED','Shifts frequency of a band-passed signal.').
+yw_q2('LOAD_DATA','Load hdf5 data.').
+yw_q2('AMPLITUDE_SPECTRAL_DENSITY','Amplitude spectral density.').
+yw_q2('WHITENING','Whitening helps to suppress the extra noise at low frequencies and at the spectral lines.').
+yw_q2('BANDPASSING','Bandpassing helps to get rid of remaining high frequency noise.').
+yw_q2('STRAIN_WAVEFORM','plot the data.').
+yw_q2('STRAIN_WAVEFORM','plot the data after whitening.').
+yw_q2('SPECTROGRAMS','plot a short time-frequency spectrogram.').
+yw_q2('FILTER_COEFS','Filter the signal in the time domain, using bandpassing.').
+yw_q2('FILTER_DATA','Filter the data.').
+
+
+---------------------------------------------------------------------------------------------------
+YW_Q4 : What are the names and descriptions of any outputs of the workflow?
+
+yw_q4(OutputName, Description)
+...................................................................................................
