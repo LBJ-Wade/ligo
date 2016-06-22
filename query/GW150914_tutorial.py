@@ -99,21 +99,21 @@ import readligo as rl
 
 
 # @BEGIN GRAVITATIONAL_WAVE_DETECTION @desc Signal processing in gravitational wave detection.
-# @IN fn_H1  @as FN_H1
-# @IN fn_L1  @as FN_L1
+# @in fn_H1  @as FN_H1
+# @in fn_L1  @as FN_L1
 # @PARAM fs  
-# @OUT GW150914_H1_shifted.wav @as GW150914_H1_shifted.wav @desc H1 shifted wavefile
-# @OUT GW150914_L1_shifted.wav @as GW150914_L1_shifted.wav @desc L1 shifted wavefile
-# @OUT GW150914_H1_whitenbp.wav @as GW150914_H1_whitenbp.wav @desc H1 whitened bandpass wavefile
-# @OUT GW150914_L1_whitenbp.wav @as GW150914_L1_whitenbp.wav @desc L1 whitened bandpass wavefile
+# @out GW150914_H1_shifted.wav @as GW150914_H1_shifted.wav @desc H1 shifted wavefile
+# @out GW150914_L1_shifted.wav @as GW150914_L1_shifted.wav @desc L1 shifted wavefile
+# @out GW150914_H1_whitenbp.wav @as GW150914_H1_whitenbp.wav @desc H1 whitened bandpass wavefile
+# @out GW150914_L1_whitenbp.wav @as GW150914_L1_whitenbp.wav @desc L1 whitened bandpass wavefile
 
 
 
 # @BEGIN LOAD_DATA @desc Load hdf5 data.
-# @IN fn_H1  @as FN_H1
-# @IN fn_L1  @as FN_L1 
-# @OUT strain_H1 @as strain_H1
-# @OUT strain_L1 @as strain_L1
+# @in fn_H1  @as FN_H1
+# @in fn_L1  @as FN_L1 
+# @out strain_H1 @as strain_H1
+# @out strain_L1 @as strain_L1
 
 #----------------------------------------------------------------
 # Load LIGO data from a single file
@@ -233,11 +233,11 @@ plt.savefig('GW150914_strain.png')
 
 
 # @BEGIN AMPLITUDE_SPECTRAL_DENSITY  @desc Amplitude spectral density.
-# @IN strain_H1 @as strain_H1
-# @IN strain_L1 @as strain_L1
+# @in strain_H1 @as strain_H1
+# @in strain_L1 @as strain_L1
 # @PARAM fs  
-# @OUT psd_H1 @as PSD_H1
-# @OUT psd_L1 @as PSD_L1
+# @out psd_H1 @as PSD_H1
+# @out psd_L1 @as PSD_L1
 # number of sample for the fast fourier transform:
 NFFT = 1*fs
 fmin = 10
@@ -292,10 +292,10 @@ plt.savefig('GW150914_ASDs.png')
 
 
 # @BEGIN WHITENING  @desc Whitening helps to suppress the extra noise at low frequencies and at the spectral lines.
-# @IN psd_H1 @as PSD_H1 
-# @IN psd_L1 @as PSD_L1 
-# @OUT strain_H1_whiten @as strain_H1_whiten
-# @OUT strain_L1_whiten @as strain_L1_whiten
+# @in psd_H1 @as PSD_H1 
+# @in psd_L1 @as PSD_L1 
+# @out strain_H1_whiten @as strain_H1_whiten
+# @out strain_L1_whiten @as strain_L1_whiten
 
 # function to writen data
 def whiten(strain, interp_psd, dt):
@@ -328,10 +328,10 @@ NR_H1_whiten = whiten(NR_H1,psd_H1,dt)
 
 
 # @BEGIN BANDPASSING   @desc Bandpassing helps to get rid of remaining high frequency noise.
-# @IN strain_H1_whiten @as strain_H1_whiten
-# @IN strain_L1_whiten @as strain_L1_whiten
-# @OUT strain_H1_whitenbp @as strain_H1_whitenbp
-# @OUT strain_L1_whitenbp @as strain_L1_whitenbp
+# @in strain_H1_whiten @as strain_H1_whiten
+# @in strain_L1_whiten @as strain_L1_whiten
+# @out strain_H1_whitenbp @as strain_H1_whitenbp
+# @out strain_L1_whitenbp @as strain_L1_whitenbp
 
 
 # We need to suppress the high frequencies with some bandpassing:
@@ -346,8 +346,8 @@ NR_H1_whitenbp = filtfilt(bb, ab, NR_H1_whiten)
 
 
 # @BEGIN STRAIN_WAVEFORM   @desc plot the data after whitening.
-# @IN strain_H1_whitenbp  @as strain_H1_whitenbp 
-# @IN strain_L1_whitenbp @as strain_L1_whitenbp
+# @in strain_H1_whitenbp  @as strain_H1_whitenbp 
+# @in strain_L1_whitenbp @as strain_L1_whitenbp
  
 
 # plot the data after whitening:
@@ -384,11 +384,11 @@ plt.savefig('GW150914_strain_whitened.png')
 
 
 # @BEGIN SPECTROGRAMS   @desc plot a short time-frequency spectrogram.
-# @IN fn_H1 @as strain_H1 
-# @IN fn_L1 @as strain_L1 
+# @in fn_H1 @as strain_H1 
+# @in fn_L1 @as strain_L1 
 # @PARAM fs 
-# @OUT strain_H1_specgram 
-# @OUT strain_L1_specgram  
+# @out strain_H1_specgram 
+# @out strain_L1_specgram  
 
 
 # ## Spectrograms
@@ -453,8 +453,8 @@ plt.savefig('GW150914_L1_spectrogram.png')
 
 
 # @BEGIN SPECTROGRAMS  @desc plot a short time-frequency spectrogram.
-# @IN strain_H1_whiten @as strain_H1_whiten
-# @IN strain_L1_whiten @as strain_L1_whiten 
+# @in strain_H1_whiten @as strain_H1_whiten
+# @in strain_L1_whiten @as strain_L1_whiten 
 # @PARAM fs 
 
 
@@ -509,7 +509,7 @@ plt.savefig('GW150914_L1_spectrogram_whitened.png')
 
 # @BEGIN FILTER_COEFS   @desc Filter the signal in the time domain, using bandpassing.
 # @PARAM fs 
-# @OUT coefs @as COEFFICIENTS
+# @out coefs @as COEFFICIENTS
 
 
 # ## Time-domain filtering - Bandpassing+notching
@@ -604,11 +604,11 @@ def get_filter_coefs(fs):
 
 
 # @BEGIN FILTER_DATA    @desc Filter the data.
-# @IN fn_H1 @as strain_H1 
-# @IN fn_L1 @as strain_L1 
-# @IN coefs @as  COEFFICIENTS
-# @OUT strain_H1_filt @as strain_H1_filt
-# @OUT strain_L1_filt @as strain_L1_filt
+# @in fn_H1 @as strain_H1 
+# @in fn_L1 @as strain_L1 
+# @in coefs @as  COEFFICIENTS
+# @out strain_H1_filt @as strain_H1_filt
+# @out strain_L1_filt @as strain_L1_filt
 
 
 # and then define the filter function:
@@ -694,10 +694,10 @@ NR_H1_filt = filter_data(NR_H1, coefs)
 
 
 # @BEGIN STRAIN_WAVEFORM    @desc plot the data.
-# @IN strain_H1_filt @as strain_H1_filt
-# @IN strain_L1_filt @as strain_L1_filt
-# @OUT strain_H1_filt_waveform @as strain_H1_waveform 
-# @OUT strain_L1_filt_waveform  @as strain_L1_waveform 
+# @in strain_H1_filt @as strain_H1_filt
+# @in strain_L1_filt @as strain_L1_filt
+# @out strain_H1_filt_waveform @as strain_H1_waveform 
+# @out strain_L1_filt_waveform  @as strain_L1_waveform 
 
 # plot the data prior to filtering:
 plt.figure()
@@ -745,10 +745,10 @@ plt.savefig('GW150914_H1_strain_filtered.png')
 
 
 # @BEGIN WAVE_FILE_GENERATOR  @desc Make sound files.
-# @IN strain_H1_whitenbp @as strain_H1_whitenbp
-# @IN strain_L1_whitenbp @as strain_L1_whitenbp
-# @OUT GW150914_H1_whitenbp.wav @as GW150914_H1_whitenbp.wav
-# @OUT GW150914_L1_whitenbp.wav @as GW150914_L1_whitenbp.wav
+# @in strain_H1_whitenbp @as strain_H1_whitenbp
+# @in strain_L1_whitenbp @as strain_L1_whitenbp
+# @out GW150914_H1_whitenbp.wav @as GW150914_H1_whitenbp.wav
+# @out GW150914_L1_whitenbp.wav @as GW150914_L1_whitenbp.wav
 
 
 
@@ -797,10 +797,10 @@ write_wavfile("GW150914_NR_whitenbp.wav",int(fs), NR_H1_whitenbp)
 
 # shifts frequency of a band-passed signal
 # @BEGIN SHIFT_FREQUENCY_BANDPASSED @desc Shifts frequency of a band-passed signal.
-# @IN strain_H1_whitenbp @as strain_H1_whitenbp
-# @IN strain_L1_whitenbp @as strain_L1_whitenbp
-# @OUT strain_H1_shifted @as strain_H1_shifted
-# @OUT strain_L1_shifted @as strain_L1_shifted
+# @in strain_H1_whitenbp @as strain_H1_whitenbp
+# @in strain_L1_whitenbp @as strain_L1_whitenbp
+# @out strain_H1_shifted @as strain_H1_shifted
+# @out strain_L1_shifted @as strain_L1_shifted
 
 
 # function that shifts frequency of a band-passed signal
@@ -834,10 +834,10 @@ NR_H1_shifted = reqshift(NR_H1_whitenbp,fshift=fshift,sample_rate=fs)
 
 
 # @BEGIN WAVE_FILE_GENERATOR  @desc Make sound files.
-# @IN strain_H1_shifted @as strain_H1_shifted
-# @IN strain_L1_shifted @as strain_L1_shifted
-# @OUT GW150914_H1_shifted.wav @as GW150914_H1_shifted.wav
-# @OUT GW150914_L1_shifted.wav @as GW150914_L1_shifted.wav
+# @in strain_H1_shifted @as strain_H1_shifted
+# @in strain_L1_shifted @as strain_L1_shifted
+# @out GW150914_H1_shifted.wav @as GW150914_H1_shifted.wav
+# @out GW150914_L1_shifted.wav @as GW150914_L1_shifted.wav
 
 
 
