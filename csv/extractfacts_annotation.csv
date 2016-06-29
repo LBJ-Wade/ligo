@@ -1,0 +1,233 @@
+annotation_id,source_id,line_number,tag,keyword,value
+1,1,101,begin,@BEGIN,GRAVITATIONAL_WAVE_DETECTION
+2,1,101,desc,@desc,Signal processing in gravitational wave detection.
+3,1,102,in,@in,fn_H1
+4,1,102,as,@as,FN_H1
+5,1,103,in,@in,fn_L1
+6,1,103,as,@as,FN_L1
+7,1,104,in,@in,fn_16
+8,1,104,as,@as,FN_16
+9,1,105,in,@in,fn_4
+10,1,105,as,@as,FN_4
+11,1,109,param,@PARAM,fs
+12,1,110,out,@out,GW150914_H1_shifted.wav
+13,1,110,as,@as,GW150914_H1_shifted.wav
+14,1,110,desc,@desc,H1 shifted wavefile
+15,1,111,out,@out,GW150914_L1_shifted.wav
+16,1,111,as,@as,GW150914_L1_shifted.wav
+17,1,111,desc,@desc,L1 shifted wavefile
+18,1,112,out,@out,GW150914_H1_whitenbp.wav
+19,1,112,as,@as,GW150914_H1_whitenbp.wav
+20,1,112,desc,@desc,H1 whitened bandpass wavefile
+21,1,113,out,@out,GW150914_L1_whitenbp.wav
+22,1,113,as,@as,GW150914_L1_whitenbp.wav
+23,1,113,desc,@desc,L1 whitened bandpass wavefile
+24,1,116,out,@out,GW150914_H1_spectrogram_whitened.png
+25,1,116,as,@as,GGW150914_H1_spectrogram_whitened.png
+26,1,116,desc,@desc,H1 whitened spectrogram
+27,1,117,out,@out,GW150914_L1_spectrogram_whitened.png
+28,1,117,as,@as,GGW150914_L1_spectrogram_whitened.png
+29,1,117,desc,@desc,L1 whitened spectrogram
+30,1,118,out,@out,GW150914_H1_spectrogram.png
+31,1,118,as,@as,GW150914_H1_spectrogram.png
+32,1,118,desc,@desc,H1 spectrogram
+33,1,119,out,@out,GW150914_L1_spectrogram.png
+34,1,119,as,@as,GW150914_L1_spectrogram.png
+35,1,119,desc,@desc,L1 spectrogram
+36,1,120,out,@out,GW150914_filter.png
+37,1,120,as,@as,GW150914_filter.png
+38,1,120,desc,@desc,filter white noise data
+39,1,121,out,@out,GW150914_strain_whitened.png
+40,1,121,as,@as,GW150914_strain_whitened.png
+41,1,121,desc,@desc,WHITENED strain data
+42,1,123,out,@out,GW150914_H1_strain_filtered.png
+43,1,123,as,@as,GW150914_H1_strain_filtered.png
+44,1,123,desc,@desc,FILTERED strain data
+45,1,124,out,@out,GW150914_H1_strain_unfiltered.png
+46,1,124,as,@as,GW150914_H1_strain_unfiltered.png
+47,1,124,desc,@desc,UNFILTERED strain data
+48,1,127,out,@out,GW150914_ASDs.png
+49,1,127,as,@as,GW150914_ASDs.png
+50,1,127,desc,@desc,strain data near GW150914
+51,1,128,out,@out,GW150914_H1_ASD_16384.png
+52,1,128,as,@as,GW150914_H1_ASD_16384.png
+53,1,129,out,@out,GW150914_H1_ASD_16384_zoom.png
+54,1,129,as,@as,GW150914_H1_ASD_16384_zoom.png
+55,1,130,out,@out,GW150914_H1_ASD_4096_zoom.png
+56,1,130,as,@as,GW150914_H1_ASD_4096_zoom.png
+57,1,134,begin,@BEGIN,LOAD_DATA
+58,1,134,desc,@desc,Load hdf5 data.
+59,1,135,in,@in,fn_H1
+60,1,135,as,@as,FN_H1
+61,1,136,in,@in,fn_L1
+62,1,136,as,@as,FN_L1
+63,1,137,in,@in,fn_16
+64,1,137,as,@as,FN_16
+65,1,138,in,@in,fn_4
+66,1,138,as,@as,FN_4
+67,1,139,out,@out,strain_H1
+68,1,139,as,@as,strain_H1
+69,1,140,out,@out,strain_L1
+70,1,140,as,@as,strain_L1
+71,1,141,out,@out,strain_16
+72,1,141,as,@as,strain_16
+73,1,142,out,@out,strain_4
+74,1,142,as,@as,strain_4
+75,1,162,end,@END,LOAD_DATA
+76,1,261,begin,@BEGIN,AMPLITUDE_SPECTRAL_DENSITY
+77,1,261,desc,@desc,Amplitude spectral density.
+78,1,262,in,@in,strain_H1
+79,1,262,as,@as,strain_H1
+80,1,263,in,@in,strain_L1
+81,1,263,as,@as,strain_L1
+82,1,264,param,@PARAM,fs
+83,1,265,out,@out,psd_H1
+84,1,265,as,@as,PSD_H1
+85,1,266,out,@out,psd_L1
+86,1,266,as,@as,PSD_L1
+87,1,267,out,@out,GW150914_ASDs.png
+88,1,267,as,@as,GW150914_ASDs.png
+89,1,267,desc,@desc,strain data near GW150914
+90,1,318,end,@END,AMPLITUDE_SPECTRAL_DENSITY
+91,1,322,begin,@BEGIN,WHITENING
+92,1,322,desc,@desc,suppress low frequencies noise.
+93,1,323,in,@in,psd_H1
+94,1,323,as,@as,PSD_H1
+95,1,324,in,@in,psd_L1
+96,1,324,as,@as,PSD_L1
+97,1,325,out,@out,strain_H1_whiten
+98,1,325,as,@as,strain_H1_whiten
+99,1,326,out,@out,strain_L1_whiten
+100,1,326,as,@as,strain_L1_whiten
+101,1,354,end,@END,WHITENING
+102,1,358,begin,@BEGIN,BANDPASSING
+103,1,358,desc,@desc,remove high frequency noise.
+104,1,359,in,@in,strain_H1_whiten
+105,1,359,as,@as,strain_H1_whiten
+106,1,360,in,@in,strain_L1_whiten
+107,1,360,as,@as,strain_L1_whiten
+108,1,361,out,@out,strain_H1_whitenbp
+109,1,361,as,@as,strain_H1_whitenbp
+110,1,362,out,@out,strain_L1_whitenbp
+111,1,362,as,@as,strain_L1_whitenbp
+112,1,371,end,@END,BANDPASSING
+113,1,376,begin,@BEGIN,STRAIN_WAVEFORM
+114,1,376,desc,@desc,plot data.
+115,1,377,in,@in,strain_H1_whitenbp
+116,1,377,as,@as,strain_H1_whitenbp
+117,1,378,in,@in,strain_L1_whitenbp
+118,1,378,as,@as,strain_L1_whitenbp
+119,1,379,out,@out,GW150914_strain_whitened.png
+120,1,379,as,@as,GW150914_strain_whitened.png
+121,1,379,desc,@desc,WHITENED strain data
+122,1,398,end,@END,STRAIN_WAVEFORM
+123,1,414,begin,@BEGIN,SPECTROGRAMS
+124,1,414,desc,@desc,plot time-frequency spectrogram.
+125,1,415,in,@in,fn_H1
+126,1,415,as,@as,strain_H1
+127,1,416,in,@in,fn_L1
+128,1,416,as,@as,strain_L1
+129,1,417,param,@PARAM,fs
+130,1,418,out,@out,GW150914_H1_spectrogram.png
+131,1,418,as,@as,GW150914_H1_spectrogram.png
+132,1,418,desc,@desc,H1 spectrogram
+133,1,419,out,@out,GW150914_L1_spectrogram.png
+134,1,419,as,@as,GW150914_L1_spectrogram.png
+135,1,419,desc,@desc,L1 spectrogram
+136,1,469,end,@END,SPECTROGRAMS
+137,1,482,begin,@BEGIN,SPECTROGRAMS
+138,1,482,desc,@desc,plot a short time-frequency spectrogram.
+139,1,483,in,@in,strain_H1_whiten
+140,1,483,as,@as,strain_H1_whiten
+141,1,484,in,@in,strain_L1_whiten
+142,1,484,as,@as,strain_L1_whiten
+143,1,485,param,@PARAM,fs
+144,1,486,out,@out,GW150914_H1_spectrogram_whitened.png
+145,1,486,as,@as,GGW150914_H1_spectrogram_whitened.png
+146,1,486,desc,@desc,H1 whitened spectrogram
+147,1,487,out,@out,GW150914_L1_spectrogram_whitened.png
+148,1,487,as,@as,GGW150914_L1_spectrogram_whitened.png
+149,1,487,desc,@desc,L1 whitened spectrogram
+150,1,526,end,@END,SPECTROGRAMS
+151,1,539,begin,@BEGIN,FILTER_COEFS
+152,1,539,desc,@desc,Filter signal in time domain (bandpassing).
+153,1,540,param,@PARAM,fs
+154,1,541,out,@out,coefs
+155,1,541,as,@as,COEFFICIENTS
+156,1,629,end,@END,FILTER_COEFS
+157,1,635,begin,@BEGIN,FILTER_DATA
+158,1,635,desc,@desc,filter data.
+159,1,636,in,@in,fn_H1
+160,1,636,as,@as,strain_H1
+161,1,637,in,@in,fn_L1
+162,1,637,as,@as,strain_L1
+163,1,638,in,@in,coefs
+164,1,638,as,@as,COEFFICIENTS
+165,1,639,out,@out,strain_H1_filt
+166,1,639,as,@as,strain_H1_filt
+167,1,640,out,@out,strain_L1_filt
+168,1,640,as,@as,strain_L1_filt
+169,1,641,out,@out,GW150914_filter.png
+170,1,641,as,@as,GW150914_filter.png
+171,1,641,desc,@desc,filter white noise data
+172,1,715,end,@END,FILTER_DATA
+173,1,725,begin,@BEGIN,STRAIN_WAVEFORM
+174,1,725,desc,@desc,plot the data.
+175,1,726,in,@in,strain_H1_filt
+176,1,726,as,@as,strain_H1_filt
+177,1,727,in,@in,strain_L1_filt
+178,1,727,as,@as,strain_L1_filt
+179,1,728,out,@out,GW150914_H1_strain_filtered.png
+180,1,728,as,@as,GW150914_H1_strain_filtered.png
+181,1,728,desc,@desc,FILTERED strain data
+182,1,729,out,@out,GW150914_H1_strain_unfiltered.png
+183,1,729,as,@as,GW150914_H1_strain_unfiltered.png
+184,1,729,desc,@desc,UNFILTERED strain data
+185,1,762,end,@END,STRAIN_WAVEFORM
+186,1,779,begin,@BEGIN,WAVE_FILE_GENERATOR
+187,1,779,desc,@desc,Make sound files.
+188,1,780,in,@in,strain_H1_whitenbp
+189,1,780,as,@as,strain_H1_whitenbp
+190,1,781,in,@in,strain_L1_whitenbp
+191,1,781,as,@as,strain_L1_whitenbp
+192,1,782,out,@out,GW150914_H1_whitenbp.wav
+193,1,782,as,@as,GW150914_H1_whitenbp.wav
+194,1,783,out,@out,GW150914_L1_whitenbp.wav
+195,1,783,as,@as,GW150914_L1_whitenbp.wav
+196,1,813,end,@END,WAVE_FILE_GENERATOR
+197,1,832,begin,@BEGIN,SHIFT_FREQUENCY_BANDPASSED
+198,1,832,desc,@desc,shift frequency of bandpassed signal.
+199,1,833,in,@in,strain_H1_whitenbp
+200,1,833,as,@as,strain_H1_whitenbp
+201,1,834,in,@in,strain_L1_whitenbp
+202,1,834,as,@as,strain_L1_whitenbp
+203,1,835,out,@out,strain_H1_shifted
+204,1,835,as,@as,strain_H1_shifted
+205,1,836,out,@out,strain_L1_shifted
+206,1,836,as,@as,strain_L1_shifted
+207,1,863,end,@END,SHIFT_FREQUENCY_BANDPASSED
+208,1,869,begin,@BEGIN,WAVE_FILE_GENERATOR
+209,1,869,desc,@desc,Make sound files.
+210,1,870,in,@in,strain_H1_shifted
+211,1,870,as,@as,strain_H1_shifted
+212,1,871,in,@in,strain_L1_shifted
+213,1,871,as,@as,strain_L1_shifted
+214,1,872,out,@out,GW150914_H1_shifted.wav
+215,1,872,as,@as,GW150914_H1_shifted.wav
+216,1,873,out,@out,GW150914_L1_shifted.wav
+217,1,873,as,@as,GW150914_L1_shifted.wav
+218,1,883,end,@END,WAVE_FILE_GENERATOR
+219,1,887,begin,@BEGIN,DOWNSAMPLING
+220,1,887,desc,@desc,Downsampling from 16384 Hz to 4096 Hz.
+221,1,888,in,@in,strain_16
+222,1,888,as,@as,strain_16
+223,1,889,in,@in,strain_4
+224,1,889,as,@as,strain_4
+225,1,890,out,@out,GW150914_H1_ASD_16384.png
+226,1,890,as,@as,GW150914_H1_ASD_16384.png
+227,1,891,out,@out,GW150914_H1_ASD_16384_zoom.png
+228,1,891,as,@as,GW150914_H1_ASD_16384_zoom.png
+229,1,892,out,@out,GW150914_H1_ASD_4096_zoom.png
+230,1,892,as,@as,GW150914_H1_ASD_4096_zoom.png
+231,1,992,end,@END,DOWNSAMPLING
+232,1,1067,end,@END,GRAVITATIONAL_WAVE_DETECTION
