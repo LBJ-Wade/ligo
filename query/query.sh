@@ -23,7 +23,8 @@ end_of_file.
 
 printall(yw_q1('SPECTROGRAMS_1', _, _)).
 printall(yw_q1('SPECTROGRAMS_2', _, _)).
-%-------
+%-------------------------------------------------------------------------------
+
 
 
 %-------------------------------------------------------------------------------
@@ -44,7 +45,7 @@ printall(yw_q2(_,_)).
 %-------------------------------------------------------------------------------
 banner( 'YW_Q3',
         'What workflow steps comprise the top-level workflow?',
-        'yw_q2(StepName, Description)').
+        'yw_q3(StepName, Description)').
 [user].
 :- table yw_q3/2.
 yw_q3(StepName, Description) :-
@@ -57,6 +58,7 @@ printall(yw_q3(_,_)).
 
 
 
+%-------------------------------------------------------------------------------
 banner( 'YW_Q4',
         'Where is the definition of workflow step AMPLITUDE_SPECTRAL_DENSITY?',
         'yw_q4(SourceFile, StartLine, EndLine)').
@@ -87,6 +89,7 @@ printall(yw_q5(_,_)).
 %-------------------------------------------------------------------------------
 
 
+
 %-------------------------------------------------------------------------------
 banner( 'YW_Q6',
         'What data flows from the AMPLITUDE_SPECTRAL_DENSITY workflow step to the WHITENING step?',
@@ -103,7 +106,7 @@ printall(yw_q6(_)).
 
 %-------------------------------------------------------------------------------
 banner( 'YW_Q7',
-        'What outputs from the input FN_H1 ?',
+        'What outputs are generated from the input FN_H1 ?',
         'parent(FN_H1, NewDataName)').
 
 [user].
@@ -119,26 +122,34 @@ printall(yw_q7('FN_H1', _)).
 
 
 
-
 %-------------------------------------------------------------------------------
 banner( 'YW_Q8',
-        'What outputs from the input FN_H1?',
-        'parent(FN_H1, NewDataName)').
+        'What outputs  are generated from the inputs using recursive query ?',
+        'yw_q8(AncestorData, ChildData)').
 
 [user].
-:- table ancestor/1.
-ancestor(DataName) :-
-    parent(DataName, NewDataName),
-    ancestor(NewDataName).
-end_of_file.
+:- yw_q8/2.
+yw_q8(AncestorData, ChildData) :-
+    yw_workflow_script(_, WorkflowName, _, _),
+    yw_data(_, AncestorData, _, WorkflowName),
+    ancestor(AncestorData, ChildData).
+
+
+:- table ancestor/2.
+ancestor(AncestorData, ChildData):-  
+    parent(ParentData, ChildData),
+    ancestor(AncestorData, ParentData).
+
+ancestor(ParentData, ChildData):-             
+    parent(ParentData, ChildData).
 
 :- table parent/2.
-parent(DataName, NewDataName) :-
-    yw_step_input(_, ProgramName, _, _, _, _, DataName),
-    yw_step_output(_, ProgramName, _, _, _, _, NewDataName).
+parent(ParentData, ChildData) :-
+    yw_step_input(_, ProgramName, _, _, _, _, ParentData),
+    yw_step_output(_, ProgramName, _, _, _, _, ChildData).
+end_of_file.
 
-
-printall(ancestor(_)).
+printall(yw_q8(_, _)).
 
 %-------------------------------------------------------------------------------
 
@@ -177,6 +188,127 @@ end_of_file.
 printall(yw_q10('strain_H1_whitenbp', _)).
 %-------------------------------------------------------------------------------
 
+
+
+%-------------------------------------------------------------------------------
+banner( 'YW_11',
+        'What are the names and descriptions of the inputs to the top-level workflow ?',
+        'yw_q11(DataNameIn)').
+
+[user].
+:- table yw_q11/1.
+yw_q11(DataNameIn) :-
+    yw_inflow(_, _, _, DataNameIn, _, _).
+end_of_file.
+printall(yw_q11( _)).
+%-------------------------------------------------------------------------------
+
+
+
+%-------------------------------------------------------------------------------
+banner( 'YW_12',
+        'What program blocks provide input directly to SPECTROGRAMS_1 and SPECTROGRAMS_2 ?',
+        'yw_q12(SourceProgramName, SinkProgramName) ').
+
+[user].
+:- table yw_q12/2.
+yw_q12(SourceProgramName, SinkProgramName) :-
+    yw_flow(_, SourceProgramName, _, _, _, _, _, _, _, SinkProgramName).
+end_of_file.
+printall(yw_q12( _, 'SPECTROGRAMS_1')).
+printall(yw_q12( _, 'SPECTROGRAMS_2')).
+%-------------------------------------------------------------------------------
+
+
+
+%-------------------------------------------------------------------------------
+banner( 'YW_13',
+        'What programs have input ports that receive data strain_H1_whitenbp ?',
+        'yw_q13(SinkPortName, SinkProgramName)').
+
+[user].
+:- table yw_q13/2.
+yw_q13(SinkPortName, SinkProgramName) :-
+    yw_flow(_, _, _, _, _, _, _, SinkPortName, _, SinkProgramName).
+end_of_file.
+printall(yw_q13('strain_H1_whitenbp', _)).
+%-------------------------------------------------------------------------------
+
+
+
+%-------------------------------------------------------------------------------
+banner( 'YW_14',
+        'How many ports read data strain_H1_whitenbp?',
+        'yw_q14(PortCount)').
+
+[user].
+:- table yw_q14/1.
+yw_q14(PortCount) :-
+    count(yw_flow(_, _, _, _, _, 'strain_H1_whitenbp', _, _, _, _), PortCount). 
+end_of_file.
+
+printall(yw_q14( _)).
+%-------------------------------------------------------------------------------
+
+
+
+%-------------------------------------------------------------------------------
+banner( 'YW_15',
+        'How many data are read by more than 1 port in workflow?',
+        'yw_q15(PortCount)').
+
+[user].
+:- table yw_q15/1.
+yw_q15(DataCount) :-
+    yw_workflow_script(WorkflowId,_,_,_),
+    yw_workflow_step(_, WorkflowStep, WorkflowId, _, _, _),
+    count(data_in_workflow_read_by_multiple_ports(WorkflowStep, _) , DataCount). 
+
+data_in_workflow_read_by_multiple_ports(WorkflowStep, DataName) :-
+    yw_flow(_, WorkflowStep, _, _, _, DataName, _, _, _, _),
+    data_in_port_count(PortCount, DataName),
+    PortCount > 1.
+
+data_in_port_count(PortCount, DataName) :-
+    count(yw_flow(_, _, _, _, _, DataName, _, _, _, _), PortCount). 
+end_of_file.
+
+printall(yw_q15( _)).
+%-------------------------------------------------------------------------------
+
+
+
+%-------------------------------------------------------------------------------
+banner( 'YW_Q16',
+        'LCA',
+        'yw_q16(ChildData1, ChildData2, AncestorData) ').
+
+[user].
+:- yw_q16/3.
+yw_q16(ChildData1, ChildData2, AncestorData) :-
+    yw_workflow_script(_, WorkflowName, _, _),
+    yw_data(_, AncestorData, _, WorkflowName),
+    ancestor(AncestorData, ChildData1),
+    ancestor(AncestorData, ChildData2).
+
+
+:- table ancestor/2.
+ancestor(AncestorData, ChildData):-  
+    parent(ParentData, ChildData),
+    ancestor(AncestorData, ParentData).
+
+ancestor(ParentData, ChildData):-             
+    parent(ParentData, ChildData).
+
+:- table parent/2.
+parent(ParentData, ChildData) :-
+    yw_step_input(_, ProgramName, _, _, _, _, ParentData),
+    yw_step_output(_, ProgramName, _, _, _, _, ChildData).
+end_of_file.
+
+printall(yw_q16(_, _, _)).
+
+%-------------------------------------------------------------------------------
 
 
 
