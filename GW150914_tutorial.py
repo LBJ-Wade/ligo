@@ -106,7 +106,7 @@ import readligo as rl
 
 
 
-# @PARAM fs  
+# @param fs  
 # @out GW150914_H1_shifted.wav @as GW150914_H1_shifted.wav @desc H1 shifted wavefile
 # @out GW150914_L1_shifted.wav @as GW150914_L1_shifted.wav @desc L1 shifted wavefile
 # @out GW150914_H1_whitenbp.wav @as GW150914_H1_whitenbp.wav @desc H1 whitened bandpass wavefile
@@ -261,7 +261,7 @@ plt.savefig('GW150914_strain.png')
 # @BEGIN AMPLITUDE_SPECTRAL_DENSITY  @desc Amplitude spectral density.
 # @in strain_H1 @as strain_H1
 # @in strain_L1 @as strain_L1
-# @PARAM fs  
+# @param fs  
 # @out psd_H1 @as PSD_H1
 # @out psd_L1 @as PSD_L1
 # @out GW150914_ASDs.png @as GW150914_ASDs.png @desc strain data near GW150914
@@ -373,7 +373,7 @@ NR_H1_whitenbp = filtfilt(bb, ab, NR_H1_whiten)
 
 
 
-# @BEGIN STRAIN_WAVEFORM   @desc plot data.
+# @BEGIN STRAIN_WAVEFORM_FOR_WHITENED_DATA @desc plot whitened data.
 # @in strain_H1_whitenbp  @as strain_H1_whitenbp 
 # @in strain_L1_whitenbp @as strain_L1_whitenbp
  # @out GW150914_strain_whitened.png @as GW150914_strain_whitened.png @desc WHITENED strain data
@@ -395,7 +395,7 @@ plt.title('Advanced LIGO WHITENED strain data near GW150914')
 plt.savefig('GW150914_strain_whitened.png')
 
 
-# @END STRAIN_WAVEFORM
+# @END STRAIN_WAVEFORM_FOR_WHITENED_DATA
 
 
 
@@ -411,10 +411,10 @@ plt.savefig('GW150914_strain_whitened.png')
 
 
 
-# @BEGIN SPECTROGRAMS_1   @desc plot time-frequency spectrogram.
-# @in fn_H1 @as strain_H1 
-# @in fn_L1 @as strain_L1 
-# @PARAM fs 
+# @BEGIN SPECTROGRAMS_FOR_STRAIN_DATA   @desc plot spectrogram for strain data.
+# @in strain_H1  @as strain_H1 
+# @in strain_L1  @as strain_L1 
+# @param fs 
 # @out GW150914_H1_spectrogram.png @as GW150914_H1_spectrogram.png @desc H1 spectrogram
 # @out GW150914_L1_spectrogram.png @as GW150914_L1_spectrogram.png @desc L1 spectrogram
 
@@ -466,7 +466,7 @@ plt.title('aLIGO L1 strain data near GW150914')
 plt.savefig('GW150914_L1_spectrogram.png')
 
 
-# @END SPECTROGRAMS_1 
+# @END SPECTROGRAMS_FOR_STRAIN_DATA 
 
 
 
@@ -479,10 +479,10 @@ plt.savefig('GW150914_L1_spectrogram.png')
 
 
 
-# @BEGIN SPECTROGRAMS_2  @desc plot a short time-frequency spectrogram.
+# @BEGIN SPECTROGRAMS_FOR_WHITEND_DATA   @desc plot spectrogram for whitened data.
 # @in strain_H1_whiten @as strain_H1_whiten
 # @in strain_L1_whiten @as strain_L1_whiten 
-# @PARAM fs 
+# @param fs 
 # @out GW150914_H1_spectrogram_whitened.png @as GGW150914_H1_spectrogram_whitened.png @desc H1 whitened spectrogram
 # @out GW150914_L1_spectrogram_whitened.png @as GGW150914_L1_spectrogram_whitened.png @desc L1 whitened spectrogram
 
@@ -523,7 +523,7 @@ plt.axis([-0.5, 0.5, 0, 500])
 plt.title('aLIGO L1 strain data near GW150914')
 plt.savefig('GW150914_L1_spectrogram_whitened.png')
 
-# @END SPECTROGRAMS_2
+# @END SPECTROGRAMS_FOR_WHITEND_DATA
 
 
 
@@ -533,7 +533,7 @@ plt.savefig('GW150914_L1_spectrogram_whitened.png')
 
 
 # @BEGIN FILTER_COEFS   @desc Filter signal in time domain (bandpassing).
-# @PARAM fs 
+# @param fs 
 # @out coefs @as COEFFICIENTS
 
 
@@ -629,8 +629,8 @@ def get_filter_coefs(fs):
 
 
 # @BEGIN FILTER_DATA    @desc filter data.
-# @in fn_H1 @as strain_H1 
-# @in fn_L1 @as strain_L1 
+# @in strain_H1  @as strain_H1 
+# @in strain_L1  @as strain_L1 
 # @in coefs @as  COEFFICIENTS
 # @out strain_H1_filt @as strain_H1_filt
 # @out strain_L1_filt @as strain_L1_filt
@@ -713,7 +713,7 @@ NR_H1_filt = filter_data(NR_H1, coefs)
 
 
 
-# @BEGIN STRAIN_WAVEFORM    @desc plot the data.
+# @BEGIN STRAIN_WAVEFORM_FOR_FILTERED_DATA    @desc plot the filtered data.
 # @in strain_H1_filt @as strain_H1_filt
 # @in strain_L1_filt @as strain_L1_filt
 # @out GW150914_H1_strain_filtered.png @as GW150914_H1_strain_filtered.png @desc FILTERED strain data 
@@ -750,7 +750,7 @@ plt.title('aLIGO FILTERED strain data near GW150914')
 plt.savefig('GW150914_H1_strain_filtered.png')
 
 
-# @END STRAIN_WAVEFORM
+# @END STRAIN_WAVEFORM_FOR_FILTERED_DATA 
 
 
 
@@ -762,7 +762,7 @@ plt.savefig('GW150914_H1_strain_filtered.png')
 # 
 # And as with whitening, the NR waveform looks, by eye, to be a good match to the data in both detectors; the signal is consistent with the waveform predicted from General Relativity.
 
-# @BEGIN WAVE_FILE_GENERATOR  @desc Make sound files.
+# @BEGIN WAVE_FILE_GENERATOR_FOR_WHITENED_DATA  @desc Make sound files  for whitened data.
 # @in strain_H1_whitenbp @as strain_H1_whitenbp
 # @in strain_L1_whitenbp @as strain_L1_whitenbp
 # @out GW150914_H1_whitenbp.wav @as GW150914_H1_whitenbp.wav
@@ -796,7 +796,7 @@ write_wavfile("GW150914_H1_whitenbp.wav",int(fs), strain_H1_whitenbp[indxt])
 write_wavfile("GW150914_L1_whitenbp.wav",int(fs), strain_L1_whitenbp[indxt])
 write_wavfile("GW150914_NR_whitenbp.wav",int(fs), NR_H1_whitenbp)
 
-# @END WAVE_FILE_GENERATOR
+# @END WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
 
 
 
@@ -850,7 +850,7 @@ NR_H1_shifted = reqshift(NR_H1_whitenbp,fshift=fshift,sample_rate=fs)
 
 
 
-# @BEGIN WAVE_FILE_GENERATOR  @desc Make sound files.
+# @BEGIN WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA  @desc Make sound files for shifted data.
 # @in strain_H1_shifted @as strain_H1_shifted
 # @in strain_L1_shifted @as strain_L1_shifted
 # @out GW150914_H1_shifted.wav @as GW150914_H1_shifted.wav
@@ -864,7 +864,7 @@ write_wavfile("GW150914_L1_shifted.wav",int(fs), strain_L1_shifted[indxt])
 write_wavfile("GW150914_NR_shifted.wav",int(fs), NR_H1_shifted)
 
 
-# @END WAVE_FILE_GENERATOR
+# @END WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA 
 
 
 
