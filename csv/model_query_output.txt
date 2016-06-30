@@ -1,0 +1,78 @@
+MQ1:  Where is the definition of block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR?
+MQ2:  What is the name and description of the top-level workflow?
+WorkflowName: GRAVITATIONAL_WAVE_DETECTION. Description: Signal processing in gravitational wave detection.
+MQ4:  What are the names of the programs comprising the top-level workflow?
+SubProgram Name: LOAD_DATA
+SubProgram Name: AMPLITUDE_SPECTRAL_DENSITY
+SubProgram Name: WHITENING
+SubProgram Name: BANDPASSING
+SubProgram Name: STRAIN_WAVEFORM
+SubProgram Name: SPECTROGRAMS
+SubProgram Name: SPECTROGRAMS
+SubProgram Name: FILTER_COEFS
+SubProgram Name: FILTER_DATA
+SubProgram Name: STRAIN_WAVEFORM
+SubProgram Name: WAVE_FILE_GENERATOR
+SubProgram Name: SHIFT_FREQUENCY_BANDPASSED
+SubProgram Name: WAVE_FILE_GENERATOR
+SubProgram Name: DOWNSAMPLING
+MQ5:  What are the names and descriptions of the inputs to the top-level workflow?
+InputPortName: fn_H1. Description: FN_H1
+InputPortName: fn_L1. Description: FN_L1
+InputPortName: fn_16. Description: FN_16
+InputPortName: fn_4. Description: FN_4
+MQ6:  What data is output by program block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR?
+MQ7: What program blocks provide input directly to GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR?
+MQ8: What programs have input ports that receive data 'strain_H1_whitenbp'?
+GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM have input ports that receive GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]
+GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR have input ports that receive GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]
+GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED have input ports that receive GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]
+MQ9: How many ports read data 'strain_H1_whitenbp'?
+3 ports read data GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]
+MQ10: How many data are read by more than 1 port in workflow?
+7 data are read by more than port in workflow
+MQ11: What program blocks are immediately downstream of FILTER_DATA?
+STRAIN_WAVEFORM
+MQ12: What program blocks are immediately upstream of FILTER_DATA?
+LOAD_DATA
+FILTER_COEFS
+MQ13: What program blocks are upstream of WAVE_FILE_GENERATOR?
+MQ14: What program blocks are downstream of LOAD_DATA?
+AMPLITUDE_SPECTRAL_DENSITY
+WHITENING
+BANDPASSING
+STRAIN_WAVEFORM
+SPECTROGRAMS
+FILTER_DATA
+WAVE_FILE_GENERATOR
+SHIFT_FREQUENCY_BANDPASSED
+DOWNSAMPLING
+MQ15: What data is immediately downstream of strain_H1_whitenbp? 
+GW150914_H1_whitenbp.wav
+GW150914_L1_whitenbp.wav
+GW150914_strain_whitened.png
+strain_H1_shifted
+strain_L1_shifted
+MQ16: What data is immediately upstream of strain_H1_whitenbp? 
+strain_H1_whiten
+strain_L1_whiten
+MQ17: What data is downstream of strain_H1_whitenbp?
+GW150914_H1_shifted.wav
+GW150914_L1_shifted.wav
+GW150914_H1_whitenbp.wav
+GW150914_L1_whitenbp.wav
+GW150914_strain_whitened.png
+strain_H1_shifted
+strain_L1_shifted
+MQ18: What data is uptream of strain_H1_whitenbp?
+FN_H1
+FN_L1
+FN_16
+FN_4
+fs
+strain_H1
+strain_L1
+PSD_H1
+PSD_L1
+strain_H1_whiten
+strain_L1_whiten

@@ -2,8 +2,8 @@ import sqlite3
 
 def MQ1(BlockName):
     '''% MQ1:  Where is the definition of block BLOCKNAME?
-    :- table mq1/3.
-    mq1(SourceFile, StartLine, EndLine) :-
+        :- table mq1/3.
+        mq1(SourceFile, StartLine, EndLine) :-
         program_source(BLOCKNAME, SourceFile, StartLine, EndLine).'''
     query = "SELECT source_path, begin_line, end_line FROM program_source WHERE qualified_program_name = :BlockName;"
     cursor.execute(query, {"BlockName": BlockName})
@@ -13,18 +13,18 @@ def MQ1(BlockName):
 
 def MQ2():
     ''' MQ2:  What is the name and description of the top-level workflow?
-     :- table mq2/2.
-    mq2(WorkflowName,Description) :-
-    top_workflow(W),
-    program(W, _, WorkflowName, _, _),
-    program_description(W, Description).'''
-    query = """SELECT p.qualified_program_name, d.value 
-            FROM modelfacts_program p 
-            JOIN top_workflow t 
-            ON p.program_id = t.program_id 
-            JOIN program_description d
-            ON p.program_id = d.program_id;
-    """
+        :- table mq2/2.
+        mq2(WorkflowName,Description) :-
+        top_workflow(W),
+        program(W, _, WorkflowName, _, _),
+        program_description(W, Description).'''
+    query = """SELECT p.qualified_program_name, d.value
+        FROM modelfacts_program p
+        JOIN top_workflow t
+        ON p.program_id = t.program_id
+        JOIN program_description d
+        ON p.program_id = d.program_id;
+        """
     cursor.execute(query)
     results = cursor.fetchall()
     for r in results:
@@ -32,18 +32,18 @@ def MQ2():
 
 def MQ4():
     '''\
-    % MQ4:  What are the names of the programs comprising the top-level workflow?
-    :- table mq4/1.
-    mq4(ProgramName) :-
+        % MQ4:  What are the names of the programs comprising the top-level workflow?
+        :- table mq4/1.
+        mq4(ProgramName) :-
         top_workflow(W),
         has_subprogram(W, P),
         program(P, ProgramName, _, _, _).'''
-    query = """SELECT p.program_name 
-            FROM top_workflow t 
-            JOIN modelfacts_has_subprogram hs 
-            ON t.program_id = hs.program_id 
-            JOIN modelfacts_program p 
-            ON p.program_id = hs.subprogram_id;"""
+    query = """SELECT p.program_name
+        FROM top_workflow t
+        JOIN modelfacts_has_subprogram hs
+        ON t.program_id = hs.program_id
+        JOIN modelfacts_program p
+        ON p.program_id = hs.subprogram_id;"""
     cursor.execute(query)
     results = cursor.fetchall()
     for r in results:
@@ -52,22 +52,22 @@ def MQ4():
 
 def MQ5():
     '''\
-    % MQ5:  What are the names and descriptions of the inputs to the top-level workflow?
-    :- table mq5/2.
-    mq5(InputPortName,Description) :-
+        % MQ5:  What are the names and descriptions of the inputs to the top-level workflow?
+        :- table mq5/2.
+        mq5(InputPortName,Description) :-
         top_workflow(W),
         has_in_port(W, P),
         port(P, _, InputPortName, _, _, _),
         port_description(P, Description).
-    '''
-    query = """SELECT p.port_name, pd.value 
-            FROM top_workflow t 
-            JOIN modelfacts_has_in_port hip 
-            ON t.program_id = hip.block_id 
-            JOIN modelfacts_port p 
-            ON hip.port_id = p.port_id 
-            JOIN port_description pd 
-            ON p.port_id = pd.port_id;"""
+        '''
+    query = """SELECT p.port_name, pd.value
+        FROM top_workflow t
+        JOIN modelfacts_has_in_port hip
+        ON t.program_id = hip.block_id
+        JOIN modelfacts_port p
+        ON hip.port_id = p.port_id
+        JOIN port_description pd
+        ON p.port_id = pd.port_id;"""
     cursor.execute(query)
     results = cursor.fetchall()
     for r in results:
@@ -75,21 +75,21 @@ def MQ5():
 
 def MQ6(BlockName):
     '''% MQ6:  What data is output by program block BlockName?
-    :- table mq6/2.
-    mq6(DataName,Description) :-
+        :- table mq6/2.
+        mq6(DataName,Description) :-
         program(P, _,BlockName, _, _),
         has_out_port(P, OUT),
         port_data(OUT, DataName, _),
         port_description(OUT,Description).'''
-    query = """SELECT DISTINCT pdata.data_name, pdes.value 
-            FROM modelfacts_program p 
-            JOIN modelfacts_has_out_port hop 
-            ON p.program_id = hop.block_id 
-            JOIN port_data pdata 
-            ON hop.port_id = pdata.port_id 
-            JOIN port_description pdes 
-            ON hop.port_id = pdes.port_id 
-            WHERE p.qualified_program_name = :BlockName;"""
+    query = """SELECT DISTINCT pdata.data_name, pdes.value
+        FROM modelfacts_program p
+        JOIN modelfacts_has_out_port hop
+        ON p.program_id = hop.block_id
+        JOIN port_data pdata
+        ON hop.port_id = pdata.port_id
+        JOIN port_description pdes
+        ON hop.port_id = pdes.port_id
+        WHERE p.qualified_program_name = :BlockName;"""
     cursor.execute(query, {"BlockName": BlockName})
     results = cursor.fetchall()
     for r in results:
@@ -97,26 +97,26 @@ def MQ6(BlockName):
 
 def MQ7(BlockName):
     '''% MQ7: What program blocks provide input directly to BLOCKNAME?
-    :- table mq7/1.
-    mq7(ProgramName) :-
+        :- table mq7/1.
+        mq7(ProgramName) :-
         program(P1, _, BlockName, _, _),
         has_in_port(P1, IN),
         port_data(IN, _, D),
         port_data(OUT, _, D),
         has_out_port(P2, OUT),
         program(P2, _, ProgramName, _, _).'''
-    query = """SELECT DISTINCT p2.qualified_program_name 
-            FROM modelfacts_program p1 
-            JOIN modelfacts_has_in_port hip 
-            ON p1.program_id = hip.block_id 
-            JOIN port_data pd1 ON hip.port_id = pd1.port_id 
-            JOIN port_data pd2 
-            ON pd1.qualified_data_name = pd2.qualified_data_name 
-            JOIN modelfacts_has_out_port hop 
-            ON hop.port_id = pd2.port_id 
-            JOIN modelfacts_program p2 
-            ON hop.block_id = p2.program_id
-            WHERE p1.qualified_program_name = :BlockName;"""
+    query = """SELECT DISTINCT p2.qualified_program_name
+        FROM modelfacts_program p1
+        JOIN modelfacts_has_in_port hip
+        ON p1.program_id = hip.block_id
+        JOIN port_data pd1 ON hip.port_id = pd1.port_id
+        JOIN port_data pd2
+        ON pd1.qualified_data_name = pd2.qualified_data_name
+        JOIN modelfacts_has_out_port hop
+        ON hop.port_id = pd2.port_id
+        JOIN modelfacts_program p2
+        ON hop.block_id = p2.program_id
+        WHERE p1.qualified_program_name = :BlockName;"""
     cursor.execute(query, {"BlockName": BlockName})
     results = cursor.fetchall()
     for r in results:
@@ -124,25 +124,25 @@ def MQ7(BlockName):
 
 def MQ8(DataName):
     '''% MQ8: What programs have input ports that receive data data_name?
-    :- table mq8/1.
-    mq8(ProgramName) :-
+        :- table mq8/1.
+        mq8(ProgramName) :-
         data(D, _, data_name),
         channel(C, D),
         port_connects_to_channel(IN, C),
         has_in_port(P, IN),
         program(P, _, ProgramName, _, _).'''
-    query = """SELECT p.qualified_program_name 
-            FROM modelfacts_data d 
-            JOIN modelfacts_channel c 
-            ON d.data_id = c.data_id 
-            JOIN modelfacts_port_connects_to_channel pc 
-            ON c.channel_id = pc.channel_id 
-            JOIN modelfacts_has_in_port hip 
-            ON pc.port_id = hip.port_id 
-            JOIN modelfacts_program p 
-            ON hip.block_id = p.program_id 
-            WHERE d.qualified_data_name = :DataName;
-            """
+    query = """SELECT p.qualified_program_name
+        FROM modelfacts_data d
+        JOIN modelfacts_channel c
+        ON d.data_id = c.data_id
+        JOIN modelfacts_port_connects_to_channel pc
+        ON c.channel_id = pc.channel_id
+        JOIN modelfacts_has_in_port hip
+        ON pc.port_id = hip.port_id
+        JOIN modelfacts_program p
+        ON hip.block_id = p.program_id
+        WHERE d.qualified_data_name = :DataName;
+        """
     cursor.execute(query, {"DataName": DataName})
     results = cursor.fetchall()
     for r in results:
@@ -150,47 +150,243 @@ def MQ8(DataName):
 
 def MQ9(DataName):
     '''% MQ9: How many ports read data DataName?
-    :- table mq9/1.
-    mq9(PortCount) :-
+        :- table mq9/1.
+        mq9(PortCount) :-
         data(D, _, DataName),
         count(data_in_port(_, D), PortCount).'''
-    query = """SELECT COUNT(*) 
-            FROM modelfacts_data d 
-            JOIN data_in_port dip 
-            ON dip.data_id = d.data_id 
-            WHERE d.qualified_data_name = :DataName;
-            """
+    query = """SELECT COUNT(*)
+        FROM modelfacts_data d
+        JOIN data_in_port dip
+        ON dip.data_id = d.data_id
+        WHERE d.qualified_data_name = :DataName;
+        """
     cursor.execute(query, {"DataName": DataName})
     results = cursor.fetchall()
     print '{} ports read data {}'.format(results[0][0], DataName)
 
 def MQ10():
     '''% MQ10: How many data are read by more than 1 port in workflow?
-    :- table mq10/1.
-    mq10(DataCount) :- 
+        :- table mq10/1.
+        mq10(DataCount) :-
         program(W, 'simulate_data_collection', _, _, _),
         count(data_in_workflow_read_by_multiple_ports(_, W), DataCount).'''
-    query = """SELECT COUNT(*) 
-            FROM modelfacts_program p 
-            JOIN data_in_workflow_read_by_multiple_ports dmp 
-            ON p.program_id = dmp. program_id 
-            WHERE p.program_name = 'GRAVITATIONAL_WAVE_DETECTION';
-            """
+    query = """SELECT COUNT(*)
+        FROM modelfacts_program p
+        JOIN data_in_workflow_read_by_multiple_ports dmp
+        ON p.program_id = dmp. program_id
+        WHERE p.program_name = 'GRAVITATIONAL_WAVE_DETECTION';
+        """
     cursor.execute(query)
     results = cursor.fetchall()
     print '{} data are read by more than port in workflow'.format(results[0][0])
 
-def MQ11():
-    '''% MQ11: What program blocks are immediately downstream of calculate_strategy?
-:- table mq11/1.
-    mq11(DownstreamProgramName) :-
+def MQ11(BlockName):
+    '''% MQ11: What program blocks are immediately downstream of BlockName?
+        :- table mq11/1.
+        mq11(DownstreamProgramName) :-
         program(P1, DownstreamProgramName, _, _, _),
-        program(P2, _, 'simulate_data_collection.calculate_strategy', _, _),
+        program(P2, _, BlockName, _, _),
         program_immediately_downstream(P1, P2).'''
-    pass
+    query = """SELECT DISTINCT p1.program_name
+        FROM modelfacts_program p1, modelfacts_program p2,
+        program_immediately_downstream pid
+        ON pid.child_id = p1.program_id
+        AND pid.parent_id = p2.program_id
+        WHERE p2.qualified_program_name = :BlockName;"""
+    cursor.execute(query, {"BlockName": BlockName})
+    results = cursor.fetchall()
+    for r in results:
+        print r[0]
+
+def MQ12(BlockName):
+    '''% MQ12: What program blocks are immediately upstream of BlockName?
+        :- table mq12/1.
+        mq12(UpstreamProgramName) :-
+        program(P1, UpstreamProgramName, _, _, _),
+        program(P2, _, BlockName, _, _),
+        program_immediately_upstream(P1, P2).'''
+    query = """SELECT DISTINCT p1.program_name
+        FROM modelfacts_program p1, modelfacts_program p2,
+        program_immediately_upstream piu
+        ON piu.parent_id = p1.program_id
+        AND piu.child_id = p2.program_id
+        WHERE p2.qualified_program_name = :BlockName;"""
+    cursor.execute(query, {"BlockName": BlockName})
+    results = cursor.fetchall()
+    for r in results:
+        print r[0]
+
+def MQ13(BlockName):
+    '''% MQ13: What program blocks are upstream of BlockName?
+        :- table mq13/1.
+        mq13(UpstreamProgramName):-
+        program(P1, UpstreamProgramName, _, _, _),
+        program(P2, _, BlockName, _, _),
+        program_upstream(P1, P2).'''
+    query = """SELECT DISTINCT p1.program_name
+        FROM modelfacts_program p1, modelfacts_program p2,
+        program_upstream pu
+        ON pu.ancestor_id = p1.program_id
+        AND pu.descendent_id = p2.program_id
+        WHERE p2.qualified_program_name = :BlockName;"""
+    cursor.execute(query, {"BlockName": BlockName})
+    results = cursor.fetchall()
+    for r in results:
+        print r[0]
+
+def MQ14(BlockName):
+    '''% MQ14: What program blocks are anywhere downstream of BlockName?
+        :- table mq14/1.
+        mq14(DownstreamProgramName):-
+        program(P1, DownstreamProgramName, _, _, _),
+        program(P2, _, BlockName, _, _),
+        program_downstream(P1, P2).'''
+    query = """SELECT DISTINCT p1.program_name
+        FROM modelfacts_program p1, modelfacts_program p2,
+        program_downstream pd
+        ON pd.descendent_id = p1.program_id
+        AND pd.ancestor_id = p2.program_id
+        WHERE p2.qualified_program_name = :BlockName;"""
+    cursor.execute(query, {"BlockName": BlockName})
+    results = cursor.fetchall()
+    for r in results:
+        print r[0]
+
+def MQ15(DataName):
+    '''% MQ15: What data is immediately downstream of DataName?
+        :- table mq15/1.
+        mq15(DownstreamDataName) :-
+        data(D1, DownstreamDataName, _),
+        data(D2, DataName, _),
+        data_immediately_downstream(D1, D2).'''
+    query = """SELECT DISTINCT d1.data_name
+        FROM modelfacts_data d1, modelfacts_data d2,
+        data_immediately_downstream did
+        ON did.child_data_id = d1.data_id
+        AND did.parent_data_id = d2.data_id
+        WHERE d2.qualified_data_name = :DataName;"""
+    cursor.execute(query, {"DataName": DataName})
+    results = cursor.fetchall()
+    for r in results:
+        print r[0]
+
+def MQ16(DataName):
+    '''% MQ16: What data is immediately upstream of DataName?
+        :- table mq16/1.
+        mq16(UpstreamDataName) :-
+        data(D1, UpstreamDataName, _),
+        data(D2, DataName, _),
+        data_immediately_upstream(D1, D2).'''
+    query = """SELECT DISTINCT d1.data_name
+        FROM modelfacts_data d1, modelfacts_data d2,
+        data_immediately_upstream diu
+        ON diu.parent_data_id = d1.data_id
+        AND diu.child_data_id = d2.data_id
+        WHERE d2.qualified_data_name = :DataName;"""
+    cursor.execute(query, {"DataName": DataName})
+    results = cursor.fetchall()
+    for r in results:
+        print r[0]
+
+def MQ17(DataName):
+    '''% MQ17: What data is downstream of accepted_sample?
+    :- table mq17/1.
+    mq17(DownstreamDataName):-
+        data(D1, DownstreamDataName, _),
+        data(D2, 'accepted_sample', _),
+        data_downstream(D1, D2).'''
+    query = """SELECT DISTINCT d1.data_name 
+            FROM modelfacts_data d1, modelfacts_data d2, 
+            data_downstream dd 
+            ON dd.descendent_data_id = d1.data_id 
+            AND dd.ancestor_data_id = d2.data_id 
+            WHERE d2.qualified_data_name = :DataName;"""
+    cursor.execute(query, {"DataName": DataName})
+    results = cursor.fetchall()
+    for r in results:
+        print r[0]
+
+def MQ18(DataName):
+    '''% MQ18: What data is upstream of DatName?
+    :- table mq18/1.
+    mq18(UpstreamDataName):-
+        data(D1, UpstreamDataName, _),
+        data(D2, DataName, _),
+        data_upstream(D1, D2).'''
+    query = """SELECT DISTINCT d1.data_name 
+            FROM modelfacts_data d1, modelfacts_data d2, 
+            data_upstream du 
+            ON du.ancestor_data_id = d1.data_id 
+            AND du.descendent_data_id = d2.data_id 
+            WHERE d2.qualified_data_name = :DataName;"""
+    cursor.execute(query, {"DataName": DataName})
+    results = cursor.fetchall()
+    for r in results:
+        print r[0]
+
+def data_downstream():
+    '''% Data D1 is downstream of data D2.
+    :- table data_downstream/2.
+    data_downstream(D1, D2) :-
+        data_immediately_downstream(D1, D2).
+    data_downstream(D1, D2):-
+        data_immediately_downstream(D, D2),
+        data_downstream(D1, D).'''
+    view = """DROP VIEW IF EXISTS data_downstream;
+            CREATE VIEW data_downstream AS
+            WITH RECURSIVE data_down(x,y) AS 
+            (SELECT * from data_immediately_downstream 
+            UNION ALL 
+            SELECT data_down.x, did.parent_data_id 
+            FROM data_down, data_immediately_downstream did 
+            ON data_down.y = did.child_data_id 
+            WHERE data_down.x != data_down.y
+            LIMIT 1000000) 
+            SELECT x AS descendent_data_id, y AS ancestor_data_id FROM data_down;
+    """
+    cursor.executescript(view)
+
+def data_immediately_downstream():
+    '''% Data D1 is immediately downstream of data D2.
+        :- table data_immediately_downstream/2.
+        data_immediately_downstream(D1, D2) :-
+        channel(C2, D2),
+        port_connects_to_channel(In, C2),
+        has_in_port(P, In),
+        has_out_port(P, Out),
+        port_connects_to_channel(Out, C1),
+        channel(C1, D1).'''
+    view = """DROP VIEW IF EXISTS data_immediately_downstream;
+        CREATE VIEW data_immediately_downstream AS
+        SELECT DISTINCT c1.data_id AS child_data_id,
+        c2.data_id AS parent_data_id
+        FROM modelfacts_channel c2
+        NATURAL JOIN modelfacts_port_connects_to_channel pc2 
+        NATURAL JOIN modelfacts_has_in_port hip  
+        JOIN modelfacts_has_out_port hop 
+        ON hop.block_id = hip.block_id 
+        JOIN modelfacts_port_connects_to_channel pc1 
+        ON hop.port_id = pc1.port_id 
+        JOIN modelfacts_channel c1 
+        ON pc1.channel_id = c1.channel_id;
+        """
+    cursor.executescript(view)
+
+def data_immediately_upstream():
+    '''% Data D1 is immediately upstream of data D2.
+    :- table data_immediately_upstream/2.
+    data_immediately_upstream(D1, D2) :-
+    data_immediately_downstream(D2, D1).
+    '''
+    view = """DROP VIEW IF EXISTS data_immediately_upstream;
+            CREATE VIEW data_immediately_upstream AS
+            SELECT parent_data_id, child_data_id 
+            FROM data_immediately_downstream;
+    """
+    cursor.executescript(view)
+
 def data_in_port():
-    '''% Port P is an input for data D.
-    :- table data_in_port/2.
+    '''
     data_in_port(P, D) :-
         port_connects_to_channel(P, C),
         channel(C, D),
@@ -244,6 +440,13 @@ def data_in_workflow_read_by_multiple_ports():
     """
     cursor.executescript(view)
  
+def data_upstream():
+    view = """DROP VIEW IF EXISTS data_upstream;
+            CREATE VIEW data_upstream AS
+            SELECT ancestor_data_id, descendent_data_id 
+            FROM data_downstream;
+    """
+    cursor.executescript(view)
      
 def port_data():
     '''% Port P reads or writes data D with name N and qualified name QN.
@@ -301,6 +504,28 @@ def program_description():
             WHERE a.tag = 'desc';"""
     cursor.executescript(view)
 
+def program_downstream():
+    '''% Program P1 is downstream of Program P2.
+    :- table program_downstream/2.
+    program_downstream(P1, P2) :-
+        program_immediately_downstream(P1, P2).
+    program_downstream(P1, P2) :-
+        program_downstream(P1, P),
+        program_immediately_downstream(P, P2).'''
+    view = """DROP VIEW IF EXISTS program_downstream;
+            CREATE VIEW program_downstream AS
+            WITH RECURSIVE prog_down(x,y) AS 
+            (SELECT * from program_immediately_downstream 
+            UNION ALL 
+            SELECT prog_down.x, pid.parent_id 
+            FROM prog_down, program_immediately_downstream pid 
+            ON prog_down.y = pid.child_id 
+            WHERE prog_down.x != prog_down.y
+            LIMIT 1000000) 
+            SELECT x AS descendent_id, y AS ancestor_id FROM prog_down;
+    """
+    cursor.executescript(view)
+
 def program_immediately_downstream():
     '''% Program P1 is immediately downstream of Program P2.
     :- table program_immediately_downstream/2.
@@ -309,7 +534,32 @@ def program_immediately_downstream():
         port_connects_to_channel(In, C),
         port_connects_to_channel(Out, C),
         has_out_port(P2, Out).'''
+    view = """DROP VIEW IF EXISTS program_immediately_downstream;
+            CREATE VIEW program_immediately_downstream AS
+            SELECT DISTINCT hip.block_id AS child_id, 
+            hop.block_id AS parent_id 
+            FROM modelfacts_has_in_port hip 
+            JOIN modelfacts_port_connects_to_channel pc1 
+            ON hip.port_id = pc1.port_id 
+            JOIN modelfacts_port_connects_to_channel pc2 
+            ON pc1.channel_id = pc2.channel_id 
+            JOIN modelfacts_has_out_port hop 
+            ON pc2.port_id = hop.port_id;        
+    """
+    cursor.executescript(view)
 
+def program_immediately_upstream():
+    '''% Program P1 is immediately upstream of Program P2.
+    :- table program_immediately_upstream/2.
+    program_immediately_upstream(P1, P2) :-
+        program_immediately_downstream(P2, P1).'''
+
+    view = """DROP VIEW IF EXISTS program_immediately_upstream;
+            CREATE VIEW program_immediately_upstream AS
+            SELECT parent_id, child_id 
+            FROM program_immediately_downstream;
+    """
+    cursor.executescript(view)
 
 def program_source():
     '''% Program with qualified name QN is defined in source file SF from first line F to last line L.
@@ -341,7 +591,18 @@ def subprogram():
                (SELECT a.program_id, b.program_id
                FROM modelfacts_program a JOIN modelfacts_program b);"""
     cursor.executescript(view)
-  
+
+def program_upstream():
+    '''% Program P1 is upstream of Program P2.
+        :- table program_upstream/2.
+        program_upstream(P1, P2) :-
+            program_downstream(P2, P1).'''
+    view = """DROP VIEW IF EXISTS program_upstream;
+            CREATE VIEW program_upstream AS
+            SELECT ancestor_id, descendent_id 
+            FROM program_downstream;"""
+    cursor.executescript(view)
+
 def top_workflow():
     ''' % Workflow W is the top-level workflow.
      :- table top_workflow/1.
@@ -365,31 +626,57 @@ def run_rules():
     data_in_port()
     data_in_port_count()
     data_in_workflow_read_by_multiple_ports()
+    program_immediately_downstream()
+    program_immediately_upstream()
+    program_downstream()
+    program_upstream()
+    data_immediately_downstream()
+    data_immediately_upstream()
+    data_downstream()
+    data_upstream()
 
 if __name__ == '__main__':
-    connection = sqlite3.connect('test.db')
+    DataName = "GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]"
+    BlockName1 = "GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA"
+    BlockName2 = "GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA"
+    BlockName3 = "GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA"
+    connection = sqlite3.connect('model_query.db')
     cursor = connection.cursor()
     run_rules()
-    print "MQ1:  Where is the definition of block GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS?"
-    BlockName = "GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS"
-    MQ1(BlockName)
-    print "MQ2:  What is the name and description of the top-level workflow?"
+    print "\nMQ1:  Where is the definition of block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR?"
+    MQ1(BlockName1)
+    print "\nMQ2:  What is the name and description of the top-level workflow?"
     MQ2()
-    print "MQ4:  What are the names of the programs comprising the top-level workflow?"
+    print "\nMQ4:  What are the names of the programs comprising the top-level workflow?"
     MQ4()
-    print "MQ5:  What are the names and descriptions of the inputs to the top-level workflow?"
+    print "\nMQ5:  What are the names and descriptions of the inputs to the top-level workflow?"
     MQ5()
-    print "MQ6:  What data is output by program block GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS?"
-    MQ6(BlockName)
-    print "MQ7: What program blocks provide input directly to GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS?"
-    MQ7(BlockName)
-    DataName = "GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]"
-    print "MQ8: What programs have input ports that receive data 'strain_H1_whitenbp'?"
+    print "\nMQ6:  What data is output by program block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR?"
+    MQ6(BlockName1)
+    print "\nMQ7: What program blocks provide input directly to GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR?"
+    MQ7(BlockName1)
+    print "\nMQ8: What programs have input ports that receive data 'strain_H1_whitenbp'?"
     MQ8(DataName)
-    print "MQ9: How many ports read data 'strain_H1_whitenbp'?"
+    print "\nMQ9: How many ports read data 'strain_H1_whitenbp'?"
     MQ9(DataName)
-    print "MQ10: How many data are read by more than 1 port in workflow?"
+    print "\nMQ10: How many data are read by more than 1 port in workflow?"
     MQ10()
+    print "\nMQ11: What program blocks are immediately downstream of FILTER_DATA?"
+    MQ11(BlockName2)
+    print "\nMQ12: What program blocks are immediately upstream of FILTER_DATA?"
+    MQ12(BlockName2)
+    print "\nMQ13: What program blocks are upstream of WAVE_FILE_GENERATOR?"
+    MQ13(BlockName1)
+    print "\nMQ14: What program blocks are downstream of LOAD_DATA?"
+    MQ14(BlockName3)
+    print "\nMQ15: What data is immediately downstream of strain_H1_whitenbp? "
+    MQ15(DataName)
+    print "\nMQ16: What data is immediately upstream of strain_H1_whitenbp? "
+    MQ16(DataName)
+    print "\nMQ17: What data is downstream of strain_H1_whitenbp?"
+    MQ17(DataName)
+    print "\nMQ18: What data is uptream of strain_H1_whitenbp?"
+    MQ18(DataName)
     cursor.close()
     connection.close()
 
