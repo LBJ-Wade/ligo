@@ -411,7 +411,7 @@ plt.savefig('GW150914_strain_whitened.png')
 
 
 
-# @BEGIN SPECTROGRAMS   @desc plot time-frequency spectrogram.
+# @BEGIN SPECTROGRAMS_1   @desc plot time-frequency spectrogram.
 # @in fn_H1 @as strain_H1 
 # @in fn_L1 @as strain_L1 
 # @PARAM fs 
@@ -466,7 +466,7 @@ plt.title('aLIGO L1 strain data near GW150914')
 plt.savefig('GW150914_L1_spectrogram.png')
 
 
-# @END SPECTROGRAMS
+# @END SPECTROGRAMS_1 
 
 
 
@@ -479,7 +479,7 @@ plt.savefig('GW150914_L1_spectrogram.png')
 
 
 
-# @BEGIN SPECTROGRAMS  @desc plot a short time-frequency spectrogram.
+# @BEGIN SPECTROGRAMS_2  @desc plot a short time-frequency spectrogram.
 # @in strain_H1_whiten @as strain_H1_whiten
 # @in strain_L1_whiten @as strain_L1_whiten 
 # @PARAM fs 
@@ -523,16 +523,12 @@ plt.axis([-0.5, 0.5, 0, 500])
 plt.title('aLIGO L1 strain data near GW150914')
 plt.savefig('GW150914_L1_spectrogram_whitened.png')
 
-# @END SPECTROGRAMS
+# @END SPECTROGRAMS_2
 
 
 
 # See the smudge between -0.2 and 0 seconds? That's our signal!
 # You can see it 'chirping' from lower to higher frequency over a small fraction of a second.
-
-
-
-
 
 
 
@@ -717,11 +713,6 @@ NR_H1_filt = filter_data(NR_H1, coefs)
 
 
 
-
-
-
-
-
 # @BEGIN STRAIN_WAVEFORM    @desc plot the data.
 # @in strain_H1_filt @as strain_H1_filt
 # @in strain_L1_filt @as strain_L1_filt
@@ -771,11 +762,6 @@ plt.savefig('GW150914_H1_strain_filtered.png')
 # 
 # And as with whitening, the NR waveform looks, by eye, to be a good match to the data in both detectors; the signal is consistent with the waveform predicted from General Relativity.
 
-
-
-
-
-
 # @BEGIN WAVE_FILE_GENERATOR  @desc Make sound files.
 # @in strain_H1_whitenbp @as strain_H1_whitenbp
 # @in strain_L1_whitenbp @as strain_L1_whitenbp
@@ -823,8 +809,6 @@ write_wavfile("GW150914_NR_whitenbp.wav",int(fs), NR_H1_whitenbp)
 # The code below will shift the data up by 400 Hz (by taking an FFT, shifting/rolling the frequency series, then inverse fft-ing). The resulting sound file will be noticibly more high-pitched, and the signal will be easier to hear.
 
 # In[16]:
-
-
 
 
 # shifts frequency of a band-passed signal
