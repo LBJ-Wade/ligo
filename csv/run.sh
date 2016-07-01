@@ -10,4 +10,4 @@ do
  # do something on $f
 done
 
-python model_query.py
+python model_query.py > model_query_output.txt

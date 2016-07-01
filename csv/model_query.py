@@ -643,7 +643,7 @@ if __name__ == '__main__':
     connection = sqlite3.connect('model_query.db')
     cursor = connection.cursor()
     run_rules()
-    print "\nMQ1:  Where is the definition of block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR?"
+    print "\nMQ1:  Where is the definition of block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?"
     MQ1(BlockName1)
     print "\nMQ2:  What is the name and description of the top-level workflow?"
     MQ2()
@@ -651,9 +651,9 @@ if __name__ == '__main__':
     MQ4()
     print "\nMQ5:  What are the names and descriptions of the inputs to the top-level workflow?"
     MQ5()
-    print "\nMQ6:  What data is output by program block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR?"
+    print "\nMQ6:  What data is output by program block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?"
     MQ6(BlockName1)
-    print "\nMQ7: What program blocks provide input directly to GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR?"
+    print "\nMQ7: What program blocks provide input directly to GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?"
     MQ7(BlockName1)
     print "\nMQ8: What programs have input ports that receive data 'strain_H1_whitenbp'?"
     MQ8(DataName)
