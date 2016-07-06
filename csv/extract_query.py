@@ -38,16 +38,16 @@ def EQ3():
 
 if __name__ == '__main__':
 
-    connection = sqlite3.connect('test.db')
+    connection = sqlite3.connect('facts.db')
     cursor = connection.cursor()
 
     print "EQ1:  What source files SF were YW annotations extracted from?"
     EQ1()
 
-    print "EQ2:  What are the names N of all program blocks?"
+    print "\nEQ2:  What are the names N of all program blocks?"
     EQ2()
 
-    print "EQ3:  What out ports are qualified with URIs?"
+    print "\nEQ3:  What out ports are qualified with URIs?"
     EQ3()
     cursor.close()
     connection.close()

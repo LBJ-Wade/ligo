@@ -1,0 +1,41 @@
+EQ1:  What source files SF were YW annotations extracted from?
+./GW150914_tutorial_uri.py
+
+EQ2:  What are the names N of all program blocks?
+GRAVITATIONAL_WAVE_DETECTION
+LOAD_DATA
+AMPLITUDE_SPECTRAL_DENSITY
+WHITENING
+BANDPASSING
+STRAIN_WAVEFORM_FOR_WHITENED_DATA
+SPECTROGRAMS_FOR_STRAIN_DATA
+SPECTROGRAMS_FOR_WHITEND_DATA
+FILTER_COEFS
+FILTER_DATA
+STRAIN_WAVEFORM_FOR_FILTERED_DATA
+WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
+SHIFT_FREQUENCY_BANDPASSED
+WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
+DOWNSAMPLING
+
+EQ3:  What out ports are qualified with URIs?
+shifted.wav
+whitenbp.wav
+spectrogram_whitened.png
+spectrogram.png
+GW150914_filter.png
+GW150914_strain_whitened.png
+GW150914_H1_strain_filtered.png
+GW150914_H1_strain_unfiltered.png
+GW150914_ASDs.png
+GW150914_H1_ASD_SamplingRate.png
+GW150914_ASDs.png
+GW150914_strain_whitened.png
+spectrogram.png
+spectrogram_whitened.png
+GW150914_filter.png
+GW150914_H1_strain_filtered.png
+GW150914_H1_strain_unfiltered.png
+whitenbp.wav
+shifted.wav
+GW150914_H1_ASD_SamplingRate.png

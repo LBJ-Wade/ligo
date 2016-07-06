@@ -1,6 +1,6 @@
 
 MQ1:  Where is the definition of block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?
-Source file: GW150914_tutorial.py. Start Line: 853, End Line: 867 
+Source file: ./GW150914_tutorial_uri.py. Start Line: 842, End Line: 855 
 
 MQ2:  What is the name and description of the top-level workflow?
 WorkflowName: GRAVITATIONAL_WAVE_DETECTION. Description: Signal processing in gravitational wave detection.
@@ -22,14 +22,15 @@ SubProgram Name: SPECTROGRAMS_FOR_WHITEND_DATA
 SubProgram Name: FILTER_COEFS
 
 MQ5:  What are the names and descriptions of the inputs to the top-level workflow?
-InputPortName: fn_H1. Description: FN_H1
-InputPortName: fn_L1. Description: FN_L1
-InputPortName: fn_16. Description: FN_16
-InputPortName: fn_4. Description: FN_4
+InputPortName: fn_d. Description: FN_Detector
+InputPortName: fn_d. Description: LIGO GW150914 data at sampling rate 4096 Hz
+InputPortName: fn_sr. Description: FN_Sampling_rate
+InputPortName: fn_sr. Description: LIGO GW150914 data from H1 detector with different sampling rate
+InputPortName: fs. Description: sampling rate
 
 MQ6:  What data is output by program block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?
-Data Name: GW150914_H1_shifted.wav. Description: GW150914_H1_shifted.wav
-Data Name: GW150914_L1_shifted.wav. Description: GW150914_L1_shifted.wav
+Data Name: shifted_wavefile. Description: shifted wavefile
+Data Name: shifted_wavefile. Description: shifted_wavefile
 
 MQ7: What program blocks provide input directly to GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?
 GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED directly provides input to GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
@@ -74,9 +75,8 @@ SPECTROGRAMS_FOR_STRAIN_DATA
 SPECTROGRAMS_FOR_WHITEND_DATA
 
 MQ15: What data is immediately downstream of strain_H1_whitenbp? 
-GW150914_strain_whitened.png
-GW150914_H1_whitenbp.wav
-GW150914_L1_whitenbp.wav
+WHITENED_strain_data
+whitened_bandpass_wavefile
 strain_H1_shifted
 strain_L1_shifted
 
@@ -85,19 +85,15 @@ strain_H1_whiten
 strain_L1_whiten
 
 MQ17: What data is downstream of strain_H1_whitenbp?
-GW150914_strain_whitened.png
-GW150914_H1_whitenbp.wav
-GW150914_L1_whitenbp.wav
+WHITENED_strain_data
+whitened_bandpass_wavefile
 strain_H1_shifted
 strain_L1_shifted
-GW150914_H1_shifted.wav
-GW150914_L1_shifted.wav
+shifted_wavefile
 
 MQ18: What data is uptream of strain_H1_whitenbp?
-FN_H1
-FN_L1
-FN_16
-FN_4
+FN_Detector
+FN_Sampling_rate
 strain_H1
 strain_L1
 fs

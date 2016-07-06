@@ -640,7 +640,7 @@ if __name__ == '__main__':
     BlockName1 = "GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA"
     BlockName2 = "GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA"
     BlockName3 = "GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA"
-    connection = sqlite3.connect('model_query.db')
+    connection = sqlite3.connect('facts.db')
     cursor = connection.cursor()
     run_rules()
     print "\nMQ1:  Where is the definition of block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?"
