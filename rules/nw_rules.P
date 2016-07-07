@@ -1,0 +1,32 @@
+
+
+nw_direct_dependency(UpstreamActId, UpstreamVarId, UpstreamVarName, UpstreamVarValue, DownstreamActId, DownstreamVarId, DownstreamVarName, DownstreamVarValue) :-
+    dependency(_, _, DownstreamActId, DownstreamVarId, UpstreamActId, UpstreamVarId),
+    variable(_, _, UpstreamVarId, UpstreamVarName, _, UpstreamVarValue, _),
+    variable(_, _, DownstreamVarId, DownstreamVarName, _, DownstreamVarValue, _).
+
+:- table nw_dependency/8.
+nw_dependency(ActId, VarId, VarName, VarValue, ActId, VarId, VarName, VarValue) :-
+    variable(_, ActId, VarId, VarName, _, VarValue, _).
+nw_dependency(UpstreamActId, UpstreamVarId, UpstreamVarName, UpstreamVarValue, DownstreamActId, DownstreamVarId, DownstreamVarName, DownstreamVarValue) :-
+    nw_direct_dependency(UpstreamActId, UpstreamVarId, UpstreamVarName, UpstreamVarValue, _, VarId, _, _),
+    nw_dependency(_, VarId, _, _, DownstreamActId, DownstreamVarId, DownstreamVarName, DownstreamVarValue).
+
+nw_dependency_8 :-
+    printall(nw_dependency(_,_,_,_,_,_,_,_)).
+
+
+:- table nw_variable_directly_upstream_of_variable/2.
+nw_variable_directly_upstream_of_variable(VarId, DownstreamVarId) :-
+    nw_variable_dependency(_, _, _, _, DownstreamVarId, _, VarId, _).
+
+nw_variable_directly_upstream_of_variable_2 :- printall(nw_variable_directly_upstream_of_variable(_,_)).
+
+:- table nw_variable_upstream_of_variable/2.
+nw_variable_upstream_of_variable(VarId, DownstreamVarId) :-
+    nw_variable_directly_upstream_of_variable(VarId, DownstreamVarId).
+nw_variable_upstream_of_variable(VarId, DownstreamVarId) :-
+    nw_variable_directly_upstream_of_variable(VarId, V),
+    nw_variable_upstream_of_variable(V, DownstreamVarId).
+
+nw_variable_upstream_of_variable_2 :- printall(nw_variable_upstream_of_variable(_,_)).
