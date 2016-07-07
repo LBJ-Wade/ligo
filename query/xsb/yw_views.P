@@ -1,0 +1,251 @@
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_source_file(SourceId, SourceFile).
+%...................................................................................................
+yw_source_file(1,'GW150914_tutorial.py').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_workflow_script(WorkflowId, WorkflowName, SourceId, SourceFile).
+%...................................................................................................
+yw_workflow_script(1,'GRAVITATIONAL_WAVE_DETECTION',1,'GW150914_tutorial.py').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_program(WorkflowId, ProgramName, WorkflowId, SourceId, BeginLine, EndLine).
+%...................................................................................................
+yw_program(1,'GRAVITATIONAL_WAVE_DETECTION',nil,1,101,1026).
+yw_program(2,'LOAD_DATA',1,1,112,136).
+yw_program(3,'AMPLITUDE_SPECTRAL_DENSITY',1,1,235,290).
+yw_program(4,'WHITENING',1,1,294,326).
+yw_program(5,'BANDPASSING',1,1,330,343).
+yw_program(6,'STRAIN_WAVEFORM',1,1,348,370).
+yw_program(7,'SPECTROGRAMS',1,1,386,442).
+yw_program(8,'SPECTROGRAMS',1,1,455,497).
+yw_program(9,'FILTER_COEFS',1,1,510,600).
+yw_program(10,'FILTER_DATA',1,1,606,686).
+yw_program(11,'STRAIN_WAVEFORM',1,1,696,730).
+yw_program(12,'WAVE_FILE_GENERATOR',1,1,747,781).
+yw_program(13,'SHIFT_FREQUENCY_BANDPASSED',1,1,799,830).
+yw_program(14,'WAVE_FILE_GENERATOR',1,1,836,850).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_workflow(WorkflowId, WorkflowName, ParentWorkflowId, SourceId, BeginLine, EndLine).
+%...................................................................................................
+yw_workflow(1,'GRAVITATIONAL_WAVE_DETECTION',nil,1,101,1026).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_workflow_step(StepId, StepName, WorkflowId, SourceId, BeginLine, EndLine).
+%...................................................................................................
+yw_workflow_step(2,'LOAD_DATA',1,1,112,136).
+yw_workflow_step(3,'AMPLITUDE_SPECTRAL_DENSITY',1,1,235,290).
+yw_workflow_step(4,'WHITENING',1,1,294,326).
+yw_workflow_step(5,'BANDPASSING',1,1,330,343).
+yw_workflow_step(6,'STRAIN_WAVEFORM',1,1,348,370).
+yw_workflow_step(7,'SPECTROGRAMS',1,1,386,442).
+yw_workflow_step(8,'SPECTROGRAMS',1,1,455,497).
+yw_workflow_step(9,'FILTER_COEFS',1,1,510,600).
+yw_workflow_step(10,'FILTER_DATA',1,1,606,686).
+yw_workflow_step(11,'STRAIN_WAVEFORM',1,1,696,730).
+yw_workflow_step(12,'WAVE_FILE_GENERATOR',1,1,747,781).
+yw_workflow_step(13,'SHIFT_FREQUENCY_BANDPASSED',1,1,799,830).
+yw_workflow_step(14,'WAVE_FILE_GENERATOR',1,1,836,850).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_function(FunctionId, FunctionName, ParentWorkflowId, SourceId, BeginLine, EndLine).
+%...................................................................................................
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_data(DataId, DataName, WorkflowId, WorkflowName).
+%...................................................................................................
+yw_data(1,'FN_H1',nil,nil).
+yw_data(2,'FN_L1',nil,nil).
+yw_data(3,fs,nil,nil).
+yw_data(4,'GW150914_H1_shifted.wav',nil,nil).
+yw_data(5,'GW150914_L1_shifted.wav',nil,nil).
+yw_data(6,'GW150914_H1_whitenbp.wav',nil,nil).
+yw_data(7,'GW150914_L1_whitenbp.wav',nil,nil).
+yw_data(8,'FN_H1',1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(9,'FN_L1',1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(10,strain_H1,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(11,strain_L1,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(12,fs,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(13,'PSD_H1',1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(14,'PSD_L1',1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(15,strain_H1_whiten,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(16,strain_L1_whiten,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(17,strain_H1_whitenbp,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(18,strain_L1_whitenbp,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(19,strain_H1_specgram,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(20,strain_L1_specgram,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(21,'COEFFICIENTS',1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(22,strain_H1_filt,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(23,strain_L1_filt,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(24,strain_H1_waveform,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(25,strain_L1_waveform,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(26,'GW150914_H1_whitenbp.wav',1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(27,'GW150914_L1_whitenbp.wav',1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(28,strain_H1_shifted,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(29,strain_L1_shifted,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(30,'GW150914_H1_shifted.wav',1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_data(31,'GW150914_L1_shifted.wav',1,'GRAVITATIONAL_WAVE_DETECTION').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_step_input(ProgramId, ProgramName, PortType, PortId, PortName, DataId, DataName).
+%...................................................................................................
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_step_output(ProgramId, ProgramName, PortType, PortId, PortName, DataId, DataName).
+%...................................................................................................
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_inflow(WorkflowId, WorkflowName, DataId, DataName, ProgramId, ProgramName).
+%...................................................................................................
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_flow(SourceProgramId, SourceProgramName, SourcePortId, SourcePortName, DataId, DataName, SinkPortId, SinkPortName, SinkProgramId, SinkProgramName).
+%...................................................................................................
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_outflow(StepId, StepName, StepOutDataId, StepOutDataName, WorkflowId, WorkflowName, WorkflowOutDataId, WorkflowOutDataName).
+%...................................................................................................
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_qualified_name(EntityType, Id, QualifiedName).
+%...................................................................................................
+yw_qualified_name(program,1,'GRAVITATIONAL_WAVE_DETECTION').
+yw_qualified_name(program,2,'GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA').
+yw_qualified_name(program,3,'GRAVITATIONAL_WAVE_DETECTION.AMPLITUDE_SPECTRAL_DENSITY').
+yw_qualified_name(program,4,'GRAVITATIONAL_WAVE_DETECTION.WHITENING').
+yw_qualified_name(program,5,'GRAVITATIONAL_WAVE_DETECTION.BANDPASSING').
+yw_qualified_name(program,6,'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM').
+yw_qualified_name(program,7,'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS').
+yw_qualified_name(program,8,'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS').
+yw_qualified_name(program,9,'GRAVITATIONAL_WAVE_DETECTION.FILTER_COEFS').
+yw_qualified_name(program,10,'GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA').
+yw_qualified_name(program,11,'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM').
+yw_qualified_name(program,12,'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR').
+yw_qualified_name(program,13,'GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED').
+yw_qualified_name(program,14,'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR').
+yw_qualified_name(port,1,'GRAVITATIONAL_WAVE_DETECTION<-fn_H1').
+yw_qualified_name(port,2,'GRAVITATIONAL_WAVE_DETECTION<-fn_L1').
+yw_qualified_name(port,3,'GRAVITATIONAL_WAVE_DETECTION<-fs').
+yw_qualified_name(port,4,'GRAVITATIONAL_WAVE_DETECTION->GW150914_H1_shifted.wav').
+yw_qualified_name(port,5,'GRAVITATIONAL_WAVE_DETECTION->GW150914_L1_shifted.wav').
+yw_qualified_name(port,6,'GRAVITATIONAL_WAVE_DETECTION->GW150914_H1_whitenbp.wav').
+yw_qualified_name(port,7,'GRAVITATIONAL_WAVE_DETECTION->GW150914_L1_whitenbp.wav').
+yw_qualified_name(port,8,'GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA<-fn_H1').
+yw_qualified_name(port,9,'GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA<-fn_L1').
+yw_qualified_name(port,10,'GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA->strain_H1').
+yw_qualified_name(port,11,'GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA->strain_L1').
+yw_qualified_name(port,12,'GRAVITATIONAL_WAVE_DETECTION.AMPLITUDE_SPECTRAL_DENSITY<-strain_H1').
+yw_qualified_name(port,13,'GRAVITATIONAL_WAVE_DETECTION.AMPLITUDE_SPECTRAL_DENSITY<-strain_L1').
+yw_qualified_name(port,14,'GRAVITATIONAL_WAVE_DETECTION.AMPLITUDE_SPECTRAL_DENSITY<-fs').
+yw_qualified_name(port,15,'GRAVITATIONAL_WAVE_DETECTION.AMPLITUDE_SPECTRAL_DENSITY->psd_H1').
+yw_qualified_name(port,16,'GRAVITATIONAL_WAVE_DETECTION.AMPLITUDE_SPECTRAL_DENSITY->psd_L1').
+yw_qualified_name(port,17,'GRAVITATIONAL_WAVE_DETECTION.WHITENING<-psd_H1').
+yw_qualified_name(port,18,'GRAVITATIONAL_WAVE_DETECTION.WHITENING<-psd_L1').
+yw_qualified_name(port,19,'GRAVITATIONAL_WAVE_DETECTION.WHITENING->strain_H1_whiten').
+yw_qualified_name(port,20,'GRAVITATIONAL_WAVE_DETECTION.WHITENING->strain_L1_whiten').
+yw_qualified_name(port,21,'GRAVITATIONAL_WAVE_DETECTION.BANDPASSING<-strain_H1_whiten').
+yw_qualified_name(port,22,'GRAVITATIONAL_WAVE_DETECTION.BANDPASSING<-strain_L1_whiten').
+yw_qualified_name(port,23,'GRAVITATIONAL_WAVE_DETECTION.BANDPASSING->strain_H1_whitenbp').
+yw_qualified_name(port,24,'GRAVITATIONAL_WAVE_DETECTION.BANDPASSING->strain_L1_whitenbp').
+yw_qualified_name(port,25,'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM<-strain_H1_whitenbp').
+yw_qualified_name(port,26,'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM<-strain_L1_whitenbp').
+yw_qualified_name(port,27,'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS<-fn_H1').
+yw_qualified_name(port,28,'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS<-fn_L1').
+yw_qualified_name(port,29,'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS<-fs').
+yw_qualified_name(port,30,'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS->strain_H1_specgram').
+yw_qualified_name(port,31,'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS->strain_L1_specgram').
+yw_qualified_name(port,32,'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS<-strain_H1_whiten').
+yw_qualified_name(port,33,'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS<-strain_L1_whiten').
+yw_qualified_name(port,34,'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS<-fs').
+yw_qualified_name(port,35,'GRAVITATIONAL_WAVE_DETECTION.FILTER_COEFS<-fs').
+yw_qualified_name(port,36,'GRAVITATIONAL_WAVE_DETECTION.FILTER_COEFS->coefs').
+yw_qualified_name(port,37,'GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA<-fn_H1').
+yw_qualified_name(port,38,'GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA<-fn_L1').
+yw_qualified_name(port,39,'GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA<-coefs').
+yw_qualified_name(port,40,'GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA->strain_H1_filt').
+yw_qualified_name(port,41,'GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA->strain_L1_filt').
+yw_qualified_name(port,42,'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM<-strain_H1_filt').
+yw_qualified_name(port,43,'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM<-strain_L1_filt').
+yw_qualified_name(port,44,'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM->strain_H1_filt_waveform').
+yw_qualified_name(port,45,'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM->strain_L1_filt_waveform').
+yw_qualified_name(port,46,'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR<-strain_H1_whitenbp').
+yw_qualified_name(port,47,'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR<-strain_L1_whitenbp').
+yw_qualified_name(port,48,'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR->GW150914_H1_whitenbp.wav').
+yw_qualified_name(port,49,'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR->GW150914_L1_whitenbp.wav').
+yw_qualified_name(port,50,'GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED<-strain_H1_whitenbp').
+yw_qualified_name(port,51,'GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED<-strain_L1_whitenbp').
+yw_qualified_name(port,52,'GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED->strain_H1_shifted').
+yw_qualified_name(port,53,'GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED->strain_L1_shifted').
+yw_qualified_name(port,54,'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR<-strain_H1_shifted').
+yw_qualified_name(port,55,'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR<-strain_L1_shifted').
+yw_qualified_name(port,56,'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR->GW150914_H1_shifted.wav').
+yw_qualified_name(port,57,'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR->GW150914_L1_shifted.wav').
+yw_qualified_name(data,1,'[FN_H1]').
+yw_qualified_name(data,2,'[FN_L1]').
+yw_qualified_name(data,3,'[fs]').
+yw_qualified_name(data,4,'[GW150914_H1_shifted.wav]').
+yw_qualified_name(data,5,'[GW150914_L1_shifted.wav]').
+yw_qualified_name(data,6,'[GW150914_H1_whitenbp.wav]').
+yw_qualified_name(data,7,'[GW150914_L1_whitenbp.wav]').
+yw_qualified_name(data,8,'GRAVITATIONAL_WAVE_DETECTION[FN_H1]').
+yw_qualified_name(data,9,'GRAVITATIONAL_WAVE_DETECTION[FN_L1]').
+yw_qualified_name(data,10,'GRAVITATIONAL_WAVE_DETECTION[strain_H1]').
+yw_qualified_name(data,11,'GRAVITATIONAL_WAVE_DETECTION[strain_L1]').
+yw_qualified_name(data,12,'GRAVITATIONAL_WAVE_DETECTION[fs]').
+yw_qualified_name(data,13,'GRAVITATIONAL_WAVE_DETECTION[PSD_H1]').
+yw_qualified_name(data,14,'GRAVITATIONAL_WAVE_DETECTION[PSD_L1]').
+yw_qualified_name(data,15,'GRAVITATIONAL_WAVE_DETECTION[strain_H1_whiten]').
+yw_qualified_name(data,16,'GRAVITATIONAL_WAVE_DETECTION[strain_L1_whiten]').
+yw_qualified_name(data,17,'GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]').
+yw_qualified_name(data,18,'GRAVITATIONAL_WAVE_DETECTION[strain_L1_whitenbp]').
+yw_qualified_name(data,19,'GRAVITATIONAL_WAVE_DETECTION[strain_H1_specgram]').
+yw_qualified_name(data,20,'GRAVITATIONAL_WAVE_DETECTION[strain_L1_specgram]').
+yw_qualified_name(data,21,'GRAVITATIONAL_WAVE_DETECTION[COEFFICIENTS]').
+yw_qualified_name(data,22,'GRAVITATIONAL_WAVE_DETECTION[strain_H1_filt]').
+yw_qualified_name(data,23,'GRAVITATIONAL_WAVE_DETECTION[strain_L1_filt]').
+yw_qualified_name(data,24,'GRAVITATIONAL_WAVE_DETECTION[strain_H1_waveform]').
+yw_qualified_name(data,25,'GRAVITATIONAL_WAVE_DETECTION[strain_L1_waveform]').
+yw_qualified_name(data,26,'GRAVITATIONAL_WAVE_DETECTION[GW150914_H1_whitenbp.wav]').
+yw_qualified_name(data,27,'GRAVITATIONAL_WAVE_DETECTION[GW150914_L1_whitenbp.wav]').
+yw_qualified_name(data,28,'GRAVITATIONAL_WAVE_DETECTION[strain_H1_shifted]').
+yw_qualified_name(data,29,'GRAVITATIONAL_WAVE_DETECTION[strain_L1_shifted]').
+yw_qualified_name(data,30,'GRAVITATIONAL_WAVE_DETECTION[GW150914_H1_shifted.wav]').
+yw_qualified_name(data,31,'GRAVITATIONAL_WAVE_DETECTION[GW150914_L1_shifted.wav]').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_description(EntityType, Id, Name, Description)).
+%...................................................................................................
+yw_description(program,1,'GRAVITATIONAL_WAVE_DETECTION','Signal processing in gravitational wave detection.').
+yw_description(program,2,'LOAD_DATA','Load hdf5 data.').
+yw_description(program,3,'AMPLITUDE_SPECTRAL_DENSITY','Amplitude spectral density.').
+yw_description(program,4,'WHITENING','Whitening helps to suppress the extra noise at low frequencies and at the spectral lines.').
+yw_description(program,5,'BANDPASSING','Bandpassing helps to get rid of remaining high frequency noise.').
+yw_description(program,6,'STRAIN_WAVEFORM','plot the data after whitening.').
+yw_description(program,7,'SPECTROGRAMS','plot a short time-frequency spectrogram.').
+yw_description(program,8,'SPECTROGRAMS','plot a short time-frequency spectrogram.').
+yw_description(program,9,'FILTER_COEFS','Filter the signal in the time domain, using bandpassing.').
+yw_description(program,10,'FILTER_DATA','Filter the data.').
+yw_description(program,11,'STRAIN_WAVEFORM','plot the data.').
+yw_description(program,12,'WAVE_FILE_GENERATOR','Make sound files.').
+yw_description(program,13,'SHIFT_FREQUENCY_BANDPASSED','Shifts frequency of a band-passed signal.').
+yw_description(program,14,'WAVE_FILE_GENERATOR','Make sound files.').
+yw_description(port,4,'GW150914_H1_shifted.wav','H1 shifted wavefile').
+yw_description(port,5,'GW150914_L1_shifted.wav','L1 shifted wavefile').
+yw_description(port,6,'GW150914_H1_whitenbp.wav','H1 whitened bandpass wavefile').
+yw_description(port,7,'GW150914_L1_whitenbp.wav','L1 whitened bandpass wavefile').

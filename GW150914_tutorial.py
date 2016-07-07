@@ -99,43 +99,33 @@ import readligo as rl
 
 
 # @BEGIN GRAVITATIONAL_WAVE_DETECTION @desc Signal processing in gravitational wave detection.
-# @in fn_H1  @as FN_H1 @desc LIGO GW150914 data from H1 detector at sampling rate 4096 Hz
-# @in fn_L1  @as FN_L1 @desc LIGO GW150914 data from L1 detector at sampling rate 4096 Hz
-# @in fn_16 @as FN_16 @desc LIGO GW150914 data from H1 detector at sampling rate 16384 Hz
-# @in fn_4 @as FN_4 @desc LIGO GW150914 data from H1 detector at sampling rate 4096 Hz
+# @in fn_d  @as FN_Detector @desc LIGO GW150914 data at sampling rate 4096 Hz @uri file:{Detector}_LOSC_4_V1-1126259446-32.hdf5
+# @in fn_sr @as FN_Sampling_rate @desc LIGO GW150914 data from H1 detector with different sampling rate @uri file:H-H1_LOSC_{DownSampling}_V1-1126259446-32.hdf5
 
 
 
 # @param fs @desc sampling rate
-# @out GW150914_H1_shifted.wav @as GW150914_H1_shifted.wav @desc H1 shifted wavefile
-# @out GW150914_L1_shifted.wav @as GW150914_L1_shifted.wav @desc L1 shifted wavefile
-# @out GW150914_H1_whitenbp.wav @as GW150914_H1_whitenbp.wav @desc H1 whitened bandpass wavefile
-# @out GW150914_L1_whitenbp.wav @as GW150914_L1_whitenbp.wav @desc L1 whitened bandpass wavefile
+# @out shifted.wav @as shifted_wavefile @desc shifted wavefile @uri file:GW150914_{detector}_shifted.wav
+# @out whitenbp.wav @as whitened_bandpass_wavefile @desc whitened bandpass wavefile @uri file:GW150914_{detector}_whitenbp.wav
 
 
-# @out GW150914_H1_spectrogram_whitened.png @as GW150914_H1_spectrogram_whitened.png @desc H1 whitened spectrogram
-# @out GW150914_L1_spectrogram_whitened.png @as GW150914_L1_spectrogram_whitened.png @desc L1 whitened spectrogram
-# @out GW150914_H1_spectrogram.png @as GW150914_H1_spectrogram.png @desc H1 spectrogram
-# @out GW150914_L1_spectrogram.png @as GW150914_L1_spectrogram.png @desc L1 spectrogram
-# @out GW150914_filter.png @as GW150914_filter.png @desc filter white noise data
-# @out GW150914_strain_whitened.png @as GW150914_strain_whitened.png @desc WHITENED strain data
+# @out spectrogram_whitened.png @as spectrogram_whitened @desc whitened spectrogram @uri file:GW150914_{detector}_spectrogram_whitened.png
+# @out spectrogram.png @as spectrogram @desc spectrogram @uri file:GW150914_{detector}_spectrogram.png
 
-# @out GW150914_H1_strain_filtered.png @as GW150914_H1_strain_filtered.png @desc FILTERED strain data 
-# @out GW150914_H1_strain_unfiltered.png @as GW150914_H1_strain_unfiltered.png @desc UNFILTERED strain data 
+# @out GW150914_filter.png @as filtered_white_noise_data @desc filtered white noise data @uri file:GW150914_filter.png
+# @out GW150914_strain_whitened.png @as WHITENED_strain_data @desc WHITENED strain data @uri file:GW150914_strain_whitened.png
+# @out GW150914_H1_strain_filtered.png @as H1_strain_filtered @desc FILTERED strain data  @uri file:GW150914_H1_strain_filtered.png
+# @out GW150914_H1_strain_unfiltered.png @as H1_strain_unfiltered @desc UNFILTERED strain data @uri file:GW150914_H1_strain_unfiltered.png
 
 
-# @out GW150914_ASDs.png @as GW150914_ASDs.png @desc strain data near GW150914
-# @out GW150914_H1_ASD_16384.png @as GW150914_H1_ASD_16384.png
-# @out GW150914_H1_ASD_16384_zoom.png @as GW150914_H1_ASD_16384_zoom.png
-# @out GW150914_H1_ASD_4096_zoom.png @as GW150914_H1_ASD_4096_zoom.png
+# @out GW150914_ASDs.png @as ASDs @desc strain data near GW150914 @uri file:GW150914_ASDs.png
+# @out GW150914_H1_ASD_SamplingRate.png @as H1_ASD_SamplingRate @uri file:GW150914_H1_ASD_{SamplingRate}.png
 
 
 
 # @BEGIN LOAD_DATA @desc Load hdf5 data.
-# @in fn_H1  @as FN_H1 @desc LIGO GW150914 data from H1 detector at sampling rate 4096 Hz
-# @in fn_L1  @as FN_L1 @desc LIGO GW150914 data from L1 detector at sampling rate 4096 Hz
-# @in fn_16 @as FN_16 @desc LIGO GW150914 data from H1 detector at sampling rate 16384 Hz
-# @in fn_4 @as FN_4 @desc LIGO GW150914 data from H1 detector at sampling rate 4096 Hz
+# @in fn_d  @as FN_Detector @uri file:{Detector}_LOSC_4_V1-1126259446-32.hdf5
+# @in fn_sr @as FN_Sampling_rate @uri file:H-H1_LOSC_{downsampling}_V1-1126259446-32.hdf5
 # @out strain_H1 @as strain_H1
 # @out strain_L1 @as strain_L1
 # @out strain_16 @as strain_16
@@ -264,7 +254,7 @@ plt.savefig('GW150914_strain.png')
 # @param fs  
 # @out psd_H1 @as PSD_H1
 # @out psd_L1 @as PSD_L1
-# @out GW150914_ASDs.png @as GW150914_ASDs.png @desc strain data near GW150914
+# @out GW150914_ASDs.png @as ASDs @desc strain data near GW150914 @uri file:GW150914_ASDs.png
 
 # number of sample for the fast fourier transform:
 NFFT = 1*fs
@@ -376,7 +366,7 @@ NR_H1_whitenbp = filtfilt(bb, ab, NR_H1_whiten)
 # @BEGIN STRAIN_WAVEFORM_FOR_WHITENED_DATA @desc plot whitened data.
 # @in strain_H1_whitenbp  @as strain_H1_whitenbp 
 # @in strain_L1_whitenbp @as strain_L1_whitenbp
- # @out GW150914_strain_whitened.png @as GW150914_strain_whitened.png @desc WHITENED strain data
+# @out GW150914_strain_whitened.png @as WHITENED_strain_data @desc WHITENED strain data @uri file:GW150914_strain_whitened.png
 
 # plot the data after whitening:
 # first, shift L1 by 7 ms, and invert. See the GW150914 detection paper for why!
@@ -414,9 +404,8 @@ plt.savefig('GW150914_strain_whitened.png')
 # @BEGIN SPECTROGRAMS_FOR_STRAIN_DATA   @desc plot spectrogram for strain data.
 # @in strain_H1  @as strain_H1 
 # @in strain_L1  @as strain_L1 
-# @param fs 
-# @out GW150914_H1_spectrogram.png @as GW150914_H1_spectrogram.png @desc H1 spectrogram
-# @out GW150914_L1_spectrogram.png @as GW150914_L1_spectrogram.png @desc L1 spectrogram
+# @param fs
+# @out spectrogram.png @as spectrogram @desc spectrogram @uri file:GW150914_{detector}_spectrogram.png
 
 # ## Spectrograms
 # 
@@ -483,8 +472,8 @@ plt.savefig('GW150914_L1_spectrogram.png')
 # @in strain_H1_whiten @as strain_H1_whiten
 # @in strain_L1_whiten @as strain_L1_whiten 
 # @param fs 
-# @out GW150914_H1_spectrogram_whitened.png @as GGW150914_H1_spectrogram_whitened.png @desc H1 whitened spectrogram
-# @out GW150914_L1_spectrogram_whitened.png @as GGW150914_L1_spectrogram_whitened.png @desc L1 whitened spectrogram
+# @out spectrogram_whitened.png @as spectrogram_whitened @desc whitened spectrogram @uri file:GW150914_{detector}_spectrogram_whitened.png
+
 
 
 #  plot the whitened data, zooming in on the signal region:
@@ -634,7 +623,7 @@ def get_filter_coefs(fs):
 # @in coefs @as  COEFFICIENTS
 # @out strain_H1_filt @as strain_H1_filt
 # @out strain_L1_filt @as strain_L1_filt
-# @out GW150914_filter.png @as GW150914_filter.png @desc filter white noise data
+# @out GW150914_filter.png @as filtered_white_noise_data @desc filter white noise data @uri file:GW150914_filter.png
 
 # and then define the filter function:
 def filter_data(data_in,coefs):
@@ -716,8 +705,8 @@ NR_H1_filt = filter_data(NR_H1, coefs)
 # @BEGIN STRAIN_WAVEFORM_FOR_FILTERED_DATA    @desc plot the filtered data.
 # @in strain_H1_filt @as strain_H1_filt
 # @in strain_L1_filt @as strain_L1_filt
-# @out GW150914_H1_strain_filtered.png @as GW150914_H1_strain_filtered.png @desc FILTERED strain data 
-# @out GW150914_H1_strain_unfiltered.png @as GW150914_H1_strain_unfiltered.png @desc UNFILTERED strain data 
+# @out GW150914_H1_strain_filtered.png @as H1_strain_filtered @desc FILTERED strain data  @uri file:GW150914_H1_strain_filtered.png
+# @out GW150914_H1_strain_unfiltered.png @as H1_strain_unfiltered @desc UNFILTERED strain data @uri file:GW150914_H1_strain_unfiltered.png
 
 
 # strain_H1_filt_waveform as strain_H1_waveform 
@@ -765,8 +754,8 @@ plt.savefig('GW150914_H1_strain_filtered.png')
 # @BEGIN WAVE_FILE_GENERATOR_FOR_WHITENED_DATA  @desc Make sound files  for whitened data.
 # @in strain_H1_whitenbp @as strain_H1_whitenbp
 # @in strain_L1_whitenbp @as strain_L1_whitenbp
-# @out GW150914_H1_whitenbp.wav @as GW150914_H1_whitenbp.wav
-# @out GW150914_L1_whitenbp.wav @as GW150914_L1_whitenbp.wav
+# @out whitenbp.wav @as whitened_bandpass_wavefile @desc whitened bandpass wavefile @uri file:GW150914_{detector}_whitenbp.wav
+
 
 
 
@@ -853,8 +842,7 @@ NR_H1_shifted = reqshift(NR_H1_whitenbp,fshift=fshift,sample_rate=fs)
 # @BEGIN WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA  @desc Make sound files for shifted data.
 # @in strain_H1_shifted @as strain_H1_shifted
 # @in strain_L1_shifted @as strain_L1_shifted
-# @out GW150914_H1_shifted.wav @as GW150914_H1_shifted.wav
-# @out GW150914_L1_shifted.wav @as GW150914_L1_shifted.wav
+# @out shifted.wav @as shifted_wavefile @desc shifted wavefile @uri file:GW150914_{detector}_shifted.wav
 
 
 
@@ -871,9 +859,7 @@ write_wavfile("GW150914_NR_shifted.wav",int(fs), NR_H1_shifted)
 # @BEGIN DOWNSAMPLING @desc Downsampling from 16384 Hz to 4096 Hz.
 # @in strain_16 @as strain_16
 # @in strain_4 @as strain_4
-# @out GW150914_H1_ASD_16384.png @as GW150914_H1_ASD_16384.png
-# @out GW150914_H1_ASD_16384_zoom.png @as GW150914_H1_ASD_16384_zoom.png
-# @out GW150914_H1_ASD_4096_zoom.png @as GW150914_H1_ASD_4096_zoom.png
+# @out GW150914_H1_ASD_SamplingRate.png @as H1_ASD_SamplingRate @uri file:GW150914_H1_ASD_{SamplingRate}.png
 
 
 # ## Downsampling from 16384 Hz to 4096 Hz
