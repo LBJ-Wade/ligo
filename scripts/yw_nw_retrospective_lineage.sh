@@ -3,6 +3,9 @@
 DataName=$1
 DataValue=$2
 
+echo $DataName
+echo $DataValue
+
 xsb --quietload --noprompt --nofeedback --nobanner << END_XSB_STDIN
 
 set_prolog_flag(unknown, fail).
