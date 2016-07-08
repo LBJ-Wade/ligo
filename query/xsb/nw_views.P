@@ -3,7 +3,7 @@
 %---------------------------------------------------------------------------------------------------
 % FACT: nw_script_activation(Script, Command, ScriptAct, Docstring).
 %...................................................................................................
-nw_script_activation('GW150914_tutorial_uri.py','run -e Tracer -d 3 GW150914_tutorial_uri.py --cutoff 12 --redundancy 0',1,nil).
+nw_script_activation('GW150914_tutorial.py','run -e Tracer -d 3 GW150914_tutorial.py --cutoff 12 --redundancy 0',1,nil).
 
 
 %---------------------------------------------------------------------------------------------------
@@ -61,7 +61,7 @@ nw_function_activation(478,6,reqshift,834,1).
 nw_function_activation(484,5,write_wavfile,850,1).
 nw_function_activation(487,5,write_wavfile,851,1).
 nw_function_activation(490,5,write_wavfile,852,1).
-nw_function_activation(1,nil,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',61,nil).
+nw_function_activation(1,nil,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',61,nil).
 nw_function_activation(2,nil,loaddata,139,1).
 nw_function_activation(3,nil,loaddata,142,1).
 nw_function_activation(4,nil,genfromtxt,168,1).
@@ -585,10 +585,10 @@ nw_function_activation(551,nil,len,1020,1).
 % FACT: nw_function_argument(ActId, FuncName, LocalVarId, LocalVarName, Value, Type, CallerVarName, CallerVarId)
 %...................................................................................................
 nw_function_argument(77,whiten,347,strain,'now(n/a)',variable,'--graybox--',346).
-nw_function_argument(77,whiten,340,interp_psd,'<scipy.interpolate.interpolate.interp1d object at 0x1141b9470>',variable,psd_H1,295).
+nw_function_argument(77,whiten,340,interp_psd,'<scipy.interpolate.interpolate.interp1d object at 0x10eb23c00>',variable,psd_H1,295).
 nw_function_argument(77,whiten,341,dt,'0.000244140625',variable,dt,45).
 nw_function_argument(83,whiten,379,strain,'now(n/a)',variable,'--graybox--',378).
-nw_function_argument(83,whiten,372,interp_psd,'<scipy.interpolate.interpolate.interp1d object at 0x1141b90a8>',variable,psd_L1,299).
+nw_function_argument(83,whiten,372,interp_psd,'<scipy.interpolate.interpolate.interp1d object at 0x10eb23af8>',variable,psd_L1,299).
 nw_function_argument(83,whiten,373,dt,'0.000244140625',variable,dt,45).
 nw_function_argument(89,whiten,403,strain,'array([ -1.86912777e-22,  -1.77827879e-22,  -1.68582673e-22, ...,
          3.58407297e-26,   3.87926155e-26,   4.05305739e-26])',variable,'NR_H1',52).
@@ -611,8 +611,8 @@ nw_function_argument(284,iir_bandstops,1538,fs,'4096',variable,fs,680).
 nw_function_argument(295,iir_bandstops,1607,fs,'4096',variable,fs,680).
 nw_function_argument(306,iir_bandstops,1676,fs,'4096',variable,fs,680).
 nw_function_argument(317,iir_bandstops,1744,fs,'4096',variable,fs,680).
-nw_function_argument(328,filter_data,1816,data_in,'array([-0.70804454, -0.86409465,  0.0665299 , ...,  0.83120034,
-       -0.72275049, -0.07886903])',variable,data,1815).
+nw_function_argument(328,filter_data,1816,data_in,'array([ 0.89850116,  1.12114433,  0.43688315, ..., -1.21002278,
+        0.44268283, -1.1782002 ])',variable,data,1815).
 nw_function_argument(328,filter_data,1823,data_in,'now(n/a)',variable,'--graybox--',1822).
 nw_function_argument(328,filter_data,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
@@ -637,7 +637,7 @@ nw_function_argument(77,whiten,339,strain,'array([  2.26386630e-19,   2.45062539
          4.42571750e-20,   7.28690972e-20,   7.00518869e-20])',literal,nil,nil).
 nw_function_argument(83,whiten,371,strain,'array([ -1.77955839e-18,  -1.76552067e-18,  -1.71049117e-18, ...,
         -1.76375155e-18,  -1.72364846e-18,  -1.71969299e-18])',literal,nil,nil).
-nw_function_argument(89,whiten,404,interp_psd,'<scipy.interpolate.interpolate.interp1d object at 0x1141b9470>',literal,nil,nil).
+nw_function_argument(89,whiten,404,interp_psd,'<scipy.interpolate.interpolate.interp1d object at 0x10eb23c00>',literal,nil,nil).
 nw_function_argument(152,iir_bandstops,709,fstops,'array([[ 14. ,   1. ,   0.1]])',literal,nil,nil).
 nw_function_argument(163,iir_bandstops,778,fstops,'array([[ 34.7,   1. ,   0.1]])',literal,nil,nil).
 nw_function_argument(174,iir_bandstops,847,fstops,'array([[ 35.3,   1. ,   0.1]])',literal,nil,nil).
@@ -702,11 +702,11 @@ nw_function_argument(490,write_wavfile,3110,fs,'4096',literal,nil,nil).
 %...................................................................................................
 nw_variable_assignment(1,4,signal,76,'<module ''scipy.signal'' from ''/usr/local/lib/python2.7/site-packages/scipy/signal/__init__.pyc''>').
 nw_variable_assignment(1,7,interp1d,77,'<class ''scipy.interpolate.interpolate.interp1d''>').
-nw_variable_assignment(1,10,butter,78,'<function butter at 0x1117679b0>').
-nw_variable_assignment(1,13,freqz,78,'<function freqz at 0x111745d70>').
-nw_variable_assignment(1,14,filtfilt,78,'<function filtfilt at 0x111496500>').
-nw_variable_assignment(1,15,zpk2tf,78,'<function zpk2tf at 0x111767050>').
-nw_variable_assignment(1,16,iirdesign,78,'<function iirdesign at 0x1117675f0>').
+nw_variable_assignment(1,10,butter,78,'<function butter at 0x10ca41aa0>').
+nw_variable_assignment(1,13,freqz,78,'<function freqz at 0x10ca57e60>').
+nw_variable_assignment(1,14,filtfilt,78,'<function filtfilt at 0x10babc5f0>').
+nw_variable_assignment(1,15,zpk2tf,78,'<function zpk2tf at 0x10ca41140>').
+nw_variable_assignment(1,16,iirdesign,78,'<function iirdesign at 0x10ca416e0>').
 nw_variable_assignment(1,17,plt,83,'<module ''matplotlib.pyplot'' from ''/usr/local/lib/python2.7/site-packages/matplotlib/pyplot.pyc''>').
 nw_variable_assignment(1,20,mlab,84,'<module ''matplotlib.mlab'' from ''/usr/local/lib/python2.7/site-packages/matplotlib/mlab.pyc''>').
 nw_variable_assignment(1,23,h5py,85,'<module ''h5py'' from ''/usr/local/lib/python2.7/site-packages/h5py/__init__.pyc''>').
@@ -783,12 +783,12 @@ nw_variable_assignment(1,290,freqs,264,'array([  0.00000000e+00,   1.00000000e+0
          2.04600000e+03,   2.04700000e+03,   2.04800000e+03])').
 nw_variable_assignment(1,291,'Pxx_L1',264,'array([  2.22851728e-36,   1.11509800e-36,   2.96288572e-43, ...,
          5.67326798e-46,   5.53233165e-46,   1.77059496e-46])').
-nw_variable_assignment(1,295,psd_H1,267,'<scipy.interpolate.interpolate.interp1d object at 0x1141b9470>').
-nw_variable_assignment(1,299,psd_L1,268,'<scipy.interpolate.interpolate.interp1d object at 0x1141b90a8>').
-nw_variable_assignment(1,338,whiten,319,'<function whiten at 0x1131816e0>').
+nw_variable_assignment(1,295,psd_H1,267,'<scipy.interpolate.interpolate.interp1d object at 0x10eb23c00>').
+nw_variable_assignment(1,299,psd_L1,268,'<scipy.interpolate.interpolate.interp1d object at 0x10eb23af8>').
+nw_variable_assignment(1,338,whiten,319,'<function whiten at 0x10e50bb90>').
 nw_variable_assignment(77,339,strain,319,'array([  2.26386630e-19,   2.45062539e-19,   2.60734924e-19, ...,
          4.42571750e-20,   7.28690972e-20,   7.00518869e-20])').
-nw_variable_assignment(77,340,interp_psd,319,'<scipy.interpolate.interpolate.interp1d object at 0x1141b9470>').
+nw_variable_assignment(77,340,interp_psd,319,'<scipy.interpolate.interpolate.interp1d object at 0x10eb23c00>').
 nw_variable_assignment(77,341,dt,319,'0.000244140625').
 nw_variable_assignment(77,349,'Nt',320,'131072').
 nw_variable_assignment(77,353,freqs,321,'array([  0.00000000e+00,   3.12500000e-02,   6.25000000e-02, ...,
@@ -807,7 +807,7 @@ nw_variable_assignment(1,370,strain_H1_whiten,331,'array([ 138.28518572,  219.17
        -189.77228223, -112.30029854])').
 nw_variable_assignment(83,371,strain,319,'array([ -1.77955839e-18,  -1.76552067e-18,  -1.71049117e-18, ...,
         -1.76375155e-18,  -1.72364846e-18,  -1.71969299e-18])').
-nw_variable_assignment(83,372,interp_psd,319,'<scipy.interpolate.interpolate.interp1d object at 0x1141b90a8>').
+nw_variable_assignment(83,372,interp_psd,319,'<scipy.interpolate.interpolate.interp1d object at 0x10eb23af8>').
 nw_variable_assignment(83,373,dt,319,'0.000244140625').
 nw_variable_assignment(83,381,'Nt',320,'131072').
 nw_variable_assignment(83,385,freqs,321,'array([  0.00000000e+00,   3.12500000e-02,   6.25000000e-02, ...,
@@ -828,7 +828,7 @@ nw_variable_assignment(1,402,strain_L1_whiten,332,'array([  8.49413154,  -1.6720
         65.39942945,  72.15659253])').
 nw_variable_assignment(89,403,strain,319,'array([ -1.86912777e-22,  -1.77827879e-22,  -1.68582673e-22, ...,
          3.58407297e-26,   3.87926155e-26,   4.05305739e-26])').
-nw_variable_assignment(89,404,interp_psd,319,'<scipy.interpolate.interpolate.interp1d object at 0x1141b9470>').
+nw_variable_assignment(89,404,interp_psd,319,'<scipy.interpolate.interpolate.interp1d object at 0x10eb23c00>').
 nw_variable_assignment(89,405,dt,319,'0.000244140625').
 nw_variable_assignment(89,413,'Nt',320,'2769').
 nw_variable_assignment(89,417,freqs,321,'array([  0.00000000e+00,   1.47923438e+00,   2.95846876e+00, ...,
@@ -1036,7 +1036,7 @@ nw_variable_assignment(1,512,window,427,'array([ -1.38777878e-17,   1.36076821e-
 nw_variable_assignment(1,513,spec_cmap,432,'''viridis''').
 nw_variable_assignment(1,521,freqs,437,'array([  0.00000000e+00,   1.00000000e+00,   2.00000000e+00, ...,
          2.04600000e+03,   2.04700000e+03,   2.04800000e+03])').
-nw_variable_assignment(1,554,im,448,'<matplotlib.image.AxesImage object at 0x1141a64d0>').
+nw_variable_assignment(1,554,im,448,'<matplotlib.image.AxesImage object at 0x10e6ddb50>').
 nw_variable_assignment(1,557,spec_H1,448,'array([[  4.78236934e-40,   4.95512579e-41,   1.26280484e-39, ...,
           1.58650937e-39,   1.09502296e-39,   4.53076045e-40],
        [  5.82398924e-39,   5.61138730e-39,   6.39545627e-39, ...,
@@ -1176,7 +1176,7 @@ nw_variable_assignment(1,602,window,491,'array([ -1.38777878e-17,   5.46533866e-
          1.98254937e-03,   1.37350005e-03,   8.77323434e-04,
          4.92741977e-04,   2.18757215e-04,   5.46533866e-05,
         -1.38777878e-17])').
-nw_variable_assignment(1,606,im,495,'<matplotlib.image.AxesImage object at 0x11334bf50>').
+nw_variable_assignment(1,606,im,495,'<matplotlib.image.AxesImage object at 0x10e55ba50>').
 nw_variable_assignment(1,609,spec_H1,495,'array([[  1.97692662e-37,   2.02714925e-37,   2.13956099e-37, ...,
           3.43902518e-37,   3.33066388e-37,   3.11880868e-37],
        [  1.23752595e-37,   1.29013979e-37,   1.42397810e-37, ...,
@@ -1225,7 +1225,7 @@ nw_variable_assignment(1,610,freqs,495,'array([    0.,     8.,    16.,    24.,  
         2048.])').
 nw_variable_assignment(1,611,bins,495,'array([  0.0625   ,   0.0703125,   0.078125 , ...,  19.921875 ,
         19.9296875,  19.9375   ])').
-nw_variable_assignment(1,643,im,506,'<matplotlib.image.AxesImage object at 0x11258cf90>').
+nw_variable_assignment(1,643,im,506,'<matplotlib.image.AxesImage object at 0x10d69e310>').
 nw_variable_assignment(1,646,spec_H1,506,'array([[  3.28699982e-05,   1.48883866e-06,   1.06053573e-05, ...,
           2.97299512e-04,   5.37262001e-04,   7.63441936e-04],
        [  1.81017961e-04,   1.93452780e-04,   2.20196516e-04, ...,
@@ -1258,9 +1258,9 @@ nw_variable_assignment(1,647,freqs,506,'array([    0.,    16.,    32.,    48.,  
         2048.])').
 nw_variable_assignment(1,648,bins,506,'array([  0.03125   ,   0.03515625,   0.0390625 , ...,  19.9609375 ,
         19.96484375,  19.96875   ])').
-nw_variable_assignment(1,677,iir_bandstops,540,'<function iir_bandstops at 0x113a7e488>').
-nw_variable_assignment(1,678,get_filter_coefs,577,'<function get_filter_coefs at 0x113a7e6e0>').
-nw_variable_assignment(1,679,filter_data,629,'<function filter_data at 0x113cd9b18>').
+nw_variable_assignment(1,677,iir_bandstops,540,'<function iir_bandstops at 0x10e59d410>').
+nw_variable_assignment(1,678,get_filter_coefs,577,'<function get_filter_coefs at 0x10e59d398>').
+nw_variable_assignment(1,679,filter_data,629,'<function filter_data at 0x10e33a578>').
 nw_variable_assignment(147,680,fs,577,'4096').
 nw_variable_assignment(147,682,coefs,580,[]).
 nw_variable_assignment(147,683,lowcut,583,'43').
@@ -1674,15 +1674,15 @@ nw_variable_assignment(147,1801,an,610,'array([ 1.        , -1.73359536,  0.9847
 nw_variable_assignment(1,1810,coefs,644,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]').
-nw_variable_assignment(1,1815,data,647,'array([-0.70804454, -0.86409465,  0.0665299 , ...,  0.83120034,
-       -0.72275049, -0.07886903])').
-nw_variable_assignment(328,1816,data_in,629,'array([-0.70804454, -0.86409465,  0.0665299 , ...,  0.83120034,
-       -0.72275049, -0.07886903])').
+nw_variable_assignment(1,1815,data,647,'array([ 0.89850116,  1.12114433,  0.43688315, ..., -1.21002278,
+        0.44268283, -1.1782002 ])').
+nw_variable_assignment(328,1816,data_in,629,'array([ 0.89850116,  1.12114433,  0.43688315, ..., -1.21002278,
+        0.44268283, -1.1782002 ])').
 nw_variable_assignment(328,1817,coefs,629,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]').
-nw_variable_assignment(328,1825,data,630,'array([-0.70804454, -0.86409465,  0.0665299 , ...,  0.83120034,
-       -0.72275049, -0.07886903])').
+nw_variable_assignment(328,1825,data,630,'array([ 0.89850116,  1.12114433,  0.43688315, ..., -1.21002278,
+        0.44268283, -1.1782002 ])').
 nw_variable_assignment(328,1826,coef,631,'(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996]))').
@@ -1690,104 +1690,104 @@ nw_variable_assignment(328,1827,a,632,'array([  1.        ,  -7.0375439 ,  21.77
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])').
 nw_variable_assignment(328,1828,b,632,'array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431])').
-nw_variable_assignment(328,1834,data,635,'array([-0.02874656,  0.16120581,  0.33270309, ...,  0.66530813,
-        0.46207003,  0.24206241])').
+nw_variable_assignment(328,1834,data,635,'array([ 0.00793142, -0.12819994, -0.26181107, ...,  0.71008123,
+        0.52248895,  0.32058547])').
 nw_variable_assignment(328,1835,coef,631,'(array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751]))').
 nw_variable_assignment(328,1836,a,632,'array([ 1.        , -1.9980369 ,  0.99849751])').
 nw_variable_assignment(328,1837,b,632,'array([ 0.99924875, -1.9980369 ,  0.99924875])').
-nw_variable_assignment(328,1843,data,635,'array([-0.03243848,  0.15718269,  0.32835145, ...,  0.65629623,
-        0.45364163,  0.23422334])').
+nw_variable_assignment(328,1843,data,635,'array([ 0.01697252, -0.11846965, -0.25139738, ...,  0.69867017,
+        0.5117159 ,  0.31045757])').
 nw_variable_assignment(328,1844,coef,631,'(array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657]))').
 nw_variable_assignment(328,1845,a,632,'array([ 1.        , -1.99563676,  0.99846657])').
 nw_variable_assignment(328,1846,b,632,'array([ 0.99923328, -1.99563676,  0.99923328])').
-nw_variable_assignment(328,1852,data,635,'array([-0.03911523,  0.1500334 ,  0.32075056, ...,  0.64088454,
-        0.43845681,  0.21931043])').
+nw_variable_assignment(328,1852,data,635,'array([ 0.03134197, -0.10334331, -0.23555822, ...,  0.67495522,
+        0.48811994,  0.2870497 ])').
 nw_variable_assignment(328,1853,coef,631,'(array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657]))').
 nw_variable_assignment(328,1854,a,632,'array([ 1.        , -1.99553803,  0.99846657])').
 nw_variable_assignment(328,1855,b,632,'array([ 0.99923328, -1.99553803,  0.99923328])').
-nw_variable_assignment(328,1861,data,635,'array([-0.04447571,  0.14436539,  0.31479258, ...,  0.63077916,
-        0.42833866,  0.2092112 ])').
+nw_variable_assignment(328,1861,data,635,'array([ 0.04473812, -0.08934035, -0.22099093, ...,  0.66076469,
+        0.47374252,  0.27252978])').
 nw_variable_assignment(328,1862,coef,631,'(array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657]))').
 nw_variable_assignment(328,1863,a,632,'array([ 1.        , -1.9954376 ,  0.99846657])').
 nw_variable_assignment(328,1864,b,632,'array([ 0.99923328, -1.9954376 ,  0.99923328])').
-nw_variable_assignment(328,1870,data,635,'array([-0.0518632 ,  0.13675967,  0.30699274, ...,  0.62214804,
-        0.41964878,  0.20049094])').
+nw_variable_assignment(328,1870,data,635,'array([ 0.05597759, -0.07763344, -0.20885369, ...,  0.6480384 ,
+        0.46074551,  0.25930372])').
 nw_variable_assignment(328,1871,coef,631,'(array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657]))').
 nw_variable_assignment(328,1872,a,632,'array([ 1.        , -1.99530107,  0.99846657])').
 nw_variable_assignment(328,1873,b,632,'array([ 0.99923328, -1.99530107,  0.99923328])').
-nw_variable_assignment(328,1879,data,635,'array([-0.0604797 ,  0.12784528,  0.29780964, ...,  0.612132  ,
-        0.40951876,  0.19028108])').
+nw_variable_assignment(328,1879,data,635,'array([ 0.0689216 , -0.06435318, -0.19528109, ...,  0.63382428,
+        0.44629809,  0.24467105])').
 nw_variable_assignment(328,1880,coef,631,'(array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657]))').
 nw_variable_assignment(328,1881,a,632,'array([ 1.        , -1.9951967 ,  0.99846657])').
 nw_variable_assignment(328,1882,b,632,'array([ 0.99923328, -1.9951967 ,  0.99923328])').
-nw_variable_assignment(328,1888,data,635,'array([-0.06796058,  0.11998845,  0.28960341, ...,  0.60453109,
-        0.4018504 ,  0.18257243])').
+nw_variable_assignment(328,1888,data,635,'array([ 0.08212466, -0.05083248, -0.18148884, ...,  0.61904048,
+        0.43144458,  0.2297987 ])').
 nw_variable_assignment(328,1889,coef,631,'(array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411]))').
 nw_variable_assignment(328,1890,a,632,'array([ 1.        , -1.99452324,  0.99846411])').
 nw_variable_assignment(328,1891,b,632,'array([ 0.99923206, -1.99452324,  0.99923206])').
-nw_variable_assignment(328,1897,data,635,'array([-0.07128694,  0.11589569,  0.28476061, ...,  0.58689329,
-        0.3842935 ,  0.16516772])').
+nw_variable_assignment(328,1897,data,635,'array([ 0.10575482, -0.02623508, -0.1560221 , ...,  0.59824987,
+        0.41135314,  0.21048794])').
 nw_variable_assignment(328,1898,coef,631,'(array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073]))').
 nw_variable_assignment(328,1899,a,632,'array([ 1.        , -1.99000268,  0.99846073])').
 nw_variable_assignment(328,1900,b,632,'array([ 0.99923036, -1.99000268,  0.99923036])').
-nw_variable_assignment(328,1906,data,635,'array([-0.10344722,  0.08501159,  0.25541774, ...,  0.57371728,
-        0.37214062,  0.1541429 ])').
+nw_variable_assignment(328,1906,data,635,'array([ 0.1340553 ,  0.00265568, -0.12678704, ...,  0.56578247,
+        0.37467376,  0.16990936])').
 nw_variable_assignment(328,1907,coef,631,'(array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ]))').
 nw_variable_assignment(328,1908,a,632,'array([ 1.        , -1.96469091,  0.9984515 ])').
 nw_variable_assignment(328,1909,b,632,'array([ 0.99922575, -1.96469091,  0.99922575])').
-nw_variable_assignment(328,1915,data,635,'array([-0.09982462,  0.08636048,  0.25444547, ...,  0.56621807,
-        0.3725713 ,  0.16249097])').
+nw_variable_assignment(328,1915,data,635,'array([ 0.13942235,  0.01142554, -0.11490718, ...,  0.54219516,
+        0.34908763,  0.14319096])').
 nw_variable_assignment(328,1916,coef,631,'(array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ]))').
 nw_variable_assignment(328,1917,a,632,'array([ 1.        , -1.92276355,  0.9984515 ])').
 nw_variable_assignment(328,1918,b,632,'array([ 0.99922575, -1.92276355,  0.99922575])').
-nw_variable_assignment(328,1924,data,635,'array([-0.10463364,  0.07789086,  0.24295338, ...,  0.60999004,
-        0.41840308,  0.20691293])').
+nw_variable_assignment(328,1924,data,635,'array([ 0.13288629,  0.00991964, -0.11126168, ...,  0.51753815,
+        0.32180416,  0.11534936])').
 nw_variable_assignment(328,1925,coef,631,'(array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ]))').
 nw_variable_assignment(328,1926,a,632,'array([ 1.        , -1.78370091,  0.9984515 ])').
 nw_variable_assignment(328,1927,b,632,'array([ 0.99922575, -1.78370091,  0.99922575])').
-nw_variable_assignment(328,1933,data,635,'array([-0.10242763,  0.07933168,  0.24331891, ...,  0.60830731,
-        0.41665865,  0.20548269])').
+nw_variable_assignment(328,1933,data,635,'array([ 0.13470328,  0.01197873, -0.10940274, ...,  0.51573316,
+        0.31979834,  0.11357415])').
 nw_variable_assignment(328,1934,coef,631,'(array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ]))').
 nw_variable_assignment(328,1935,a,632,'array([ 1.        , -1.74560172,  0.9984515 ])').
 nw_variable_assignment(328,1936,b,632,'array([ 0.99922575, -1.74560172,  0.99922575])').
-nw_variable_assignment(328,1942,data,635,'array([-0.10176765,  0.080324  ,  0.24439349, ...,  0.60789417,
-        0.41651804,  0.20565082])').
+nw_variable_assignment(328,1942,data,635,'array([ 0.13363207,  0.01171793, -0.10878556, ...,  0.51848625,
+        0.32325397,  0.11685804])').
 nw_variable_assignment(328,1943,coef,631,'(array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ]))').
 nw_variable_assignment(328,1944,a,632,'array([ 1.        , -1.41740576,  0.9984515 ])').
 nw_variable_assignment(328,1945,b,632,'array([ 0.99922575, -1.41740576,  0.99922575])').
-nw_variable_assignment(328,1951,data,635,'array([-0.10187166,  0.08028944,  0.24444816, ...,  0.60815547,
-        0.41654737,  0.20543062])').
+nw_variable_assignment(328,1951,data,635,'array([ 0.1335625 ,  0.01169242, -0.1087522 , ...,  0.51864276,
+        0.32331789,  0.11679197])').
 nw_variable_assignment(328,1952,coef,631,'(array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367]))').
 nw_variable_assignment(328,1953,a,632,'array([ 1.        , -0.04294544,  0.99844367])').
 nw_variable_assignment(328,1954,b,632,'array([ 0.99922183, -0.04294544,  0.99922183])').
-nw_variable_assignment(328,1960,data,635,'array([-0.10187942,  0.08032532,  0.24445743, ...,  0.60816991,
-        0.41664792,  0.20542045])').
+nw_variable_assignment(328,1960,data,635,'array([ 0.1335557 ,  0.01170732, -0.10874478, ...,  0.51864037,
+        0.32336059,  0.11679619])').
 nw_variable_assignment(328,1961,coef,631,'(array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463]))').
 nw_variable_assignment(328,1962,a,632,'array([ 1.        , -1.24335188,  0.75216463])').
 nw_variable_assignment(328,1963,b,632,'array([ 0.87608232, -1.24335188,  0.87608232])').
-nw_variable_assignment(328,1969,data,635,'array([-0.10900311,  0.06976939,  0.23230685, ...,  0.60338764,
-        0.40667671,  0.1900336 ])').
+nw_variable_assignment(328,1969,data,635,'array([ 0.13027117,  0.00967958, -0.10845088, ...,  0.5166773 ,
+        0.32127739,  0.11279403])').
 nw_variable_assignment(328,1970,coef,631,'(array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))').
 nw_variable_assignment(328,1971,a,632,'array([ 1.        , -1.73359536,  0.98471624])').
 nw_variable_assignment(328,1972,b,632,'array([ 0.99235812, -1.73359536,  0.99235812])').
-nw_variable_assignment(328,1978,data,635,'array([-0.10378613,  0.06987938,  0.22726702, ...,  0.59704438,
-        0.40459243,  0.19279749])').
-nw_variable_assignment(1,1981,resp,650,'array([-0.10378613,  0.06987938,  0.22726702, ...,  0.59704438,
-        0.40459243,  0.19279749])').
+nw_variable_assignment(328,1978,data,635,'array([ 0.13057198,  0.00974574, -0.10861278, ...,  0.51862247,
+        0.32778917,  0.12223813])').
+nw_variable_assignment(1,1981,resp,650,'array([ 0.13057198,  0.00974574, -0.10861278, ...,  0.51862247,
+        0.32778917,  0.12223813])').
 nw_variable_assignment(1,1982,'NFFT',653,'2048').
 nw_variable_assignment(1,1986,freqs,654,'array([  0.00000000e+00,   2.00000000e+00,   4.00000000e+00, ...,
          2.04400000e+03,   2.04600000e+03,   2.04800000e+03])').
-nw_variable_assignment(1,1987,'Pxx_data',654,'array([ 0.00022191,  0.00045505,  0.0004574 , ...,  0.00049081,
-        0.00048251,  0.00021853])').
-nw_variable_assignment(1,1991,'Pxx_resp',655,'array([  7.02861396e-13,   1.54641461e-12,   2.17901617e-12, ...,
-         6.05184554e-22,   6.04855846e-22,   3.02373144e-22])').
+nw_variable_assignment(1,1987,'Pxx_data',654,'array([ 0.00024429,  0.00048179,  0.00048412, ...,  0.00050394,
+        0.0004769 ,  0.00023497])').
+nw_variable_assignment(1,1991,'Pxx_resp',655,'array([  7.91803764e-13,   1.80924315e-12,   2.88003938e-12, ...,
+         5.67385297e-22,   5.67016296e-22,   2.83446650e-22])').
 nw_variable_assignment(1,1992,freqs,655,'array([  0.00000000e+00,   2.00000000e+00,   4.00000000e+00, ...,
          2.04400000e+03,   2.04600000e+03,   2.04800000e+03])').
-nw_variable_assignment(1,2000,norm,658,'0.022019862417863259').
-nw_variable_assignment(1,2001,asd_data,659,'array([ 0.67651028,  0.96876062,  0.9712602 , ...,  1.00609732,
-        0.99756021,  0.6713381 ])').
-nw_variable_assignment(1,2006,asd_resp,660,'array([  3.80732757e-05,   5.64739768e-05,   6.70371628e-05, ...,
-         1.11719586e-09,   1.11689241e-09,   7.89690669e-10])').
+nw_variable_assignment(1,2000,norm,658,'0.022039852792980506').
+nw_variable_assignment(1,2001,asd_data,659,'array([ 0.70915973,  0.99590594,  0.99831866, ...,  1.01854867,
+        0.99084787,  0.69549412])').
+nw_variable_assignment(1,2006,asd_resp,660,'array([  4.03738431e-05,   6.10294954e-05,   7.69999643e-05, ...,
+         1.08076270e-09,   1.08041121e-09,   7.63883228e-10])').
 nw_variable_assignment(1,2007,'Nc',663,'2000').
 nw_variable_assignment(1,2011,filt_resp,664,'array([ 1.,  1.,  1., ...,  1.,  1.,  1.])').
 nw_variable_assignment(1,2012,coef,665,'(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
@@ -2267,7 +2267,7 @@ nw_variable_assignment(1,2762,'NR_H1_filt',697,'array([  1.56109739e-23,   1.609
 nw_variable_assignment(1,2799,strain_L1_fils,727,'array([ -3.63420113e-21,  -3.12403387e-21,  -2.58008035e-21, ...,
         -4.53115378e-21,  -4.35751158e-21,  -4.05633925e-21])').
 nw_variable_assignment(1,2839,wavfile,770,'<module ''scipy.io.wavfile'' from ''/usr/local/lib/python2.7/site-packages/scipy/io/wavfile.pyc''>').
-nw_variable_assignment(1,2842,write_wavfile,773,'<function write_wavfile at 0x112fc7ed8>').
+nw_variable_assignment(1,2842,write_wavfile,773,'<function write_wavfile at 0x10da51c08>').
 nw_variable_assignment(1,2843,tevent,777,'1126259462.422').
 nw_variable_assignment(1,2844,deltat,778,'2.0').
 nw_variable_assignment(1,2851,indxt,781,'(array([59073, 59074, 59075, ..., 75454, 75455, 75456]),)').
@@ -2286,7 +2286,7 @@ nw_variable_assignment(463,2911,data,773,'array([-0.01765915, -0.047861  , -0.07
         0.11964945,  0.05069632])').
 nw_variable_assignment(463,2912,filename,773,'''GW150914_NR_whitenbp.wav''').
 nw_variable_assignment(463,2924,d,774,'array([-149, -406, -636, ..., 1578, 1015,  430], dtype=int16)').
-nw_variable_assignment(1,2938,reqshift,813,'<function reqshift at 0x113e04cf8>').
+nw_variable_assignment(1,2938,reqshift,813,'<function reqshift at 0x10cbde500>').
 nw_variable_assignment(1,2939,fs,826,'4096').
 nw_variable_assignment(1,2940,fshift,827,'400.0').
 nw_variable_assignment(1,2941,speedup,828,'1.0').
@@ -2499,7 +2499,7 @@ nw_variable_assignment(1,3415,time_seg,1018,'array([  1.12625945e+09,   1.126259
 nw_variable_assignment(1,3416,seg_strain,1019,'array([ -1.77955839e-18,  -1.76552067e-18,  -1.71049117e-18, ...,
         -1.76375155e-18,  -1.72364846e-18,  -1.71969299e-18])').
 nw_variable_assignment(1,3421,iseg,1021,'1').
-nw_variable_assignment(1,3422,gps2utc,1027,'<function gps2utc at 0x112f0cd70>').
+nw_variable_assignment(1,3422,gps2utc,1027,'<function gps2utc at 0x10d195488>').
 
 
 %---------------------------------------------------------------------------------------------------
@@ -2713,7 +2713,7 @@ nw_variable_usage(114,77,357,hf,'array([  1.14462529e-17 +0.00000000e+00j,
          4.41472708e-16 +3.52784205e-16j, ...,
          2.53738991e-19 +1.08013208e-19j,
          4.27194268e-19 -3.70579396e-20j,   9.66973522e-21 +0.00000000e+00j])',326).
-nw_variable_usage(115,77,340,interp_psd,'<scipy.interpolate.interpolate.interp1d object at 0x1141b9470>',326).
+nw_variable_usage(115,77,340,interp_psd,'<scipy.interpolate.interpolate.interp1d object at 0x10eb23c00>',326).
 nw_variable_usage(116,77,353,freqs,'array([  0.00000000e+00,   3.12500000e-02,   6.25000000e-02, ...,
          2.04793750e+03,   2.04796875e+03,   2.04800000e+03])',326).
 nw_variable_usage(117,77,341,dt,'0.000244140625',326).
@@ -2735,7 +2735,7 @@ nw_variable_usage(129,83,389,hf,'array([ -2.39692348e-13 +0.00000000e+00j,
         -2.19287293e-17 +8.69157009e-20j, ...,
          1.32539211e-19 +1.51504168e-20j,
         -3.12940699e-19 -1.34979367e-19j,  -2.13450854e-19 +0.00000000e+00j])',326).
-nw_variable_usage(130,83,372,interp_psd,'<scipy.interpolate.interpolate.interp1d object at 0x1141b90a8>',326).
+nw_variable_usage(130,83,372,interp_psd,'<scipy.interpolate.interpolate.interp1d object at 0x10eb23af8>',326).
 nw_variable_usage(131,83,385,freqs,'array([  0.00000000e+00,   3.12500000e-02,   6.25000000e-02, ...,
          2.04793750e+03,   2.04796875e+03,   2.04800000e+03])',326).
 nw_variable_usage(132,83,373,dt,'0.000244140625',326).
@@ -2759,7 +2759,7 @@ nw_variable_usage(144,89,421,hf,'array([  1.01265542e-20 +0.00000000e+00j,
          1.03090368e-20 -9.86277176e-22j, ...,
         -9.57253555e-23 +2.64703400e-25j,
         -9.57253126e-23 +1.58820940e-25j,  -9.57252911e-23 +5.29401288e-26j])',326).
-nw_variable_usage(145,89,404,interp_psd,'<scipy.interpolate.interpolate.interp1d object at 0x1141b9470>',326).
+nw_variable_usage(145,89,404,interp_psd,'<scipy.interpolate.interpolate.interp1d object at 0x10eb23c00>',326).
 nw_variable_usage(146,89,417,freqs,'array([  0.00000000e+00,   1.47923438e+00,   2.95846876e+00, ...,
          2.04430191e+03,   2.04578115e+03,   2.04726038e+03])',326).
 nw_variable_usage(147,89,405,dt,'0.000244140625',326).
@@ -3853,138 +3853,138 @@ nw_variable_usage(961,328,1826,coef,'(array([ 0.00051431,  0.        , -0.002057
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996]))',632).
 nw_variable_usage(962,328,1831,b,'now(n/a)',635).
 nw_variable_usage(963,328,1832,a,'now(n/a)',635).
-nw_variable_usage(964,328,1825,data,'array([-0.70804454, -0.86409465,  0.0665299 , ...,  0.83120034,
-       -0.72275049, -0.07886903])',635).
+nw_variable_usage(964,328,1825,data,'array([ 0.89850116,  1.12114433,  0.43688315, ..., -1.21002278,
+        0.44268283, -1.1782002 ])',635).
 nw_variable_usage(965,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(966,328,1835,coef,'(array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751]))',632).
 nw_variable_usage(967,328,1840,b,'now(n/a)',635).
 nw_variable_usage(968,328,1841,a,'now(n/a)',635).
-nw_variable_usage(969,328,1834,data,'array([-0.02874656,  0.16120581,  0.33270309, ...,  0.66530813,
-        0.46207003,  0.24206241])',635).
+nw_variable_usage(969,328,1834,data,'array([ 0.00793142, -0.12819994, -0.26181107, ...,  0.71008123,
+        0.52248895,  0.32058547])',635).
 nw_variable_usage(970,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(971,328,1844,coef,'(array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657]))',632).
 nw_variable_usage(972,328,1849,b,'now(n/a)',635).
 nw_variable_usage(973,328,1850,a,'now(n/a)',635).
-nw_variable_usage(974,328,1843,data,'array([-0.03243848,  0.15718269,  0.32835145, ...,  0.65629623,
-        0.45364163,  0.23422334])',635).
+nw_variable_usage(974,328,1843,data,'array([ 0.01697252, -0.11846965, -0.25139738, ...,  0.69867017,
+        0.5117159 ,  0.31045757])',635).
 nw_variable_usage(975,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(976,328,1853,coef,'(array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657]))',632).
 nw_variable_usage(977,328,1858,b,'now(n/a)',635).
 nw_variable_usage(978,328,1859,a,'now(n/a)',635).
-nw_variable_usage(979,328,1852,data,'array([-0.03911523,  0.1500334 ,  0.32075056, ...,  0.64088454,
-        0.43845681,  0.21931043])',635).
+nw_variable_usage(979,328,1852,data,'array([ 0.03134197, -0.10334331, -0.23555822, ...,  0.67495522,
+        0.48811994,  0.2870497 ])',635).
 nw_variable_usage(980,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(981,328,1862,coef,'(array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657]))',632).
 nw_variable_usage(982,328,1867,b,'now(n/a)',635).
 nw_variable_usage(983,328,1868,a,'now(n/a)',635).
-nw_variable_usage(984,328,1861,data,'array([-0.04447571,  0.14436539,  0.31479258, ...,  0.63077916,
-        0.42833866,  0.2092112 ])',635).
+nw_variable_usage(984,328,1861,data,'array([ 0.04473812, -0.08934035, -0.22099093, ...,  0.66076469,
+        0.47374252,  0.27252978])',635).
 nw_variable_usage(985,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(986,328,1871,coef,'(array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657]))',632).
 nw_variable_usage(987,328,1876,b,'now(n/a)',635).
 nw_variable_usage(988,328,1877,a,'now(n/a)',635).
-nw_variable_usage(989,328,1870,data,'array([-0.0518632 ,  0.13675967,  0.30699274, ...,  0.62214804,
-        0.41964878,  0.20049094])',635).
+nw_variable_usage(989,328,1870,data,'array([ 0.05597759, -0.07763344, -0.20885369, ...,  0.6480384 ,
+        0.46074551,  0.25930372])',635).
 nw_variable_usage(990,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(991,328,1880,coef,'(array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657]))',632).
 nw_variable_usage(992,328,1885,b,'now(n/a)',635).
 nw_variable_usage(993,328,1886,a,'now(n/a)',635).
-nw_variable_usage(994,328,1879,data,'array([-0.0604797 ,  0.12784528,  0.29780964, ...,  0.612132  ,
-        0.40951876,  0.19028108])',635).
+nw_variable_usage(994,328,1879,data,'array([ 0.0689216 , -0.06435318, -0.19528109, ...,  0.63382428,
+        0.44629809,  0.24467105])',635).
 nw_variable_usage(995,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(996,328,1889,coef,'(array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411]))',632).
 nw_variable_usage(997,328,1894,b,'now(n/a)',635).
 nw_variable_usage(998,328,1895,a,'now(n/a)',635).
-nw_variable_usage(999,328,1888,data,'array([-0.06796058,  0.11998845,  0.28960341, ...,  0.60453109,
-        0.4018504 ,  0.18257243])',635).
+nw_variable_usage(999,328,1888,data,'array([ 0.08212466, -0.05083248, -0.18148884, ...,  0.61904048,
+        0.43144458,  0.2297987 ])',635).
 nw_variable_usage(1000,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(1001,328,1898,coef,'(array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073]))',632).
 nw_variable_usage(1002,328,1903,b,'now(n/a)',635).
 nw_variable_usage(1003,328,1904,a,'now(n/a)',635).
-nw_variable_usage(1004,328,1897,data,'array([-0.07128694,  0.11589569,  0.28476061, ...,  0.58689329,
-        0.3842935 ,  0.16516772])',635).
+nw_variable_usage(1004,328,1897,data,'array([ 0.10575482, -0.02623508, -0.1560221 , ...,  0.59824987,
+        0.41135314,  0.21048794])',635).
 nw_variable_usage(1005,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(1006,328,1907,coef,'(array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ]))',632).
 nw_variable_usage(1007,328,1912,b,'now(n/a)',635).
 nw_variable_usage(1008,328,1913,a,'now(n/a)',635).
-nw_variable_usage(1009,328,1906,data,'array([-0.10344722,  0.08501159,  0.25541774, ...,  0.57371728,
-        0.37214062,  0.1541429 ])',635).
+nw_variable_usage(1009,328,1906,data,'array([ 0.1340553 ,  0.00265568, -0.12678704, ...,  0.56578247,
+        0.37467376,  0.16990936])',635).
 nw_variable_usage(1010,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(1011,328,1916,coef,'(array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ]))',632).
 nw_variable_usage(1012,328,1921,b,'now(n/a)',635).
 nw_variable_usage(1013,328,1922,a,'now(n/a)',635).
-nw_variable_usage(1014,328,1915,data,'array([-0.09982462,  0.08636048,  0.25444547, ...,  0.56621807,
-        0.3725713 ,  0.16249097])',635).
+nw_variable_usage(1014,328,1915,data,'array([ 0.13942235,  0.01142554, -0.11490718, ...,  0.54219516,
+        0.34908763,  0.14319096])',635).
 nw_variable_usage(1015,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(1016,328,1925,coef,'(array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ]))',632).
 nw_variable_usage(1017,328,1930,b,'now(n/a)',635).
 nw_variable_usage(1018,328,1931,a,'now(n/a)',635).
-nw_variable_usage(1019,328,1924,data,'array([-0.10463364,  0.07789086,  0.24295338, ...,  0.60999004,
-        0.41840308,  0.20691293])',635).
+nw_variable_usage(1019,328,1924,data,'array([ 0.13288629,  0.00991964, -0.11126168, ...,  0.51753815,
+        0.32180416,  0.11534936])',635).
 nw_variable_usage(1020,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(1021,328,1934,coef,'(array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ]))',632).
 nw_variable_usage(1022,328,1939,b,'now(n/a)',635).
 nw_variable_usage(1023,328,1940,a,'now(n/a)',635).
-nw_variable_usage(1024,328,1933,data,'array([-0.10242763,  0.07933168,  0.24331891, ...,  0.60830731,
-        0.41665865,  0.20548269])',635).
+nw_variable_usage(1024,328,1933,data,'array([ 0.13470328,  0.01197873, -0.10940274, ...,  0.51573316,
+        0.31979834,  0.11357415])',635).
 nw_variable_usage(1025,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(1026,328,1943,coef,'(array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ]))',632).
 nw_variable_usage(1027,328,1948,b,'now(n/a)',635).
 nw_variable_usage(1028,328,1949,a,'now(n/a)',635).
-nw_variable_usage(1029,328,1942,data,'array([-0.10176765,  0.080324  ,  0.24439349, ...,  0.60789417,
-        0.41651804,  0.20565082])',635).
+nw_variable_usage(1029,328,1942,data,'array([ 0.13363207,  0.01171793, -0.10878556, ...,  0.51848625,
+        0.32325397,  0.11685804])',635).
 nw_variable_usage(1030,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(1031,328,1952,coef,'(array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367]))',632).
 nw_variable_usage(1032,328,1957,b,'now(n/a)',635).
 nw_variable_usage(1033,328,1958,a,'now(n/a)',635).
-nw_variable_usage(1034,328,1951,data,'array([-0.10187166,  0.08028944,  0.24444816, ...,  0.60815547,
-        0.41654737,  0.20543062])',635).
+nw_variable_usage(1034,328,1951,data,'array([ 0.1335625 ,  0.01169242, -0.1087522 , ...,  0.51864276,
+        0.32331789,  0.11679197])',635).
 nw_variable_usage(1035,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(1036,328,1961,coef,'(array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463]))',632).
 nw_variable_usage(1037,328,1966,b,'now(n/a)',635).
 nw_variable_usage(1038,328,1967,a,'now(n/a)',635).
-nw_variable_usage(1039,328,1960,data,'array([-0.10187942,  0.08032532,  0.24445743, ...,  0.60816991,
-        0.41664792,  0.20542045])',635).
+nw_variable_usage(1039,328,1960,data,'array([ 0.1335557 ,  0.01170732, -0.10874478, ...,  0.51864037,
+        0.32336059,  0.11679619])',635).
 nw_variable_usage(1040,328,1817,coefs,'[(array([ 0.00051431,  0.        , -0.00205725,  0.        ,  0.00308588,
         0.        , -0.00205725,  0.        ,  0.00051431]), array([  1.        ,  -7.0375439 ,  21.77741075, -38.71218128,
         43.24588226, -31.09228799,  14.05090543,  -3.64921492,   0.41702996])), (array([ 0.99924875, -1.9980369 ,  0.99924875]), array([ 1.        , -1.9980369 ,  0.99849751])), (array([ 0.99923328, -1.99563676,  0.99923328]), array([ 1.        , -1.99563676,  0.99846657])), (array([ 0.99923328, -1.99553803,  0.99923328]), array([ 1.        , -1.99553803,  0.99846657])), (array([ 0.99923328, -1.9954376 ,  0.99923328]), array([ 1.        , -1.9954376 ,  0.99846657])), (array([ 0.99923328, -1.99530107,  0.99923328]), array([ 1.        , -1.99530107,  0.99846657])), (array([ 0.99923328, -1.9951967 ,  0.99923328]), array([ 1.        , -1.9951967 ,  0.99846657])), (array([ 0.99923206, -1.99452324,  0.99923206]), array([ 1.        , -1.99452324,  0.99846411])), (array([ 0.99923036, -1.99000268,  0.99923036]), array([ 1.        , -1.99000268,  0.99846073])), (array([ 0.99922575, -1.96469091,  0.99922575]), array([ 1.        , -1.96469091,  0.9984515 ])), (array([ 0.99922575, -1.92276355,  0.99922575]), array([ 1.        , -1.92276355,  0.9984515 ])), (array([ 0.99922575, -1.78370091,  0.99922575]), array([ 1.        , -1.78370091,  0.9984515 ])), (array([ 0.99922575, -1.74560172,  0.99922575]), array([ 1.        , -1.74560172,  0.9984515 ])), (array([ 0.99922575, -1.41740576,  0.99922575]), array([ 1.        , -1.41740576,  0.9984515 ])), (array([ 0.99922183, -0.04294544,  0.99922183]), array([ 1.        , -0.04294544,  0.99844367])), (array([ 0.87608232, -1.24335188,  0.87608232]), array([ 1.        , -1.24335188,  0.75216463])), (array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))]',631).
 nw_variable_usage(1041,328,1970,coef,'(array([ 0.99235812, -1.73359536,  0.99235812]), array([ 1.        , -1.73359536,  0.98471624]))',632).
 nw_variable_usage(1042,328,1975,b,'now(n/a)',635).
 nw_variable_usage(1043,328,1976,a,'now(n/a)',635).
-nw_variable_usage(1044,328,1969,data,'array([-0.10900311,  0.06976939,  0.23230685, ...,  0.60338764,
-        0.40667671,  0.1900336 ])',635).
-nw_variable_usage(1045,328,1978,data,'array([-0.10378613,  0.06987938,  0.22726702, ...,  0.59704438,
-        0.40459243,  0.19279749])',636).
+nw_variable_usage(1044,328,1969,data,'array([ 0.13027117,  0.00967958, -0.10845088, ...,  0.5166773 ,
+        0.32127739,  0.11279403])',635).
+nw_variable_usage(1045,328,1978,data,'array([ 0.13057198,  0.00974574, -0.10861278, ...,  0.51862247,
+        0.32778917,  0.12223813])',636).
 nw_variable_usage(1047,1,1819,data,'now(n/a)',650).
 nw_variable_usage(1048,1,1820,coefs,'now(n/a)',650).
 nw_variable_usage(1049,1,43,fs,'4096',653).
@@ -3993,21 +3993,21 @@ nw_variable_usage(1051,1,1819,data,'now(n/a)',654).
 nw_variable_usage(1052,1,43,fs,'4096',654).
 nw_variable_usage(1053,1,1982,'NFFT','2048',654).
 nw_variable_usage(1054,1,20,mlab,'<module ''matplotlib.mlab'' from ''/usr/local/lib/python2.7/site-packages/matplotlib/mlab.pyc''>',655).
-nw_variable_usage(1055,1,1981,resp,'array([-0.10378613,  0.06987938,  0.22726702, ...,  0.59704438,
-        0.40459243,  0.19279749])',655).
+nw_variable_usage(1055,1,1981,resp,'array([ 0.13057198,  0.00974574, -0.10861278, ...,  0.51862247,
+        0.32778917,  0.12223813])',655).
 nw_variable_usage(1056,1,43,fs,'4096',655).
 nw_variable_usage(1057,1,1982,'NFFT','2048',655).
 nw_variable_usage(1058,1,1813,np,'now(n/a)',658).
-nw_variable_usage(1059,1,1987,'Pxx_data','array([ 0.00022191,  0.00045505,  0.0004574 , ...,  0.00049081,
-        0.00048251,  0.00021853])',658).
+nw_variable_usage(1059,1,1987,'Pxx_data','array([ 0.00024429,  0.00048179,  0.00048412, ...,  0.00050394,
+        0.0004769 ,  0.00023497])',658).
 nw_variable_usage(1060,1,1813,np,'now(n/a)',659).
-nw_variable_usage(1061,1,1987,'Pxx_data','array([ 0.00022191,  0.00045505,  0.0004574 , ...,  0.00049081,
-        0.00048251,  0.00021853])',659).
-nw_variable_usage(1062,1,2000,norm,'0.022019862417863259',659).
+nw_variable_usage(1061,1,1987,'Pxx_data','array([ 0.00024429,  0.00048179,  0.00048412, ...,  0.00050394,
+        0.0004769 ,  0.00023497])',659).
+nw_variable_usage(1062,1,2000,norm,'0.022039852792980506',659).
 nw_variable_usage(1063,1,1813,np,'now(n/a)',660).
-nw_variable_usage(1064,1,1991,'Pxx_resp','array([  7.02861396e-13,   1.54641461e-12,   2.17901617e-12, ...,
-         6.05184554e-22,   6.04855846e-22,   3.02373144e-22])',660).
-nw_variable_usage(1065,1,2000,norm,'0.022019862417863259',660).
+nw_variable_usage(1064,1,1991,'Pxx_resp','array([  7.91803764e-13,   1.80924315e-12,   2.88003938e-12, ...,
+         5.67385297e-22,   5.67016296e-22,   2.83446650e-22])',660).
+nw_variable_usage(1065,1,2000,norm,'0.022039852792980506',660).
 nw_variable_usage(1066,1,1813,np,'now(n/a)',664).
 nw_variable_usage(1067,1,2007,'Nc','2000',664).
 nw_variable_usage(1068,1,1820,coefs,'now(n/a)',665).
@@ -4227,13 +4227,13 @@ nw_variable_usage(1225,1,17,plt,'<module ''matplotlib.pyplot'' from ''/usr/local
 nw_variable_usage(1226,1,17,plt,'<module ''matplotlib.pyplot'' from ''/usr/local/lib/python2.7/site-packages/matplotlib/pyplot.pyc''>',675).
 nw_variable_usage(1227,1,1992,freqs,'array([  0.00000000e+00,   2.00000000e+00,   4.00000000e+00, ...,
          2.04400000e+03,   2.04600000e+03,   2.04800000e+03])',675).
-nw_variable_usage(1228,1,2001,asd_data,'array([ 0.67651028,  0.96876062,  0.9712602 , ...,  1.00609732,
-        0.99756021,  0.6713381 ])',675).
+nw_variable_usage(1228,1,2001,asd_data,'array([ 0.70915973,  0.99590594,  0.99831866, ...,  1.01854867,
+        0.99084787,  0.69549412])',675).
 nw_variable_usage(1229,1,17,plt,'<module ''matplotlib.pyplot'' from ''/usr/local/lib/python2.7/site-packages/matplotlib/pyplot.pyc''>',676).
 nw_variable_usage(1230,1,1992,freqs,'array([  0.00000000e+00,   2.00000000e+00,   4.00000000e+00, ...,
          2.04400000e+03,   2.04600000e+03,   2.04800000e+03])',676).
-nw_variable_usage(1231,1,2006,asd_resp,'array([  3.80732757e-05,   5.64739768e-05,   6.70371628e-05, ...,
-         1.11719586e-09,   1.11689241e-09,   7.89690669e-10])',676).
+nw_variable_usage(1231,1,2006,asd_resp,'array([  4.03738431e-05,   6.10294954e-05,   7.69999643e-05, ...,
+         1.08076270e-09,   1.08041121e-09,   7.63883228e-10])',676).
 nw_variable_usage(1232,1,17,plt,'<module ''matplotlib.pyplot'' from ''/usr/local/lib/python2.7/site-packages/matplotlib/pyplot.pyc''>',677).
 nw_variable_usage(1233,1,2233,freqf,'array([  0.00000000e+00,   1.02400000e+00,   2.04800000e+00, ...,
          2.04492800e+03,   2.04595200e+03,   2.04697600e+03])',677).
@@ -5173,130 +5173,130 @@ nw_variable_dependency(argument,378,filter_data,629,2265,data_in,343,strain_H1).
 nw_variable_dependency(argument,378,filter_data,629,2266,coefs,1820,coefs).
 nw_variable_dependency(argument,251,iir_bandstops,540,1331,fs,680,fs).
 nw_variable_dependency(argument,317,iir_bandstops,540,1744,fs,680,fs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',193,195,bits,42,chan_dict_L1).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',195,218,bits,42,chan_dict_L1).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',260,279,'NFFT',43,fs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',267,295,psd_H1,7,interp1d).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',268,299,psd_L1,7,interp1d).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',653,1982,'NFFT',43,fs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',147,44,time,33,time_H1).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',659,2001,asd_data,2000,norm).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',660,2006,asd_resp,2000,norm).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',149,45,dt,44,time).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2051,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2116,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2181,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2064,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2129,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2194,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2012,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2077,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2142,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2207,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2025,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2090,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2155,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2220,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2038,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2103,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',665,2168,coef,1820,coefs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2052,a,2051,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2053,b,2051,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2117,a,2116,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2182,a,2181,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2118,b,2116,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2183,b,2181,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2065,a,2064,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2066,b,2064,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2130,a,2129,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2131,b,2129,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2195,a,2194,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2196,b,2194,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2013,a,2012,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2078,a,2077,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2014,b,2012,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2079,b,2077,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2143,a,2142,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2144,b,2142,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2208,a,2207,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2209,b,2207,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2026,a,2025,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2091,a,2090,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2027,b,2025,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2092,b,2090,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2156,a,2155,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2221,a,2220,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2157,b,2155,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2222,b,2220,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2039,a,2038,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2040,b,2038,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2104,a,2103,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2169,a,2168,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2105,b,2103,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',666,2170,b,2168,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2048,filt_resp,2038,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2048,filt_resp,2035,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2113,filt_resp,2103,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2113,filt_resp,2100,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2178,filt_resp,2165,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2178,filt_resp,2168,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2061,filt_resp,2048,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2061,filt_resp,2051,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2126,filt_resp,2116,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2126,filt_resp,2113,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2191,filt_resp,2178,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2191,filt_resp,2181,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2074,filt_resp,2064,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2074,filt_resp,2061,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2139,filt_resp,2126,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2139,filt_resp,2129,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2204,filt_resp,2191,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2204,filt_resp,2194,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2022,filt_resp,2012,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2022,filt_resp,2011,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2087,filt_resp,2074,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2087,filt_resp,2077,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2152,filt_resp,2142,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2152,filt_resp,2139,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2217,filt_resp,2207,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2217,filt_resp,2204,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2035,filt_resp,2022,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2035,filt_resp,2025,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2100,filt_resp,2090,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2100,filt_resp,2087,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2165,filt_resp,2155,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2165,filt_resp,2152,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2230,filt_resp,2220,coef).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',668,2230,filt_resp,2217,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',669,2233,freqf,43,fs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',669,2233,freqf,1813,np).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',669,2233,freqf,2229,w).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',671,2234,filt_resp,2230,filt_resp).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',422,507,'NFFT',43,fs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',486,597,'NFFT',43,fs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',488,598,'NOVL',597,'NFFT').
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',424,508,'NOVL',507,'NFFT').
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1005,3396,segment,3393,segment_list).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1006,3397,time_seg,3305,time).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1006,3397,time_seg,3396,segment).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1007,3398,seg_strain,3384,strain).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1007,3398,seg_strain,3396,segment).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',945,3253,'NFFT',3252,fs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1009,3403,iseg,3395,iseg).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1009,3403,iseg,3396,segment).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',887,3153,'NFFT',3152,fs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1017,3414,segment,3411,segment_list).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',185,103,bits,35,chan_dict_H1).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1018,3415,time_seg,3305,time).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1018,3415,time_seg,3414,segment).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',891,3160,'NFFT',3159,fs).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',187,126,bits,35,chan_dict_H1).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1019,3416,seg_strain,3384,strain).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1019,3416,seg_strain,3414,segment).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1021,3421,iseg,3414,segment).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',1021,3421,iseg,3413,iseg).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',189,149,bits,35,chan_dict_H1).
-nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial_uri.py',191,172,bits,42,chan_dict_L1).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',193,195,bits,42,chan_dict_L1).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',195,218,bits,42,chan_dict_L1).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',260,279,'NFFT',43,fs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',267,295,psd_H1,7,interp1d).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',268,299,psd_L1,7,interp1d).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',653,1982,'NFFT',43,fs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',147,44,time,33,time_H1).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',659,2001,asd_data,2000,norm).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',660,2006,asd_resp,2000,norm).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',149,45,dt,44,time).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2051,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2116,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2181,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2064,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2129,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2194,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2012,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2077,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2142,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2207,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2025,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2090,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2155,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2220,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2038,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2103,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',665,2168,coef,1820,coefs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2052,a,2051,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2053,b,2051,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2117,a,2116,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2182,a,2181,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2118,b,2116,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2183,b,2181,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2065,a,2064,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2066,b,2064,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2130,a,2129,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2131,b,2129,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2195,a,2194,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2196,b,2194,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2013,a,2012,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2078,a,2077,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2014,b,2012,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2079,b,2077,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2143,a,2142,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2144,b,2142,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2208,a,2207,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2209,b,2207,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2026,a,2025,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2091,a,2090,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2027,b,2025,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2092,b,2090,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2156,a,2155,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2221,a,2220,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2157,b,2155,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2222,b,2220,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2039,a,2038,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2040,b,2038,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2104,a,2103,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2169,a,2168,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2105,b,2103,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',666,2170,b,2168,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2048,filt_resp,2038,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2048,filt_resp,2035,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2113,filt_resp,2103,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2113,filt_resp,2100,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2178,filt_resp,2165,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2178,filt_resp,2168,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2061,filt_resp,2048,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2061,filt_resp,2051,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2126,filt_resp,2116,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2126,filt_resp,2113,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2191,filt_resp,2178,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2191,filt_resp,2181,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2074,filt_resp,2064,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2074,filt_resp,2061,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2139,filt_resp,2126,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2139,filt_resp,2129,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2204,filt_resp,2191,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2204,filt_resp,2194,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2022,filt_resp,2012,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2022,filt_resp,2011,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2087,filt_resp,2074,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2087,filt_resp,2077,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2152,filt_resp,2142,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2152,filt_resp,2139,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2217,filt_resp,2207,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2217,filt_resp,2204,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2035,filt_resp,2022,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2035,filt_resp,2025,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2100,filt_resp,2090,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2100,filt_resp,2087,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2165,filt_resp,2155,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2165,filt_resp,2152,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2230,filt_resp,2220,coef).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',668,2230,filt_resp,2217,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',669,2233,freqf,43,fs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',669,2233,freqf,1813,np).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',669,2233,freqf,2229,w).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',671,2234,filt_resp,2230,filt_resp).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',422,507,'NFFT',43,fs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',486,597,'NFFT',43,fs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',488,598,'NOVL',597,'NFFT').
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',424,508,'NOVL',507,'NFFT').
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1005,3396,segment,3393,segment_list).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1006,3397,time_seg,3305,time).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1006,3397,time_seg,3396,segment).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1007,3398,seg_strain,3384,strain).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1007,3398,seg_strain,3396,segment).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',945,3253,'NFFT',3252,fs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1009,3403,iseg,3395,iseg).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1009,3403,iseg,3396,segment).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',887,3153,'NFFT',3152,fs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1017,3414,segment,3411,segment_list).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',185,103,bits,35,chan_dict_H1).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1018,3415,time_seg,3305,time).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1018,3415,time_seg,3414,segment).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',891,3160,'NFFT',3159,fs).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',187,126,bits,35,chan_dict_H1).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1019,3416,seg_strain,3384,strain).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1019,3416,seg_strain,3414,segment).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1021,3421,iseg,3414,segment).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',1021,3421,iseg,3413,iseg).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',189,149,bits,35,chan_dict_H1).
+nw_variable_dependency(assignment,1,'/Users/wangqiwen/Documents/SPIN2016/ligo/GW150914_tutorial.py',191,172,bits,42,chan_dict_L1).
 nw_variable_dependency(assignment,196,iir_bandstops,547,988,nyq,986,fs).
 nw_variable_dependency(assignment,196,iir_bandstops,555,998,fstopData,985,fstops).
 nw_variable_dependency(assignment,196,iir_bandstops,556,999,fstop,998,fstopData).
