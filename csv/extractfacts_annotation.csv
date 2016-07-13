@@ -4,7 +4,7 @@ annotation_id,source_id,line_number,tag,keyword,value
 3,1,102,in,@in,fn_d
 4,1,102,as,@as,FN_Detector
 5,1,102,desc,@desc,LIGO GW150914 data at sampling rate 4096 Hz
-6,1,102,uri,@uri,file:{Detector}_LOSC_4_V1-1126259446-32.hdf5
+6,1,102,uri,@uri,file:{detector}_LOSC_4_V1-1126259446-32.hdf5
 7,1,103,in,@in,fn_sr
 8,1,103,as,@as,FN_Sampling_rate
 9,1,103,desc,@desc,LIGO GW150914 data from H1 detector with different sampling rate
@@ -54,7 +54,7 @@ annotation_id,source_id,line_number,tag,keyword,value
 53,1,126,desc,@desc,Load hdf5 data.
 54,1,127,in,@in,fn_d
 55,1,127,as,@as,FN_Detector
-56,1,127,uri,@uri,file:{Detector}_LOSC_4_V1-1126259446-32.hdf5
+56,1,127,uri,@uri,file:{detector}_LOSC_4_V1-1126259446-32.hdf5
 57,1,128,in,@in,fn_sr
 58,1,128,as,@as,FN_Sampling_rate
 59,1,128,uri,@uri,file:H-H1_LOSC_{downsampling}_V1-1126259446-32.hdf5

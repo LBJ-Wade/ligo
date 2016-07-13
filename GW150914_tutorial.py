@@ -99,7 +99,7 @@ import readligo as rl
 
 
 # @BEGIN GRAVITATIONAL_WAVE_DETECTION @desc Signal processing in gravitational wave detection.
-# @in fn_d  @as FN_Detector @desc LIGO GW150914 data at sampling rate 4096 Hz @uri file:{Detector}_LOSC_4_V1-1126259446-32.hdf5
+# @in fn_d  @as FN_Detector @desc LIGO GW150914 data at sampling rate 4096 Hz @uri file:{detector}_LOSC_4_V1-1126259446-32.hdf5
 # @in fn_sr @as FN_Sampling_rate @desc LIGO GW150914 data from H1 detector with different sampling rate @uri file:H-H1_LOSC_{DownSampling}_V1-1126259446-32.hdf5
 
 
@@ -124,7 +124,7 @@ import readligo as rl
 
 
 # @BEGIN LOAD_DATA @desc Load hdf5 data.
-# @in fn_d  @as FN_Detector @uri file:{Detector}_LOSC_4_V1-1126259446-32.hdf5
+# @in fn_d  @as FN_Detector @uri file:{detector}_LOSC_4_V1-1126259446-32.hdf5
 # @in fn_sr @as FN_Sampling_rate @uri file:H-H1_LOSC_{downsampling}_V1-1126259446-32.hdf5
 # @out strain_H1 @as strain_H1
 # @out strain_L1 @as strain_L1

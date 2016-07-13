@@ -1,9 +1,11 @@
 
 MQ1:  Where is the definition of block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?
-Source file: ./GW150914_tutorial_uri.py. Start Line: 842, End Line: 855 
+Source file: ./GW150914_tutorial.py. Start Line: 842, End Line: 855 
 
 MQ2:  What is the name and description of the top-level workflow?
 WorkflowName: GRAVITATIONAL_WAVE_DETECTION. Description: Signal processing in gravitational wave detection.
+
+MQ3:  What are the names of any top-level functions?
 
 MQ4:  What are the names of the programs comprising the top-level workflow?
 SubProgram Name: FILTER_DATA
@@ -22,23 +24,20 @@ SubProgram Name: SPECTROGRAMS_FOR_WHITEND_DATA
 SubProgram Name: FILTER_COEFS
 
 MQ5:  What are the names and descriptions of the inputs to the top-level workflow?
-InputPortName: fn_d. Description: FN_Detector
 InputPortName: fn_d. Description: LIGO GW150914 data at sampling rate 4096 Hz
-InputPortName: fn_sr. Description: FN_Sampling_rate
 InputPortName: fn_sr. Description: LIGO GW150914 data from H1 detector with different sampling rate
 InputPortName: fs. Description: sampling rate
 
 MQ6:  What data is output by program block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?
 Data Name: shifted_wavefile. Description: shifted wavefile
-Data Name: shifted_wavefile. Description: shifted_wavefile
 
 MQ7: What program blocks provide input directly to GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?
-GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED directly provides input to GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
+GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED
 
 MQ8: What programs have input ports that receive data 'strain_H1_whitenbp'?
-GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM_FOR_WHITENED_DATA have input ports that receive GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]
-GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_WHITENED_DATA have input ports that receive GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]
-GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED have input ports that receive GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]
+GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM_FOR_WHITENED_DATA
+GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
+GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED
 
 MQ9: How many ports read data 'strain_H1_whitenbp'?
 3 ports read data GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]
@@ -101,3 +100,9 @@ PSD_H1
 PSD_L1
 strain_H1_whiten
 strain_L1_whiten
+
+MQ19: What URI variables are associated with writes of data GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?
+detector
+
+MQ20: What URI variables do data written to raw_image and corrected_image have in common?
+detector

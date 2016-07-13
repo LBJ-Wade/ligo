@@ -12,7 +12,6 @@ YW_Q2 : What is the name and description of the workflow implemented by the scri
 
 yw_q2(WorkflowName, Description)
 ...................................................................................................
-yw_q2('GRAVITATIONAL_WAVE_DETECTION','Signal processing in gravitational wave detection.').
 
 
 ---------------------------------------------------------------------------------------------------
@@ -20,20 +19,6 @@ YW_Q3 : What workflow steps comprise the top-level workflow?
 
 yw_q3(StepName, Description)
 ...................................................................................................
-yw_q3('FILTER_DATA','filter data.').
-yw_q3('STRAIN_WAVEFORM_FOR_FILTERED_DATA','plot the filtered data.').
-yw_q3('WAVE_FILE_GENERATOR_FOR_WHITENED_DATA','Make sound files for whitened data.').
-yw_q3('SHIFT_FREQUENCY_BANDPASSED','shift frequency of bandpassed signal.').
-yw_q3('WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA','Make sound files for shifted data.').
-yw_q3('LOAD_DATA','Load hdf5 data.').
-yw_q3('DOWNSAMPLING','Downsampling from 16384 Hz to 4096 Hz.').
-yw_q3('AMPLITUDE_SPECTRAL_DENSITY','Amplitude spectral density.').
-yw_q3('WHITENING','suppress low frequencies noise.').
-yw_q3('BANDPASSING','remove high frequency noise.').
-yw_q3('STRAIN_WAVEFORM_FOR_WHITENED_DATA','plot whitened data.').
-yw_q3('SPECTROGRAMS_FOR_STRAIN_DATA','plot spectrogram for strain data.').
-yw_q3('SPECTROGRAMS_FOR_WHITEND_DATA','plot spectrogram for whitened data.').
-yw_q3('FILTER_COEFS','Filter signal in time domain (bandpassing).').
 
 
 ---------------------------------------------------------------------------------------------------
@@ -41,7 +26,6 @@ YW_Q4 : Where is the definition of workflow step AMPLITUDE_SPECTRAL_DENSITY?
 
 yw_q4(SourceFile, StartLine, EndLine)
 ...................................................................................................
-yw_q4('GW150914_tutorial.py',267,324).
 
 
 ---------------------------------------------------------------------------------------------------
@@ -49,19 +33,6 @@ YW_Q5 : What are the names and descriptions of any outputs of the workflow?
 
 yw_q4(OutputName, Description)
 ...................................................................................................
-yw_q5('GW150914_ASDs.png','strain data near GW150914').
-yw_q5('GW150914_L1_shifted.wav','L1 shifted wavefile').
-yw_q5('GW150914_H1_whitenbp.wav','H1 whitened bandpass wavefile').
-yw_q5('GW150914_L1_whitenbp.wav','L1 whitened bandpass wavefile').
-yw_q5('GGW150914_H1_spectrogram_whitened.png','H1 whitened spectrogram').
-yw_q5('GGW150914_L1_spectrogram_whitened.png','L1 whitened spectrogram').
-yw_q5('GW150914_H1_spectrogram.png','H1 spectrogram').
-yw_q5('GW150914_L1_spectrogram.png','L1 spectrogram').
-yw_q5('GW150914_filter.png','filter white noise data').
-yw_q5('GW150914_strain_whitened.png','WHITENED strain data').
-yw_q5('GW150914_H1_strain_filtered.png','FILTERED strain data').
-yw_q5('GW150914_H1_strain_unfiltered.png','UNFILTERED strain data').
-yw_q5('GW150914_H1_shifted.wav','H1 shifted wavefile').
 
 
 ---------------------------------------------------------------------------------------------------
@@ -69,88 +40,27 @@ YW_Q6 : What data flows from the AMPLITUDE_SPECTRAL_DENSITY workflow step to the
 
 yw_q6(DataName)
 ...................................................................................................
-yw_q6('PSD_L1').
-yw_q6('PSD_H1').
 
 
 ---------------------------------------------------------------------------------------------------
-YW_Q7 : Which final outputs depend on the input FN_H1 ?
+YW_Q7 : What outputs are generated from the input FN_H1 ?
 
 parent(FN_H1, NewDataName)
 ...................................................................................................
-yw_q7('FN_H1','GW150914_ASDs.png').
-yw_q7('FN_H1','GW150914_L1_shifted.wav').
-yw_q7('FN_H1','GW150914_H1_ASD_16384.png').
-yw_q7('FN_H1','GW150914_H1_whitenbp.wav').
-yw_q7('FN_H1','GW150914_H1_ASD_16384_zoom.png').
-yw_q7('FN_H1','GW150914_L1_whitenbp.wav').
-yw_q7('FN_H1','GW150914_H1_ASD_4096_zoom.png').
-yw_q7('FN_H1','GGW150914_H1_spectrogram_whitened.png').
-yw_q7('FN_H1',strain_H1).
-yw_q7('FN_H1','GGW150914_L1_spectrogram_whitened.png').
-yw_q7('FN_H1',strain_L1).
-yw_q7('FN_H1',strain_16).
-yw_q7('FN_H1','GW150914_H1_spectrogram.png').
-yw_q7('FN_H1',strain_4).
-yw_q7('FN_H1','GW150914_L1_spectrogram.png').
-yw_q7('FN_H1','GW150914_filter.png').
-yw_q7('FN_H1','GW150914_strain_whitened.png').
-yw_q7('FN_H1','GW150914_H1_strain_filtered.png').
-yw_q7('FN_H1','GW150914_H1_strain_unfiltered.png').
-yw_q7('FN_H1','GW150914_H1_shifted.wav').
 
 
 ---------------------------------------------------------------------------------------------------
-YW_Q8 : Which final outputs and intermediate outputs depend on the input FN_H1 ?
+YW_Q8 : What outputs  are generated from the inputs using recursive query ?
 
 yw_q8(AncestorData, ChildData)
 ...................................................................................................
-yw_q8('FN_H1','GW150914_ASDs.png').
-yw_q8('FN_H1','GW150914_L1_shifted.wav').
-yw_q8('FN_H1',strain_L1_filt).
-yw_q8('FN_H1','GW150914_H1_ASD_16384.png').
-yw_q8('FN_H1','GW150914_H1_whitenbp.wav').
-yw_q8('FN_H1',strain_H1_shifted).
-yw_q8('FN_H1',strain_L1_shifted).
-yw_q8('FN_H1','GW150914_H1_ASD_16384_zoom.png').
-yw_q8('FN_H1','GW150914_L1_whitenbp.wav').
-yw_q8('FN_H1','GW150914_H1_ASD_4096_zoom.png').
-yw_q8('FN_H1','GGW150914_H1_spectrogram_whitened.png').
-yw_q8('FN_H1',strain_H1).
-yw_q8('FN_H1','GGW150914_L1_spectrogram_whitened.png').
-yw_q8('FN_H1',strain_L1).
-yw_q8('FN_H1','GW150914_H1_spectrogram.png').
-yw_q8('FN_H1',strain_16).
-yw_q8('FN_H1',strain_4).
-yw_q8('FN_H1','GW150914_L1_spectrogram.png').
-yw_q8('FN_H1','PSD_H1').
-yw_q8('FN_H1','PSD_L1').
-yw_q8('FN_H1','GW150914_filter.png').
-yw_q8('FN_H1',strain_H1_whiten).
-yw_q8('FN_H1',strain_L1_whiten).
-yw_q8('FN_H1','GW150914_strain_whitened.png').
-yw_q8('FN_H1',strain_H1_whitenbp).
-yw_q8('FN_H1','GW150914_H1_strain_filtered.png').
-yw_q8('FN_H1',strain_L1_whitenbp).
-yw_q8('FN_H1','GW150914_H1_strain_unfiltered.png').
-yw_q8('FN_H1',strain_H1_filt).
-yw_q8('FN_H1','GW150914_H1_shifted.wav').
 
 
 ---------------------------------------------------------------------------------------------------
-YW_Q9 : Which inputs does the output GW150914_H1_whitenbp.wav depend on ?
+YW_Q9 : What inputs from the output GW150914_H1_whitenbp.wav ?
 
 yw_q9(DataNameIn, GW150914_H1_whitenbp.wav)
 ...................................................................................................
-
-WorkflowName = GRAVITATIONAL_WAVE_DETECTION
-AncestorData = FN_H1yw_q9(strain_H1_whitenbp,'GW150914_H1_whitenbp.wav').
-yw_q9(strain_L1_whitenbp,'GW150914_H1_whitenbp.wav').
-yw_q9('FN_H1','GW150914_H1_whitenbp.wav').
-yw_q9('FN_L1','GW150914_H1_whitenbp.wav').
-yw_q9('FN_16','GW150914_H1_whitenbp.wav').
-yw_q9('FN_4','GW150914_H1_whitenbp.wav').
-yw_q9(fs,'GW150914_H1_whitenbp.wav').
 
 
 ---------------------------------------------------------------------------------------------------
@@ -158,9 +68,6 @@ YW_1Q : What programs have input ports that receive data strain_H1_whitenbp ?
 
 yw_q10(DataNameIn, GW150914_H1_whitenbp.wav)
 ...................................................................................................
-yw_q10(strain_H1_whitenbp,'SHIFT_FREQUENCY_BANDPASSED').
-yw_q10(strain_H1_whitenbp,'WAVE_FILE_GENERATOR_FOR_WHITENED_DATA').
-yw_q10(strain_H1_whitenbp,'STRAIN_WAVEFORM_FOR_WHITENED_DATA').
 
 
 ---------------------------------------------------------------------------------------------------
@@ -168,11 +75,6 @@ YW_11 : What are the names and descriptions of the inputs to the top-level workf
 
 yw_q11(DataNameIn)
 ...................................................................................................
-yw_q11(fs).
-yw_q11('FN_H1').
-yw_q11('FN_L1').
-yw_q11('FN_16').
-yw_q11('FN_4').
 
 
 ---------------------------------------------------------------------------------------------------
@@ -187,9 +89,6 @@ YW_13 : What programs have input ports that receive data strain_H1_whitenbp ?
 
 yw_q13(SinkPortName, SinkProgramName)
 ...................................................................................................
-yw_q13(strain_H1_whitenbp,'STRAIN_WAVEFORM_FOR_WHITENED_DATA').
-yw_q13(strain_H1_whitenbp,'WAVE_FILE_GENERATOR_FOR_WHITENED_DATA').
-yw_q13(strain_H1_whitenbp,'SHIFT_FREQUENCY_BANDPASSED').
 
 
 ---------------------------------------------------------------------------------------------------
@@ -197,7 +96,7 @@ YW_14 : How many ports read data strain_H1_whitenbp?
 
 yw_q14(PortCount)
 ...................................................................................................
-yw_q14(3).
+yw_q14(0).
 
 
 ---------------------------------------------------------------------------------------------------
@@ -205,27 +104,10 @@ YW_15 : How many data are read by more than 1 port in workflow?
 
 yw_q15(PortCount)
 ...................................................................................................
-yw_q15(1).
-yw_q15(2).
-yw_q15(0).
-yw_q15(3).
-yw_q15(4).
 
 
 ---------------------------------------------------------------------------------------------------
-YW_Q16 : The Lowest Common Ancestor (LCA) of a pair of nodes GW150914_H1_whitenbp.wav and GW150914_L1_whitenbp.wav
+YW_Q16 : LCA
 
-yw_q16(GW150914_H1_whitenbp.wav,GW150914_L1_whitenbp.wav, AncestorData) 
+yw_q16(ChildData1, ChildData2, AncestorData) 
 ...................................................................................................
-yw_q16('GW150914_H1_whitenbp.wav','GW150914_L1_whitenbp.wav',strain_L1_whitenbp).
-yw_q16('GW150914_H1_whitenbp.wav','GW150914_L1_whitenbp.wav',strain_H1_whitenbp).
-yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_shifted.wav',strain_L1_whitenbp).
-yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_shifted.wav',strain_H1_whitenbp).
-yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_ASD_16384.png','FN_L1').
-yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_ASD_16384.png','FN_16').
-yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_ASD_16384.png','FN_H1').
-yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_ASD_16384.png','FN_4').
-yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_ASD_16384.png',fs).
-yw_q16('GW150914_H1_strain_filtered.png','GW150914_filter.png',strain_H1).
-yw_q16('GW150914_H1_strain_filtered.png','GW150914_filter.png',strain_L1).
-yw_q16('GW150914_H1_strain_filtered.png','GW150914_filter.png','COEFFICIENTS').

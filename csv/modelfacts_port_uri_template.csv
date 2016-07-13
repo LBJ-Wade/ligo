@@ -1,5 +1,5 @@
 port_id,uri
-1,file:{Detector}_LOSC_4_V1-1126259446-32.hdf5
+1,file:{detector}_LOSC_4_V1-1126259446-32.hdf5
 2,file:H-H1_LOSC_{DownSampling}_V1-1126259446-32.hdf5
 4,file:GW150914_{detector}_shifted.wav
 5,file:GW150914_{detector}_whitenbp.wav
@@ -11,7 +11,7 @@ port_id,uri
 11,file:GW150914_H1_strain_unfiltered.png
 12,file:GW150914_ASDs.png
 13,file:GW150914_H1_ASD_{SamplingRate}.png
-14,file:{Detector}_LOSC_4_V1-1126259446-32.hdf5
+14,file:{detector}_LOSC_4_V1-1126259446-32.hdf5
 15,file:H-H1_LOSC_{downsampling}_V1-1126259446-32.hdf5
 25,file:GW150914_ASDs.png
 36,file:GW150914_strain_whitened.png

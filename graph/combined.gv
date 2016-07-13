@@ -44,7 +44,7 @@ H1_strain_filtered [shape=record rankdir=LR label="{<f0> H1_strain_filtered |<f1
 H1_strain_unfiltered [shape=record rankdir=LR label="{<f0> H1_strain_unfiltered |<f1> file\:GW150914_H1_strain_unfiltered.png}"];
 ASDs [shape=record rankdir=LR label="{<f0> ASDs |<f1> file\:GW150914_ASDs.png}"];
 H1_ASD_SamplingRate [shape=record rankdir=LR label="{<f0> H1_ASD_SamplingRate |<f1> file\:GW150914_H1_ASD_\{SamplingRate\}.png}"];
-FN_Detector [shape=record rankdir=LR label="{<f0> FN_Detector |<f1> file\:\{Detector\}_LOSC_4_V1-1126259446-32.hdf5}"];
+FN_Detector [shape=record rankdir=LR label="{<f0> FN_Detector |<f1> file\:\{detector\}_LOSC_4_V1-1126259446-32.hdf5}"];
 FN_Sampling_rate [shape=record rankdir=LR label="{<f0> FN_Sampling_rate |<f1> file\:H-H1_LOSC_\{DownSampling\}_V1-1126259446-32.hdf5}"];
 strain_H1
 strain_L1

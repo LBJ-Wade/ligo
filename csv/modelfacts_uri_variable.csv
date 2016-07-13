@@ -1,12 +1,12 @@
 uri_variable_id,variable_name,port_id
-1,Detector,1
+1,detector,1
 2,DownSampling,2
 3,detector,4
 4,detector,5
 5,detector,6
 6,detector,7
 7,SamplingRate,13
-8,Detector,14
+8,detector,14
 9,downsampling,15
 10,detector,40
 11,detector,44

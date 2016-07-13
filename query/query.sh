@@ -106,7 +106,7 @@ printall(yw_q6(_)).
 
 %-------------------------------------------------------------------------------
 banner( 'YW_Q7',
-        'Which final outputs depend on the input FN_H1 ?',
+        'What outputs are generated from the input FN_H1 ?',
         'parent(FN_H1, NewDataName)').
 
 [user].
@@ -124,12 +124,14 @@ printall(yw_q7('FN_H1', _)).
 
 %-------------------------------------------------------------------------------
 banner( 'YW_Q8',
-        'Which final outputs and intermediate outputs depend on the input FN_H1 ?',
+        'What outputs  are generated from the inputs using recursive query ?',
         'yw_q8(AncestorData, ChildData)').
 
 [user].
-:- table yw_q8/2.
+:- yw_q8/2.
 yw_q8(AncestorData, ChildData) :-
+    yw_workflow_script(_, WorkflowName, _, _),
+    yw_data(_, AncestorData, _, WorkflowName),
     ancestor(AncestorData, ChildData).
 
 
@@ -147,16 +149,15 @@ parent(ParentData, ChildData) :-
     yw_step_output(_, ProgramName, _, _, _, _, ChildData).
 end_of_file.
 
+printall(yw_q8(_, _)).
 
-printall(yw_q8('FN_H1', _)).
 %-------------------------------------------------------------------------------
-yw_workflow_script(_, WorkflowName, _, _),
-yw_data(_, AncestorData, _, WorkflowName),
+
 
 
 %-------------------------------------------------------------------------------
 banner( 'YW_Q9',
-        'Which inputs does the output GW150914_H1_whitenbp.wav depend on ?',
+        'What inputs from the output GW150914_H1_whitenbp.wav ?',
         'yw_q9(DataNameIn, GW150914_H1_whitenbp.wav)').
 
 [user].
@@ -264,45 +265,31 @@ yw_q15(DataCount) :-
     count(data_in_workflow_read_by_multiple_ports(WorkflowStep, _) , DataCount). 
 
 data_in_workflow_read_by_multiple_ports(WorkflowStep, DataName) :-
-    yw_step_input(_, WorkflowStep, _, _, _, _, DataName),
+    yw_flow(_, WorkflowStep, _, _, _, DataName, _, _, _, _),
     data_in_port_count(PortCount, DataName),
     PortCount > 1.
 
 data_in_port_count(PortCount, DataName) :-
-    count(yw_step_input(_, _, _, _, _, _, DataName), PortCount). 
+    count(yw_flow(_, _, _, _, _, DataName, _, _, _, _), PortCount). 
 end_of_file.
 
 printall(yw_q15( _)).
 %-------------------------------------------------------------------------------
 
 
+
 %-------------------------------------------------------------------------------
 banner( 'YW_Q16',
-        'The Lowest Common Ancestor (LCA) of a pair of nodes GW150914_H1_whitenbp.wav and GW150914_L1_whitenbp.wav',
-        'yw_q16(GW150914_H1_whitenbp.wav,GW150914_L1_whitenbp.wav, AncestorData) ').
+        'LCA',
+        'yw_q16(ChildData1, ChildData2, AncestorData) ').
 
 [user].
 :- yw_q16/3.
 yw_q16(ChildData1, ChildData2, AncestorData) :-
-    lca(ChildData1, ChildData2, AncestorData).
-
-:- table lca/3.
-lca(ChildData1, ChildData2, AncestorData) :-
-    common_ancestor(ChildData1, ChildData2, AncestorData), 
-    not not_lca(ChildData1, ChildData2, AncestorData).
-
-
-:- table not_lca/3.
-not_lca(ChildData1, ChildData2, AncestorData) :-
-    common_ancestor(ChildData1, ChildData2, AncestorData),
-    common_ancestor(ChildData1, ChildData2, AncestorData1),
-    ancestor(AncestorData, AncestorData1).
-
-
-:- table common_ancestor/3.
-common_ancestor(ChildData1, ChildData2, AncestorData) :-
+    yw_workflow_script(_, WorkflowName, _, _),
+    yw_data(_, AncestorData, _, WorkflowName),
     ancestor(AncestorData, ChildData1),
-    ancestor(AncestorData, ChildData2). 
+    ancestor(AncestorData, ChildData2).
 
 
 :- table ancestor/2.
@@ -319,11 +306,10 @@ parent(ParentData, ChildData) :-
     yw_step_output(_, ProgramName, _, _, _, _, ChildData).
 end_of_file.
 
-printall(yw_q16('GW150914_H1_whitenbp.wav','GW150914_L1_whitenbp.wav', _)).
-printall(yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_shifted.wav', _)).
-printall(yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_ASD_16384.png', _)).
-printall(yw_q16('GW150914_H1_strain_filtered.png','GW150914_filter.png', _)).
+printall(yw_q16(_, _, _)).
+
 %-------------------------------------------------------------------------------
+
 
 
 END_XSB_STDIN

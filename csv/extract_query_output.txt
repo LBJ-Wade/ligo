@@ -1,5 +1,5 @@
 EQ1:  What source files SF were YW annotations extracted from?
-./GW150914_tutorial_uri.py
+./GW150914_tutorial.py
 
 EQ2:  What are the names N of all program blocks?
 GRAVITATIONAL_WAVE_DETECTION

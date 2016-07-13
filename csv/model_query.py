@@ -30,6 +30,20 @@ def MQ2():
     for r in results:
         print 'WorkflowName: {}. Description: {}'.format(r[0], r[1])
 
+def MQ3():
+    '''% MQ3:  What are the names of any top-level functions?
+    :- table mq3/1.
+    mq3(FunctionName) :-
+        function(F),
+            not subprogram(F),
+                program(F, _, FunctionName, _, _).
+    '''
+    query = """SELECT p.qualified_program_name FROM modelfacts_function f, subprogram sp, modelfacts_program p WHERE f.program_id = p.program_id AND f.program_id != sp.subprogram_id;"""
+    cursor.execute(query)
+    results = cursor.fetchall()
+    for r in results:
+        print 'Top-level Function Name: {}'.format(r[0])
+
 def MQ4():
     '''\
         % MQ4:  What are the names of the programs comprising the top-level workflow?
@@ -120,7 +134,7 @@ def MQ7(BlockName):
     cursor.execute(query, {"BlockName": BlockName})
     results = cursor.fetchall()
     for r in results:
-        print '{} directly provides input to {}'.format(r[0], BlockName)
+        print r[0]
 
 def MQ8(DataName):
     '''% MQ8: What programs have input ports that receive data data_name?
@@ -146,7 +160,7 @@ def MQ8(DataName):
     cursor.execute(query, {"DataName": DataName})
     results = cursor.fetchall()
     for r in results:
-        print '{} have input ports that receive {}'.format(r[0], DataName)
+        print r[0]
 
 def MQ9(DataName):
     '''% MQ9: How many ports read data DataName?
@@ -324,6 +338,47 @@ def MQ18(DataName):
     for r in results:
         print r[0]
 
+def MQ19(DataName):
+    '''% MQ19: What URI variables are associated with writes of data DataName?
+    :- table mq19/1.
+    mq19(VariableName) :-
+        data(D, _, DataName),
+        channel(C, D),
+        port_connects_to_channel(OUT, C),
+        has_out_port(_, OUT),
+        uri_variable(_, VariableName, OUT).
+    '''
+    query = """SELECT uri.variable_name FROM modelfacts_data d 
+            NATURAL JOIN modelfacts_channel c NATURAL JOIN modelfacts_port_connects_to_channel pcc 
+            NATURAL JOIN modelfacts_has_out_port hop NATURAL JOIN modelfacts_uri_variable uri 
+            WHERE d.qualified_data_name = :DataName;"""
+    cursor.execute(query, {"DataName": DataName})
+    results = cursor.fetchall()
+    for r in results:
+        print r[0]
+
+def MQ20(Data1, Data2):
+    '''% MQ20: What URI variables do data written to raw_image and corrected_image have in common?
+    :- table mq20/1.
+    mq20(VariableName) :-
+        data(D1, _, 'simulate_data_collection[raw_image]'),
+        data(D2, _, 'simulate_data_collection[corrected_image]'),
+        output_data_has_uri_variable(D1, V1),
+        output_data_has_uri_variable(D2, V2),
+        uri_variable(V1, VariableName, _),
+        uri_variable(V2, VariableName, _).'''
+    query = """SELECT uri1.variable_name FROM modelfacts_data d1 
+                NATURAL JOIN output_data_has_uri_variable ohu 
+                NATURAL JOIN modelfacts_uri_variable uri1 
+                JOIN modelfacts_uri_variable uri2 ON uri1.variable_name = uri2.variable_name 
+                JOIN output_data_has_uri_variable ohu2 ON uri2.uri_variable_id = ohu2.uri_variable_id 
+                JOIN modelfacts_data d2 ON ohu2.data_id = d2.data_id 
+                WHERE d1.qualified_data_name = :Data1 AND d2.qualified_data_name = :Data2;"""
+    cursor.execute(query, {"Data1": Data1, "Data2": Data2})
+    results = cursor.fetchall()
+    for r in results:
+        print r[0]
+
 def data_downstream():
     '''% Data D1 is downstream of data D2.
     :- table data_downstream/2.
@@ -477,15 +532,36 @@ def port_description():
     '''
     view = """DROP VIEW IF EXISTS port_description;
             CREATE VIEW port_description AS
-            SELECT DISTINCT p.port_id, a.value 
+            SELECT p.port_id port_id, a.value value
             FROM modelfacts_port p 
             JOIN extractfacts_annotation_qualifies aq 
             ON p.port_annotation_id = aq.primary_annotation_id 
-            JOIN extractfacts_annotation a 
-            ON aq.qualifying_annotation_id = a.annotation_id 
-            WHERE a.tag = 'desc' OR a.tag = 'as';"""
+            JOIN port_alias_description a 
+            ON aq.qualifying_annotation_id = a.annotation_id GROUP BY line_number;"""
     cursor.executescript(view)
- 
+
+def output_data_has_uri_variable():
+    '''% Data D with URI variable V passed through output port P.
+    :- table output_data_has_uri_variable/2.
+    output_data_has_uri_variable(D, V) :-
+        channel(C, D),
+        port_connects_to_channel(P, C),
+        has_out_port(_, P),
+        uri_variable(V, _, P).   '''
+    view = """DROP VIEW IF EXISTS output_data_has_uri_variable;
+            CREATE VIEW output_data_has_uri_variable AS
+            SELECT c.data_id, uri.uri_variable_id 
+            FROM modelfacts_channel c NATURAL JOIN modelfacts_port_connects_to_channel 
+            NATURAL JOIN modelfacts_has_out_port NATURAL JOIN modelfacts_uri_variable uri;
+           """
+    cursor.executescript(view)
+
+def port_alias_description():
+    view = """DROP VIEW IF EXISTS port_alias_description;
+            CREATE VIEW port_alias_description AS
+            SELECT * FROM extractfacts_annotation a1 WHERE a1.tag IN ('desc', 'as');"""
+    cursor.executescript(view)
+
 def program_description():
     '''% Program P has description D.
     :- table program_description/2.
@@ -583,15 +659,6 @@ def program_source():
             AND es.source_id = a2.source_id;"""
     cursor.executescript(view)
 
-def subprogram():
-    view = """DROP VIEW IF EXISTS subprogram;
-            CREATE VIEW subprogram AS
-            SELECT subprogram_id
-            FROM modelfacts_has_subprogram WHERE EXISTS
-               (SELECT a.program_id, b.program_id
-               FROM modelfacts_program a JOIN modelfacts_program b);"""
-    cursor.executescript(view)
-
 def program_upstream():
     '''% Program P1 is upstream of Program P2.
         :- table program_upstream/2.
@@ -602,6 +669,16 @@ def program_upstream():
             SELECT ancestor_id, descendent_id 
             FROM program_downstream;"""
     cursor.executescript(view)
+
+def subprogram():
+    view = """DROP VIEW IF EXISTS subprogram;
+            CREATE VIEW subprogram AS
+            SELECT subprogram_id
+            FROM modelfacts_has_subprogram WHERE EXISTS
+               (SELECT a.program_id, b.program_id
+               FROM modelfacts_program a JOIN modelfacts_program b);"""
+    cursor.executescript(view)
+
 
 def top_workflow():
     ''' % Workflow W is the top-level workflow.
@@ -620,6 +697,7 @@ def run_rules():
     subprogram()
     top_workflow()
     program_description()
+    port_alias_description()
     port_description()
     program_source()
     port_data()
@@ -634,9 +712,12 @@ def run_rules():
     data_immediately_upstream()
     data_downstream()
     data_upstream()
+    output_data_has_uri_variable()
 
 if __name__ == '__main__':
-    DataName = "GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]"
+    DataName1 = "GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]"
+    DataName2 = "GRAVITATIONAL_WAVE_DETECTION[shifted_wavefile]"
+    DataName3 = "GRAVITATIONAL_WAVE_DETECTION[spectrogram]"
     BlockName1 = "GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA"
     BlockName2 = "GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA"
     BlockName3 = "GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA"
@@ -647,6 +728,8 @@ if __name__ == '__main__':
     MQ1(BlockName1)
     print "\nMQ2:  What is the name and description of the top-level workflow?"
     MQ2()
+    print "\nMQ3:  What are the names of any top-level functions?"
+    MQ3()
     print "\nMQ4:  What are the names of the programs comprising the top-level workflow?"
     MQ4()
     print "\nMQ5:  What are the names and descriptions of the inputs to the top-level workflow?"
@@ -656,9 +739,9 @@ if __name__ == '__main__':
     print "\nMQ7: What program blocks provide input directly to GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?"
     MQ7(BlockName1)
     print "\nMQ8: What programs have input ports that receive data 'strain_H1_whitenbp'?"
-    MQ8(DataName)
+    MQ8(DataName1)
     print "\nMQ9: How many ports read data 'strain_H1_whitenbp'?"
-    MQ9(DataName)
+    MQ9(DataName1)
     print "\nMQ10: How many data are read by more than 1 port in workflow?"
     MQ10()
     print "\nMQ11: What program blocks are immediately downstream of FILTER_DATA?"
@@ -670,13 +753,17 @@ if __name__ == '__main__':
     print "\nMQ14: What program blocks are downstream of LOAD_DATA?"
     MQ14(BlockName3)
     print "\nMQ15: What data is immediately downstream of strain_H1_whitenbp? "
-    MQ15(DataName)
+    MQ15(DataName1)
     print "\nMQ16: What data is immediately upstream of strain_H1_whitenbp? "
-    MQ16(DataName)
+    MQ16(DataName1)
     print "\nMQ17: What data is downstream of strain_H1_whitenbp?"
-    MQ17(DataName)
+    MQ17(DataName1)
     print "\nMQ18: What data is uptream of strain_H1_whitenbp?"
-    MQ18(DataName)
+    MQ18(DataName1)
+    print "\nMQ19: What URI variables are associated with writes of data GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?"
+    MQ19(DataName2)
+    print "\nMQ20: What URI variables do data written to raw_image and corrected_image have in common?"
+    MQ20(DataName3, DataName2)
     cursor.close()
     connection.close()
 
