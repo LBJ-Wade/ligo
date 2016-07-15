@@ -734,35 +734,35 @@ if __name__ == '__main__':
     MQ4()
     print "\nMQ5:  What are the names and descriptions of the inputs to the top-level workflow?"
     MQ5()
-    print "\nMQ6:  What data is output by program block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?"
+    print "\nMQ6:  What data is output by program block", BlockName1,"?"
     MQ6(BlockName1)
-    print "\nMQ7: What program blocks provide input directly to GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?"
+    print "\nMQ7: What program blocks provide input directly to", BlockName1,"?"
     MQ7(BlockName1)
-    print "\nMQ8: What programs have input ports that receive data 'strain_H1_whitenbp'?"
+    print "\nMQ8: What programs have input ports that receive data", DataName1,"?"
     MQ8(DataName1)
-    print "\nMQ9: How many ports read data 'strain_H1_whitenbp'?"
+    print "\nMQ9: How many ports read data", DataName1,"?"
     MQ9(DataName1)
     print "\nMQ10: How many data are read by more than 1 port in workflow?"
     MQ10()
-    print "\nMQ11: What program blocks are immediately downstream of FILTER_DATA?"
+    print "\nMQ11: What program blocks are immediately downstream of", BlockName2,"?"
     MQ11(BlockName2)
-    print "\nMQ12: What program blocks are immediately upstream of FILTER_DATA?"
+    print "\nMQ12: What program blocks are immediately upstream of", BlockName2,"?"
     MQ12(BlockName2)
-    print "\nMQ13: What program blocks are upstream of WAVE_FILE_GENERATOR?"
+    print "\nMQ13: What program blocks are upstream of", BlockName1,"?"
     MQ13(BlockName1)
-    print "\nMQ14: What program blocks are downstream of LOAD_DATA?"
+    print "\nMQ14: What program blocks are downstream of", BlockName3,"?"
     MQ14(BlockName3)
-    print "\nMQ15: What data is immediately downstream of strain_H1_whitenbp? "
+    print "\nMQ15: What data is immediately downstream of", DataName1,"?"
     MQ15(DataName1)
-    print "\nMQ16: What data is immediately upstream of strain_H1_whitenbp? "
+    print "\nMQ16: What data is immediately upstream of", DataName1,"?"
     MQ16(DataName1)
-    print "\nMQ17: What data is downstream of strain_H1_whitenbp?"
+    print "\nMQ17: What data is downstream of", DataName1,"?"
     MQ17(DataName1)
-    print "\nMQ18: What data is uptream of strain_H1_whitenbp?"
+    print "\nMQ18: What data is uptream of", DataName1,"?"
     MQ18(DataName1)
-    print "\nMQ19: What URI variables are associated with writes of data GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?"
+    print "\nMQ19: What URI variables are associated with writes of data", DataName2,"?"
     MQ19(DataName2)
-    print "\nMQ20: What URI variables do data written to raw_image and corrected_image have in common?"
+    print "\nMQ20: What URI variables do data written to ", DataName3, "and", DataName2, " have in common?"
     MQ20(DataName3, DataName2)
     cursor.close()
     connection.close()

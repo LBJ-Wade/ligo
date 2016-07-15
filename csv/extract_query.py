@@ -24,7 +24,7 @@ def EQ3():
     # annotation(URI, _, _, 'uri', _, _),
     # annotation(OUT, _, _, 'out', _, PortName),
     # annotation_qualifies(URI, OUT).
-    query = """SELECT b.value
+    query = """SELECT DISTINCT b.value
                FROM extractfacts_annotation a 
                JOIN extractfacts_annotation b
                ON a.tag = 'uri' AND b.tag = 'out'

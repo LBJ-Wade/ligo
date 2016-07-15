@@ -28,38 +28,38 @@ InputPortName: fn_d. Description: LIGO GW150914 data at sampling rate 4096 Hz
 InputPortName: fn_sr. Description: LIGO GW150914 data from H1 detector with different sampling rate
 InputPortName: fs. Description: sampling rate
 
-MQ6:  What data is output by program block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?
+MQ6:  What data is output by program block GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA ?
 Data Name: shifted_wavefile. Description: shifted wavefile
 
-MQ7: What program blocks provide input directly to GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?
+MQ7: What program blocks provide input directly to GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA ?
 GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED
 
-MQ8: What programs have input ports that receive data 'strain_H1_whitenbp'?
+MQ8: What programs have input ports that receive data GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp] ?
 GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM_FOR_WHITENED_DATA
 GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
 GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED
 
-MQ9: How many ports read data 'strain_H1_whitenbp'?
+MQ9: How many ports read data GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp] ?
 3 ports read data GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]
 
 MQ10: How many data are read by more than 1 port in workflow?
 7 data are read by more than port in workflow
 
-MQ11: What program blocks are immediately downstream of FILTER_DATA?
+MQ11: What program blocks are immediately downstream of GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA ?
 STRAIN_WAVEFORM_FOR_FILTERED_DATA
 
-MQ12: What program blocks are immediately upstream of FILTER_DATA?
+MQ12: What program blocks are immediately upstream of GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA ?
 LOAD_DATA
 FILTER_COEFS
 
-MQ13: What program blocks are upstream of WAVE_FILE_GENERATOR?
+MQ13: What program blocks are upstream of GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA ?
 SHIFT_FREQUENCY_BANDPASSED
 LOAD_DATA
 AMPLITUDE_SPECTRAL_DENSITY
 WHITENING
 BANDPASSING
 
-MQ14: What program blocks are downstream of LOAD_DATA?
+MQ14: What program blocks are downstream of GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA ?
 FILTER_DATA
 STRAIN_WAVEFORM_FOR_FILTERED_DATA
 WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
@@ -73,24 +73,24 @@ STRAIN_WAVEFORM_FOR_WHITENED_DATA
 SPECTROGRAMS_FOR_STRAIN_DATA
 SPECTROGRAMS_FOR_WHITEND_DATA
 
-MQ15: What data is immediately downstream of strain_H1_whitenbp? 
+MQ15: What data is immediately downstream of GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp] ?
 WHITENED_strain_data
 whitened_bandpass_wavefile
 strain_H1_shifted
 strain_L1_shifted
 
-MQ16: What data is immediately upstream of strain_H1_whitenbp? 
+MQ16: What data is immediately upstream of GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp] ?
 strain_H1_whiten
 strain_L1_whiten
 
-MQ17: What data is downstream of strain_H1_whitenbp?
+MQ17: What data is downstream of GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp] ?
 WHITENED_strain_data
 whitened_bandpass_wavefile
 strain_H1_shifted
 strain_L1_shifted
 shifted_wavefile
 
-MQ18: What data is uptream of strain_H1_whitenbp?
+MQ18: What data is uptream of GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp] ?
 FN_Detector
 FN_Sampling_rate
 strain_H1
@@ -101,8 +101,8 @@ PSD_L1
 strain_H1_whiten
 strain_L1_whiten
 
-MQ19: What URI variables are associated with writes of data GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA?
+MQ19: What URI variables are associated with writes of data GRAVITATIONAL_WAVE_DETECTION[shifted_wavefile] ?
 detector
 
-MQ20: What URI variables do data written to raw_image and corrected_image have in common?
+MQ20: What URI variables do data written to  GRAVITATIONAL_WAVE_DETECTION[spectrogram] and GRAVITATIONAL_WAVE_DETECTION[shifted_wavefile]  have in common?
 detector
