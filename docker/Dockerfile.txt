@@ -18,16 +18,16 @@ RUN echo '***** Install packages NOT required to run yesworkflow *****' \
 RUN echo '***** Install noWorkflow *****' \
    && pip3 install noworkflow[all]
 
-RUN echo '***** Create the yw user *****' \
-    && useradd yw --gid sudo \
+RUN echo '***** Create the ligo user *****' \
+    && useradd ligo --gid sudo \
                  --shell /bin/bash \
                  --create-home \
-    && echo "yw ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/yw \
-    && chmod 0440 /etc/sudoers.d/yw
+    && echo "ligo ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/ligo \
+    && chmod 0440 /etc/sudoers.d/ligo
 
 # perform remaining commands as the user and within the user's home directory
-ENV HOME /home/yw
-USER  yw
+ENV HOME /home/ligo
+USER  ligo
 WORKDIR $HOME
 
 # specify name, version, and location of YW jar to be used
@@ -48,11 +48,11 @@ RUN echo '***** Download and build XSB 3.6 *****'  \
     && ./configure \
     && ./makexsb \
     && cd $HOME \
-    && echo 'export PATH="/home/yw/xsb-3.6/bin:$PATH"' >> .bashrc
+    && echo 'export PATH="/home/ligo/xsb-3.6/bin:$PATH"' >> .bashrc
 
 RUN echo '***** Clone ligo and build examples repo *****' \
    && git clone https://github.com/idaks/ligo.git \
-   && export PATH=/home/yw/xsb-3.6/bin:$PATH \
+   && export PATH=/home/ligo/xsb-3.6/bin:$PATH 
 
 
 # start an interactive bash login shell when the image is run
