@@ -107,7 +107,7 @@ printall(yw_q6(_)).
 %-------------------------------------------------------------------------------
 banner( 'YW_Q7',
         'Which final outputs depend on the input FN_H1 ?',
-        'parent(FN_H1, NewDataName)').
+        'yw_q7(FN_H1, NewDataName)').
 
 [user].
 :- table yw_q7/2.
