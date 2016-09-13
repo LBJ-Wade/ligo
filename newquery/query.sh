@@ -329,11 +329,11 @@ printall(yw_q16('GW150914_H1_strain_filtered.png','GW150914_filter.png', _)).
 %-------------------------------------------------------------------------------
 banner( 'Q2_Pro',
         'List the script inputs that are upstream of a given data product D.',
-        'Q2_Pro(WHITENED_strain_data, _)').
+        'Q2_Pro(WHITENED_strain_data, InputPortName_alias)').
 
 [user].
-:- Q2_Pro/2.
-Q2_Pro(DataProduct, InputPortName_alias) :-
+:- table q2_pro/2.
+q2_pro(DataProduct, InputPortName_alias) :-
     yw_data(D1, UpstreamName, _, _),
     yw_data(D2, DataProduct, _, _),
     yw_data_downstream(D1, D2),
@@ -344,7 +344,7 @@ Q2_Pro(DataProduct, InputPortName_alias) :-
 end_of_file.
 
 
-printall(Q2_Pro('spectrogram_whitened', _)).
+printall(q2_pro('spectrogram_whitened', _)).
 %-------------------------------------------------------------------------------
 
 
