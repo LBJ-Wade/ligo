@@ -329,7 +329,7 @@ printall(yw_q16('GW150914_H1_strain_filtered.png','GW150914_filter.png', _)).
 %-------------------------------------------------------------------------------
 banner( 'Q2_Pro',
         'List the script inputs that are upstream of a given data product D.',
-        'Q2_Pro(WHITENED_strain_data, InputPortName_alias)').
+        'Q2_Pro(DataProduct, InputPortName_alias)').
 
 [user].
 :- table q2_pro/2.
