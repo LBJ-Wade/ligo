@@ -20,6 +20,11 @@ YW_Q3 : What workflow steps comprise the top-level workflow?
 
 yw_q3(StepName, Description)
 ...................................................................................................
+yw_q3('BANDPASSING','remove high frequency noise.').
+yw_q3('STRAIN_WAVEFORM_FOR_WHITENED_DATA','plot whitened data.').
+yw_q3('SPECTROGRAMS_FOR_STRAIN_DATA','plot spectrogram for strain data.').
+yw_q3('SPECTROGRAMS_FOR_WHITEND_DATA','plot spectrogram for whitened data.').
+yw_q3('FILTER_COEFS','Filter signal in time domain (bandpassing).').
 yw_q3('FILTER_DATA','filter data.').
 yw_q3('STRAIN_WAVEFORM_FOR_FILTERED_DATA','plot the filtered data.').
 yw_q3('WAVE_FILE_GENERATOR_FOR_WHITENED_DATA','Make sound files for whitened data.').
@@ -29,11 +34,6 @@ yw_q3('LOAD_DATA','Load hdf5 data.').
 yw_q3('DOWNSAMPLING','Downsampling from 16384 Hz to 4096 Hz.').
 yw_q3('AMPLITUDE_SPECTRAL_DENSITY','Amplitude spectral density.').
 yw_q3('WHITENING','suppress low frequencies noise.').
-yw_q3('BANDPASSING','remove high frequency noise.').
-yw_q3('STRAIN_WAVEFORM_FOR_WHITENED_DATA','plot whitened data.').
-yw_q3('SPECTROGRAMS_FOR_STRAIN_DATA','plot spectrogram for strain data.').
-yw_q3('SPECTROGRAMS_FOR_WHITEND_DATA','plot spectrogram for whitened data.').
-yw_q3('FILTER_COEFS','Filter signal in time domain (bandpassing).').
 
 
 ---------------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@ YW_Q4 : Where is the definition of workflow step AMPLITUDE_SPECTRAL_DENSITY?
 
 yw_q4(SourceFile, StartLine, EndLine)
 ...................................................................................................
-yw_q4('GW150914_tutorial.py',267,324).
+yw_q4('GW150914_tutorial.py',261,318).
 
 
 ---------------------------------------------------------------------------------------------------
@@ -49,11 +49,6 @@ YW_Q5 : What are the names and descriptions of any outputs of the workflow?
 
 yw_q4(OutputName, Description)
 ...................................................................................................
-yw_q5('GW150914_ASDs.png','strain data near GW150914').
-yw_q5('GW150914_L1_shifted.wav','L1 shifted wavefile').
-yw_q5('GW150914_H1_whitenbp.wav','H1 whitened bandpass wavefile').
-yw_q5('GW150914_L1_whitenbp.wav','L1 whitened bandpass wavefile').
-yw_q5('GGW150914_H1_spectrogram_whitened.png','H1 whitened spectrogram').
 yw_q5('GGW150914_L1_spectrogram_whitened.png','L1 whitened spectrogram').
 yw_q5('GW150914_H1_spectrogram.png','H1 spectrogram').
 yw_q5('GW150914_L1_spectrogram.png','L1 spectrogram').
@@ -62,6 +57,11 @@ yw_q5('GW150914_strain_whitened.png','WHITENED strain data').
 yw_q5('GW150914_H1_strain_filtered.png','FILTERED strain data').
 yw_q5('GW150914_H1_strain_unfiltered.png','UNFILTERED strain data').
 yw_q5('GW150914_H1_shifted.wav','H1 shifted wavefile').
+yw_q5('GW150914_ASDs.png','strain data near GW150914').
+yw_q5('GW150914_L1_shifted.wav','L1 shifted wavefile').
+yw_q5('GW150914_H1_whitenbp.wav','H1 whitened bandpass wavefile').
+yw_q5('GW150914_L1_whitenbp.wav','L1 whitened bandpass wavefile').
+yw_q5('GGW150914_H1_spectrogram_whitened.png','H1 whitened spectrogram').
 
 
 ---------------------------------------------------------------------------------------------------
@@ -78,14 +78,6 @@ YW_Q7 : Which final outputs depend on the input FN_H1 ?
 
 yw_q7(FN_H1, NewDataName)
 ...................................................................................................
-yw_q7('FN_H1','GW150914_ASDs.png').
-yw_q7('FN_H1','GW150914_L1_shifted.wav').
-yw_q7('FN_H1','GW150914_H1_ASD_16384.png').
-yw_q7('FN_H1','GW150914_H1_whitenbp.wav').
-yw_q7('FN_H1','GW150914_H1_ASD_16384_zoom.png').
-yw_q7('FN_H1','GW150914_L1_whitenbp.wav').
-yw_q7('FN_H1','GW150914_H1_ASD_4096_zoom.png').
-yw_q7('FN_H1','GGW150914_H1_spectrogram_whitened.png').
 yw_q7('FN_H1',strain_H1).
 yw_q7('FN_H1','GGW150914_L1_spectrogram_whitened.png').
 yw_q7('FN_H1',strain_L1).
@@ -98,6 +90,14 @@ yw_q7('FN_H1','GW150914_strain_whitened.png').
 yw_q7('FN_H1','GW150914_H1_strain_filtered.png').
 yw_q7('FN_H1','GW150914_H1_strain_unfiltered.png').
 yw_q7('FN_H1','GW150914_H1_shifted.wav').
+yw_q7('FN_H1','GW150914_ASDs.png').
+yw_q7('FN_H1','GW150914_L1_shifted.wav').
+yw_q7('FN_H1','GW150914_H1_ASD_16384.png').
+yw_q7('FN_H1','GW150914_H1_whitenbp.wav').
+yw_q7('FN_H1','GW150914_H1_ASD_16384_zoom.png').
+yw_q7('FN_H1','GW150914_L1_whitenbp.wav').
+yw_q7('FN_H1','GW150914_H1_ASD_4096_zoom.png').
+yw_q7('FN_H1','GGW150914_H1_spectrogram_whitened.png').
 
 
 ---------------------------------------------------------------------------------------------------
@@ -105,22 +105,11 @@ YW_Q8 : Which final outputs and intermediate outputs depend on the input FN_H1 ?
 
 yw_q8(AncestorData, ChildData)
 ...................................................................................................
-yw_q8('FN_H1','GW150914_ASDs.png').
-yw_q8('FN_H1','GW150914_L1_shifted.wav').
-yw_q8('FN_H1',strain_L1_filt).
-yw_q8('FN_H1','GW150914_H1_ASD_16384.png').
-yw_q8('FN_H1','GW150914_H1_whitenbp.wav').
-yw_q8('FN_H1',strain_H1_shifted).
-yw_q8('FN_H1',strain_L1_shifted).
-yw_q8('FN_H1','GW150914_H1_ASD_16384_zoom.png').
-yw_q8('FN_H1','GW150914_L1_whitenbp.wav').
-yw_q8('FN_H1','GW150914_H1_ASD_4096_zoom.png').
-yw_q8('FN_H1','GGW150914_H1_spectrogram_whitened.png').
 yw_q8('FN_H1',strain_H1).
 yw_q8('FN_H1','GGW150914_L1_spectrogram_whitened.png').
 yw_q8('FN_H1',strain_L1).
-yw_q8('FN_H1','GW150914_H1_spectrogram.png').
 yw_q8('FN_H1',strain_16).
+yw_q8('FN_H1','GW150914_H1_spectrogram.png').
 yw_q8('FN_H1',strain_4).
 yw_q8('FN_H1','GW150914_L1_spectrogram.png').
 yw_q8('FN_H1','PSD_H1').
@@ -135,6 +124,17 @@ yw_q8('FN_H1',strain_L1_whitenbp).
 yw_q8('FN_H1','GW150914_H1_strain_unfiltered.png').
 yw_q8('FN_H1',strain_H1_filt).
 yw_q8('FN_H1','GW150914_H1_shifted.wav').
+yw_q8('FN_H1','GW150914_ASDs.png').
+yw_q8('FN_H1',strain_L1_filt).
+yw_q8('FN_H1','GW150914_L1_shifted.wav').
+yw_q8('FN_H1','GW150914_H1_ASD_16384.png').
+yw_q8('FN_H1',strain_H1_shifted).
+yw_q8('FN_H1','GW150914_H1_whitenbp.wav').
+yw_q8('FN_H1','GW150914_H1_ASD_16384_zoom.png').
+yw_q8('FN_H1',strain_L1_shifted).
+yw_q8('FN_H1','GW150914_L1_whitenbp.wav').
+yw_q8('FN_H1','GW150914_H1_ASD_4096_zoom.png').
+yw_q8('FN_H1','GGW150914_H1_spectrogram_whitened.png').
 
 
 ---------------------------------------------------------------------------------------------------
@@ -221,9 +221,9 @@ yw_q16('GW150914_H1_whitenbp.wav','GW150914_L1_whitenbp.wav',strain_L1_whitenbp)
 yw_q16('GW150914_H1_whitenbp.wav','GW150914_L1_whitenbp.wav',strain_H1_whitenbp).
 yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_shifted.wav',strain_L1_whitenbp).
 yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_shifted.wav',strain_H1_whitenbp).
+yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_ASD_16384.png','FN_H1').
 yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_ASD_16384.png','FN_L1').
 yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_ASD_16384.png','FN_16').
-yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_ASD_16384.png','FN_H1').
 yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_ASD_16384.png','FN_4').
 yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_ASD_16384.png',fs).
 yw_q16('GW150914_H1_strain_filtered.png','GW150914_filter.png',strain_H1).

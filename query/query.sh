@@ -5,9 +5,9 @@
 xsb --quietload --noprompt --nofeedback --nobanner << END_XSB_STDIN
 
 ['../rules/general_rules'].
+['../rules/yw_rules.P'].
 [yw_views].
-
-
+['facts/yw_model_facts.P'].
 
 set_prolog_flag(unknown, fail).
 
@@ -323,6 +323,28 @@ printall(yw_q16('GW150914_H1_whitenbp.wav','GW150914_L1_whitenbp.wav', _)).
 printall(yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_shifted.wav', _)).
 printall(yw_q16('GW150914_H1_whitenbp.wav','GW150914_H1_ASD_16384.png', _)).
 printall(yw_q16('GW150914_H1_strain_filtered.png','GW150914_filter.png', _)).
+%-------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+banner( 'Q2_Pro',
+        'List the script inputs that are upstream of a given data product D.',
+        'Q2_Pro(DataProduct, InputPortName_alias)').
+
+[user].
+:- table q2_pro/2.
+q2_pro(DataProduct, InputPortName_alias) :-
+    yw_data(D1, UpstreamName, _, _),
+    yw_data(D2, DataProduct, _, _),
+    yw_data_downstream(D1, D2),
+    workflow(W),
+    has_in_port(W, P),
+    port(P, 'in', InputPortName, _, _, D1),
+    port_alias(P, InputPortName_alias).
+end_of_file.
+
+
+printall(q2_pro('spectrogram_whitened', _)).
 %-------------------------------------------------------------------------------
 
 

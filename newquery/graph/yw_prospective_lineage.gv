@@ -1,0 +1,46 @@
+
+digraph yw_data_view {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="GRAVITATIONAL_WAVE_DETECTION"
+subgraph cluster_workflow { label=""; color=black; penwidth=2
+subgraph cluster_workflow_inner { label=""; color=white
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+LOAD_DATA
+SPECTROGRAMS_FOR_STRAIN_DATA
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+FN_Detector
+FN_Sampling_rate
+strain_H1
+strain_L1
+spectrogram
+node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
+fs
+}}
+subgraph cluster_inflows { label=""; color=white; penwidth=2
+subgraph cluster_inflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+fs_inflow [label=""]
+FN_Detector_inflow [label=""]
+FN_Sampling_rate_inflow [label=""]
+}}
+subgraph cluster_outflows { label=""; color=white; penwidth=2
+subgraph cluster_outflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+spectrogram_outflow [label=""]
+}}
+fs -> SPECTROGRAMS_FOR_STRAIN_DATA
+strain_L1 -> SPECTROGRAMS_FOR_STRAIN_DATA
+strain_H1 -> SPECTROGRAMS_FOR_STRAIN_DATA
+FN_Sampling_rate -> LOAD_DATA
+FN_Detector -> LOAD_DATA
+LOAD_DATA -> strain_H1
+LOAD_DATA -> strain_L1
+SPECTROGRAMS_FOR_STRAIN_DATA -> spectrogram
+fs_inflow -> fs
+FN_Detector_inflow -> FN_Detector
+FN_Sampling_rate_inflow -> FN_Sampling_rate
+spectrogram -> spectrogram_outflow
+}
+
