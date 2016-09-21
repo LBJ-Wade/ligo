@@ -1,4 +1,3 @@
-
 /* Start of top-level graph */
 digraph Workflow {
 rankdir=TB
